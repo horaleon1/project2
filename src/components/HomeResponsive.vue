@@ -49,10 +49,12 @@
           </router-link>
         </ul>
         <div>
-         <ul>
-           <li><button class="ayuda" @click="ayuda = !ayuda">Ayuda</button></li>
-           <li class="version">Version 1.0.0</li>
-         </ul>
+          <ul>
+            <li>
+              <button class="ayuda" @click="ayuda = !ayuda">Ayuda</button>
+            </li>
+            <li class="version">Version 1.0.0</li>
+          </ul>
         </div>
       </div>
     </div>
@@ -66,15 +68,19 @@
     </div>
     <div class="imageB">
       <div class="divText">
-       <h3 class="textLogo">LOGO <br> Tus nuevos <br>
-       angeles de <br> la guarda.</h3>
+        <h3 class="textLogo">
+          LOGO
+          <br />Tus nuevos
+          <br />angeles de
+          <br />la guarda.
+        </h3>
       </div>
-     <img src="../assets/Ambulance.jpg" alt="Red Ambulance" class="imageBI">
+      <img src="../assets/Ambulance.jpg" alt="Red Ambulance" class="imageBI" />
     </div>
     <!-- //body2 Descripcion -->
     <div class="fill"></div>
     <div class="container3">
-     <h2>Nuestro protocolo de Acción</h2>
+      <h2>Protocolo de Acción</h2>
       <ul>
         <li>1</li>
         <li>2</li>
@@ -84,28 +90,82 @@
         <li>6</li>
       </ul>
     </div>
+    <!-- // body3 Vidas Salvadas -->
+    <div class="fill2"></div>
+    <div class="container4">
+      <h3>Numero de Vidas Salvadas</h3>
+      <h1>10,341</h1>
+    </div>
 
+    <!-- //body4 Aplicaciones Soon -->
+   
+    <div class="container5">
+      <h2>Proximamente Disponible en</h2>
+      <div class="containerStores">
+        <img
+          src="https://i.ibb.co/8jbvcwR/badge-iphone.png"
+          alt="Apple Store Logo"
+          class="appleStore"
+        />
+        <img
+          src="https://i.ibb.co/BZddXq9/badge-android.png"
+          alt="Play Store Logo"
+          class="playStore"
+        />
+      </div>
+    </div>
+
+    <!-- //footer -->
+    <div class="fill4"></div>
+    <div class="containerFooter">
+      <div class="containerIndices">
+        <div class="indice1">
+          <ul>
+            <li><h4>Quienes somos</h4></li>
+            <li>Seguridad</li>
+            <li>Casos de exito</li>
+            <li>Blog</li>
+            <li>Ayuda</li>
+          </ul>
+        </div>
+        <div class="indice2">
+          <ul>
+            <li><h4>Redes Sociales</h4></li>
+            <li>Facebook</li>
+            <li>Twitter</li>
+            <li>Instagram</li>
+            <li>Medium</li>
+          </ul>
+        </div><hr>
+        <div class="indice3">
+          <ul>
+            <li>Términos y condiciones</li>
+            <li>Privacidad</li>
+            <br />
+            <li>© 2019 miAmbulancia S.A.P.I. de C.V.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 
 
 <script>
-import HomeNormal from '../components/HomeNormal.vue'
+import HomeNormal from "../components/HomeNormal.vue";
 
 export default {
   data() {
     return {
       dropdown: false,
-      ayuda: false,
+      ayuda: false
     };
   },
-  methods: {
-    
-    },
-    components:{
-      HomeNormal
-    }
+  methods: {},
+  components: {
+    HomeNormal
+  }
 };
 </script>
 
@@ -114,7 +174,7 @@ export default {
 @media (max-width: 992px) {
   .container {
     font-family: Arial, Helvetica, sans-serif;
-    
+
     left: 0;
     right: 0;
     top: 0;
@@ -211,12 +271,12 @@ export default {
   .router2 span {
     text-align: center;
   }
-  .ayuda{
+  .ayuda {
     font-size: 35px;
     color: grey;
     margin-top: 250px;
   }
-  .version{
+  .version {
     margin-left: 12px;
     margin-top: 10px;
     color: grey;
@@ -225,7 +285,6 @@ export default {
 
   /* //body */
   .container2 {
-   
   }
   h1 {
     margin-left: 15px;
@@ -247,15 +306,15 @@ export default {
     color: white;
     background-color: #1453c2;
   }
-  .imageB{
-    margin-top: 30px;
+  .imageB {
+    margin-top: 40px;
     background-color: white;
   }
-  .imageBI{
+  .imageBI {
     width: 100%;
     height: 250px;
   }
-  .divText{
+  .divText {
     position: absolute;
     height: 120px;
     width: 120px;
@@ -263,7 +322,7 @@ export default {
     margin-top: 190px;
     margin-left: 30px;
   }
-  .textLogo{
+  .textLogo {
     color: white;
     position: absolute;
     text-align: right;
@@ -272,16 +331,83 @@ export default {
     margin-left: 25px;
   }
   /* //body3  */
-  .fill{
+  .fill {
     height: 80px;
     background-color: #f3f4f6;
   }
-  .container3{
-    margin-top:-20px;
+  .container3 {
+    margin-top: -20px;
     background-color: #f3f4f6;
   }
-  .container3 h2{
+  .container3 h2 {
     margin-left: 15px;
+  }
+  .container3 ul li {
+    list-style: none;
+    margin-bottom: 20px;
+  }
+  .fill2{
+    background-color: #f3f4f6;
+    height: 50px;
+    margin-top: -20px;
+  }
+  .container4,.container5{
+    margin-top: -22px;
+    background-color: #f3f4f6;
+  }
+  .container5 h2 {
+    text-align: center;
+  }
+  .containerStores {
+    margin-left: 10%;
+    margin-right: 10%;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .appleStore {
+    width: 130px;
+    height: 50px;
+    margin-right: 5%;
+  }
+  .playStore {
+    width: 130px;
+    height: 50px;
+    margin-left: 5%;
+  }
+  .containerFooter {
+    background-color: #1453c2;
+    height: 600px;
+    width: 100%;
+  }
+  .indice1 ul,
+  .indice2 ul,
+  .indice3 ul {
+    list-style: none;
+  }
+  .indice1,
+  .indice2,
+  .indice3 {
+    display: inline;
+  }
+  .containerIndices h4{
+    font-weight: 700;
+  }
+  .containerIndices {
+    padding-top: 20px;
+    color: white;
+    line-height: 30px;
+    font-weight: 500;
+   
+  }
+  .containerIndices hr{
+    width: 90%;
+   color: lightslategray;
+  }
+  .fill4{
+    background-color: #f3f4f6;
+    height: 30px;
+    margin-top: -30px;
   }
 }
 </style>
