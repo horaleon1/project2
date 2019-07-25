@@ -47,10 +47,29 @@
           <router-link to="/signin" class="router2">
             <span>Inicia Sesión</span>
           </router-link>
-          <li></li>
         </ul>
+        <div>
+         <ul>
+           <li class="ayuda">Ayuda</li>
+           <li class="version">Version 1.0.0</li>
+         </ul>
+        </div>
       </div>
     </div>
+    <!-- //body  Intro -->
+    <div class="container2">
+      <h1>Mas cerca, en lugar correcto y en tiempo.</h1>
+      <h3>Descubre como te podemos ayduar en una emergencia.</h3>
+      <button class="buttonBody">Salva vidas con nosotros</button>
+    </div>
+    <div class="imageB">
+      <div class="divText">
+       <h3 class="textLogo">LOGO <br> Tus nuevos <br>
+       angeles de <br> la guarda.</h3>
+      </div>
+     <img src="../assets/Ambulance.jpg" alt="Red Ambulance" class="imageBI">
+    </div>
+    <!-- //body2 Descripcion -->
   </div>
 </template>
 
@@ -119,7 +138,7 @@ export default {
     text-decoration: none;
     color: white;
   }
-  li .routers{
+  li .routers {
     margin-left: 3px;
   }
   .flecha {
@@ -131,6 +150,7 @@ export default {
   .dropdown {
     background-color: #f3f4f6;
     height: 900px;
+    position: relative;
   }
   .dropdown a {
     display: block;
@@ -140,15 +160,17 @@ export default {
     font-size: 25px;
     padding-top: 30px;
   }
- 
+
   .dropdownA {
     padding-top: 20px;
   }
-  .dropdownA ul{
+  .dropdownA ul {
     list-style: none;
   }
-   span{
-   vertical-align: middle;
+  span {
+    position: absolute;
+    left: 33%;
+    top: 260px;
   }
   .rightArrow {
     fill: grey;
@@ -164,6 +186,66 @@ export default {
   }
   .router2 span {
     text-align: center;
+  }
+  .ayuda{
+    font-size: 35px;
+    color: grey;
+    margin-top: 250px;
+  }
+  .version{
+    margin-top: 10px;
+    color: grey;
+    font-size: 14px;
+  }
+
+  /* //body */
+  .container2 {
+   
+  }
+  h1 {
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+  h3 {
+    margin-left: 15px;
+    margin-right: 15px;
+    color: grey;
+  }
+  .buttonBody {
+    text-align: center;
+    border: 1px solid grey;
+    border-radius: 10px;
+    padding: 16px 85px;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: 10px;
+    font-size: 19px;
+    color: white;
+    background-color: #1453c2;
+  }
+  .imageB{
+    margin-top: 30px;
+    background-color: white;
+  }
+  .imageBI{
+    width: 100%;
+    height: 270px;
+  }
+  .divText{
+    position: absolute;
+    height: 120px;
+    width: 120px;
+    background-color: black;
+    margin-top: 210px;
+    margin-left: 30px;
+  }
+  .textLogo{
+    color: white;
+    position: absolute;
+    text-align: right;
+    font-size: 13px;
+    margin-top: 28px;
+    margin-left: 25px;
   }
 }
 </style>

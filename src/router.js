@@ -4,6 +4,7 @@ import Home from './views/Home.vue'
 import Pruebas from './views/Pruebas.vue'
 import Signin from './views/Signin.vue'
 
+
 Vue.use(Router)
 
 export default new Router({
