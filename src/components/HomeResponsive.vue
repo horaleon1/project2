@@ -2,10 +2,17 @@
   <div class="container">
     <nav class="navHolder">
       <a class="logoA">
-         <h2 class="logoText">LOGO</h2>
+        <h2 class="logoText">LOGO</h2>
         <!-- <img src="../assets/logo.png" alt class="logo" /> -->
-       
       </a>
+      <!-- // menu full width -->
+      <div class="dropdownFullWidth">
+        <ul>
+          <li>Usuarios</li>
+          <li>Ambulancias</li>
+          <li>Hospitales</li>
+        </ul>
+      </div>
 
       <div class="menuDer">
         <ul>
@@ -15,7 +22,7 @@
           <li>
             <router-link to="/pruebas" class="routers">Regístrate</router-link>
           </li>
-          <li>
+          <li class="menuFull">
             <button @click="dropdown = !dropdown">
               Menu
               <eva-icon name="arrow-ios-downward" class="flecha"></eva-icon>
@@ -24,6 +31,7 @@
         </ul>
       </div>
     </nav>
+
     <!-- //dropdown menu -->
     <div class="dropdown" v-show="dropdown">
       <div class="dropdownA">
@@ -64,10 +72,14 @@
     <home-normal v-show="ayuda"></home-normal>
     <!-- //body  Intro -->
     <div class="container2">
-      <h1>Mas cerca, en lugar correcto y a tiempo.</h1>
-      <h3>Descubre como te podemos ayduar en una emergencia.</h3>
-      <button class="buttonBody">Salva vidas con nosotros</button>
+      <div class="textContainer2">
+        <h1>Mas cerca, en lugar <br class="textBr">correcto 
+          y a tiempo.</h1>
+        <h3>Descubre como te podemos <br class="textBr">ayudar en una emergencia.</h3>
+        <button class="buttonBody">Salva vidas con nosotros</button>
+      </div>
     </div>
+
     <div class="imageB">
       <div class="divText">
         <h3 class="textLogo">
@@ -80,7 +92,7 @@
       <img src="../assets/Ambulance.jpg" alt="Red Ambulance" class="imageBI" />
     </div>
     <!-- //body2 Descripcion -->
-   
+
     <div class="container3">
       <h2>Protocolo de Acción</h2>
       <ul>
@@ -93,7 +105,7 @@
       </ul>
     </div>
     <!-- // body3 Vidas Salvadas -->
-  
+
     <div class="container4">
       <h3>Numero de Vidas Salvadas</h3>
       <h1>10,341</h1>
@@ -118,7 +130,7 @@
     </div>
 
     <!-- //footer -->
-  
+
     <div class="containerFooter">
       <div class="containerIndices">
         <div class="indice1">
@@ -178,7 +190,199 @@ export default {
 
 
 <style>
+@media (min-width: 993px) {
+  .container {
+    font-family: Arial, Helvetica, sans-serif;
+    z-index: 100;
+    overflow: visible;
+    background-color: #f3f4f6;
+  }
+  .navHolder {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 80px;
+    background-color: #040acb;
+  }
+  .divLogo {
+    display: block;
+  }
+  .logo {
+    height: 50px;
+    width: 50px;
+    background-color: transparent;
+  }
+  .logoA {
+    margin-top: 5px;
+    margin-left: 50px;
+    color: white;
+  }
+  .menuDer {
+    font-size: 20px;
+  }
+  .menuDer ul {
+    text-decoration: none;
+  }
+  .menuDer ul li {
+    display: list-item;
+    list-style: none;
+    display: inline-block;
+    margin-left: 15px;
+    margin-top: 1px;
+    color: white;
+  }
+  .menuDer ul li button {
+    font-size: 15px;
+    color: white;
+  }
+  .routers {
+    text-decoration: none;
+    color: white;
+  }
+  li .routers {
+    margin-left: 3px;
+  }
+  .dropdownFullWidth ul {
+    list-style: none;
+    font-size: 20px;
+    color: white;
+    margin-top: 30px;
+  }
+  .dropdownFullWidth ul li {
+    display: inline-block;
+    margin-left: 30px;
+  }
+  .container2 {
+    background: url("../assets/Ambulance.jpg");
+    background-size: cover;
+    width: 100%;
+    height: 500px;
+  }
+  /* .divText {
+    height: 450px;
+    width: 450px;
+    background-color: white;
+    color: black;
+    margin-top: -400px;
+    float: right;
+    margin-right: 70px;
+    opacity: 0.7;
+  } */
+  .textContainer2{
+    color:white;
+    border: 1px solid white;
+    width: 50%;
+    background-color: white;
+    opacity: 0.7;
+    position: absolute;
+    right: 6%;
+    top: 15%;
+    padding: 19% 0%;
+  }
+  .textContainer2 h1{
+    font-size: 33px;
+    color: black;
+    text-align: right;
+    position: absolute;
+    right: 10%;
+    top: 5%;
+  }
+  .textContainer2 h3{
+    font-size: 23px;
+    color: black;
+    text-align: right;
+    position: absolute;
+    right: 10%;
+    top: 35%;
+  }
+  .textContainer2 button{
+    font-size: 20px;
+    text-align: right;
+    position: absolute;
+    right: 10%;
+    top: 70%;
+    border: 1px solid;
+    padding: 12px;
+    border-radius: 10px;
+    background-color: #040acb;
+    color: white;
+  }
+  .container3{
+    margin-top: 120px;
+  }
+  .container3 h2{
+    padding-left: 30px;
+    font-size: 45px;
+  }
+  .container3 ul{
+    list-style: none;
+    display: flex;
+  }
+  .container3 ul li{
+    justify-content: space-between;
+    padding-left: 100px;
+  }
+  .container4{
+    margin-top: 120px;
+    text-align: right;
+    margin-right: 30px;
+  }
+  .container4 h3{
+    font-size: 45px;
+  }
+  .container4 h1{
+    font-size: 45px;
+    color: #040acb;
+  }
+  .container5 h2{
+    margin-top: 120px;
+   font-size: 45px;
+   margin-left: 30px;
+  }
+  .containerStores{
+    margin-top: 100px;
+    margin-left: 10%;
+    margin-right: 10%;
+    text-align: center;
+  }
+  .appleStore{
+    height: 90px;
+    width: 300px;
+    margin-right: 5%;
+  }
+  .playStore{
+    height: 90px;
+    width: 300px;
+    margin-left: 5%;
+  }
+  .containerFooter{
+    margin-top: 100px;
+    height: 400px;
+    width: 100%;
+    background-color: #040acb;
+    color: white;
+  }
+}
+
+/* //////////////// */
+@media (min-width: 992px) {
+  /* //elements dont show full width */
+  .menuFull {
+    visibility: hidden;
+  }
+  .imageBI,
+  .textLogo {
+    display: none;
+  }
+}
+/* //////////////// */
+
 @media (max-width: 992px) {
+  /* //elements hidden on this query (MOBILE)*/
+  .dropdownFullWidth,.textBr {
+    display: none;
+  }
+
   .container {
     font-family: Arial, Helvetica, sans-serif;
     left: 0;
@@ -193,7 +397,7 @@ export default {
     justify-content: space-between;
     width: 100%;
     height: 80px;
-    background-color: #1453c2;
+    background-color: #040acb;
   }
   .divLogo {
     display: block;
@@ -312,9 +516,9 @@ export default {
     margin-top: 20px;
     font-size: 15px;
     color: white;
-    background-color: #1453c2;
+    background-color: #040acb;
   }
-  .logoText{
+  .logoText {
     color: white;
     font-size: 20px;
   }
@@ -350,26 +554,26 @@ export default {
   }
   .container3 h2 {
     margin-right: 25px;
-    text-align: right
+    text-align: right;
   }
   .container3 ul li {
     list-style: none;
     margin-bottom: 20px;
   }
-/* //container 4 */
-  .container4{
+  /* //container 4 */
+  .container4 {
     padding-top: 20px;
   }
-  .container4 h3{
+  .container4 h3 {
     text-align: right;
     color: black;
   }
-  .container4 h1{
+  .container4 h1 {
     text-align: right;
-    color: #1453c2;
+    color: #040acb;
   }
   /* //container  5  */
-  .container5{
+  .container5 {
     padding-bottom: 40px;
   }
   .container5 h2 {
@@ -394,7 +598,7 @@ export default {
     margin-left: 5%;
   }
   .containerFooter {
-    background-color: #1453c2;
+    background-color: #040acb;
     height: 600px;
     width: 100%;
   }

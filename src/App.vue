@@ -13,6 +13,9 @@
 </template>
 
 <style>
+#app{
+  margin: -8px;
+}
 @media (max-width: 992px) {
   #app {
     max-width: 992px;
