@@ -2,7 +2,9 @@
   <div class="container">
     <nav class="navHolder">
       <a class="logoA">
-        <img src="../assets/logo.png" alt class="logo" />
+         <h2 class="logoText">LOGO</h2>
+        <!-- <img src="../assets/logo.png" alt class="logo" /> -->
+       
       </a>
 
       <div class="menuDer">
@@ -78,7 +80,7 @@
       <img src="../assets/Ambulance.jpg" alt="Red Ambulance" class="imageBI" />
     </div>
     <!-- //body2 Descripcion -->
-    <div class="fill"></div>
+   
     <div class="container3">
       <h2>Protocolo de Acción</h2>
       <ul>
@@ -91,14 +93,14 @@
       </ul>
     </div>
     <!-- // body3 Vidas Salvadas -->
-    <div class="fill2"></div>
+  
     <div class="container4">
       <h3>Numero de Vidas Salvadas</h3>
       <h1>10,341</h1>
     </div>
 
     <!-- //body4 Aplicaciones Soon -->
-   
+
     <div class="container5">
       <h2>Proximamente Disponible en</h2>
       <div class="containerStores">
@@ -116,12 +118,14 @@
     </div>
 
     <!-- //footer -->
-    <div class="fill4"></div>
+  
     <div class="containerFooter">
       <div class="containerIndices">
         <div class="indice1">
           <ul>
-            <li><h4>Quienes somos</h4></li>
+            <li>
+              <h4>Quienes somos</h4>
+            </li>
             <li>Seguridad</li>
             <li>Casos de exito</li>
             <li>Blog</li>
@@ -130,13 +134,16 @@
         </div>
         <div class="indice2">
           <ul>
-            <li><h4>Redes Sociales</h4></li>
+            <li>
+              <h4>Redes Sociales</h4>
+            </li>
             <li>Facebook</li>
             <li>Twitter</li>
             <li>Instagram</li>
             <li>Medium</li>
           </ul>
-        </div><hr>
+        </div>
+        <hr />
         <div class="indice3">
           <ul>
             <li>Términos y condiciones</li>
@@ -174,12 +181,12 @@ export default {
 @media (max-width: 992px) {
   .container {
     font-family: Arial, Helvetica, sans-serif;
-
     left: 0;
     right: 0;
     top: 0;
     z-index: 100;
     overflow: visible;
+    background-color: #f3f4f6;
   }
   .navHolder {
     display: flex;
@@ -285,6 +292,7 @@ export default {
 
   /* //body */
   .container2 {
+    padding-top: 20px;
   }
   h1 {
     margin-left: 15px;
@@ -301,10 +309,14 @@ export default {
     padding: 16px 85px;
     margin-left: 15px;
     margin-right: 15px;
-    margin-top: 10px;
+    margin-top: 20px;
     font-size: 15px;
     color: white;
     background-color: #1453c2;
+  }
+  .logoText{
+    color: white;
+    font-size: 20px;
   }
   .imageB {
     margin-top: 40px;
@@ -331,31 +343,37 @@ export default {
     margin-left: 25px;
   }
   /* //body3  */
-  .fill {
-    height: 80px;
-    background-color: #f3f4f6;
-  }
+
   .container3 {
-    margin-top: -20px;
+    margin-top: 90px;
     background-color: #f3f4f6;
   }
   .container3 h2 {
-    margin-left: 15px;
+    margin-right: 25px;
+    text-align: right
   }
   .container3 ul li {
     list-style: none;
     margin-bottom: 20px;
   }
-  .fill2{
-    background-color: #f3f4f6;
-    height: 50px;
-    margin-top: -20px;
+/* //container 4 */
+  .container4{
+    padding-top: 20px;
   }
-  .container4,.container5{
-    margin-top: -22px;
-    background-color: #f3f4f6;
+  .container4 h3{
+    text-align: right;
+    color: black;
+  }
+  .container4 h1{
+    text-align: right;
+    color: #1453c2;
+  }
+  /* //container  5  */
+  .container5{
+    padding-bottom: 40px;
   }
   .container5 h2 {
+    padding-top: 40px;
     text-align: center;
   }
   .containerStores {
@@ -367,12 +385,12 @@ export default {
 
   .appleStore {
     width: 130px;
-    height: 50px;
+    height: 45px;
     margin-right: 5%;
   }
   .playStore {
     width: 130px;
-    height: 50px;
+    height: 45px;
     margin-left: 5%;
   }
   .containerFooter {
@@ -390,7 +408,7 @@ export default {
   .indice3 {
     display: inline;
   }
-  .containerIndices h4{
+  .containerIndices h4 {
     font-weight: 700;
   }
   .containerIndices {
@@ -398,16 +416,10 @@ export default {
     color: white;
     line-height: 30px;
     font-weight: 500;
-   
   }
-  .containerIndices hr{
+  .containerIndices hr {
     width: 90%;
-   color: lightslategray;
-  }
-  .fill4{
-    background-color: #f3f4f6;
-    height: 30px;
-    margin-top: -30px;
+    color: lightslategray;
   }
 }
 </style>
