@@ -1,21 +1,20 @@
 <template>
   <div class = "container">
-  <Navbar/>
   
-
+  <home-responsive/>
   </div>
 </template>
 
 <script>
-import Navbar from '../components/Navbar.vue'
-import Body1 from '../components/Body1.vue'
+import HomeResponsive from '../components/HomeResponsive.vue'
+import HomeNormal from '../components/HomeNormal.vue'
 
 
 export default {
   name: 'home',
   components: {
-   Navbar,
-   Body1
+   HomeResponsive,
+   HomeNormal
   }
 }
 </script>

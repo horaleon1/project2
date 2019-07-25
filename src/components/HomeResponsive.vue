@@ -15,7 +15,7 @@
           </li>
           <li>
             <button @click="dropdown = !dropdown">
-              Menú
+              Menu
               <eva-icon name="arrow-ios-downward" class="flecha"></eva-icon>
             </button>
           </li>
@@ -50,15 +50,17 @@
         </ul>
         <div>
          <ul>
-           <li class="ayuda">Ayuda</li>
+           <li><button class="ayuda" @click="ayuda = !ayuda">Ayuda</button></li>
            <li class="version">Version 1.0.0</li>
          </ul>
         </div>
       </div>
     </div>
+    <!-- //ayuda -->
+    <home-normal v-show="ayuda"></home-normal>
     <!-- //body  Intro -->
     <div class="container2">
-      <h1>Mas cerca, en lugar correcto y en tiempo.</h1>
+      <h1>Mas cerca, en lugar correcto y a tiempo.</h1>
       <h3>Descubre como te podemos ayduar en una emergencia.</h3>
       <button class="buttonBody">Salva vidas con nosotros</button>
     </div>
@@ -70,32 +72,54 @@
      <img src="../assets/Ambulance.jpg" alt="Red Ambulance" class="imageBI">
     </div>
     <!-- //body2 Descripcion -->
+    <div class="fill"></div>
+    <div class="container3">
+     <h2>Nuestro protocolo de Acción</h2>
+      <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+      </ul>
+    </div>
+
   </div>
 </template>
 
 
 
 <script>
+import HomeNormal from '../components/HomeNormal.vue'
+
 export default {
   data() {
     return {
-      dropdown: false
+      dropdown: false,
+      ayuda: false,
     };
-  }
+  },
+  methods: {
+    
+    },
+    components:{
+      HomeNormal
+    }
 };
 </script>
-
 
 
 <style>
 @media (max-width: 992px) {
   .container {
     font-family: Arial, Helvetica, sans-serif;
-    position: fixed;
+    
     left: 0;
     right: 0;
     top: 0;
     z-index: 100;
+    overflow: visible;
   }
   .navHolder {
     display: flex;
@@ -193,6 +217,7 @@ export default {
     margin-top: 250px;
   }
   .version{
+    margin-left: 12px;
     margin-top: 10px;
     color: grey;
     font-size: 14px;
@@ -212,14 +237,13 @@ export default {
     color: grey;
   }
   .buttonBody {
-    text-align: center;
     border: 1px solid grey;
     border-radius: 10px;
     padding: 16px 85px;
     margin-left: 15px;
     margin-right: 15px;
     margin-top: 10px;
-    font-size: 19px;
+    font-size: 15px;
     color: white;
     background-color: #1453c2;
   }
@@ -229,14 +253,14 @@ export default {
   }
   .imageBI{
     width: 100%;
-    height: 270px;
+    height: 250px;
   }
   .divText{
     position: absolute;
     height: 120px;
     width: 120px;
     background-color: black;
-    margin-top: 210px;
+    margin-top: 190px;
     margin-left: 30px;
   }
   .textLogo{
@@ -246,6 +270,18 @@ export default {
     font-size: 13px;
     margin-top: 28px;
     margin-left: 25px;
+  }
+  /* //body3  */
+  .fill{
+    height: 80px;
+    background-color: #f3f4f6;
+  }
+  .container3{
+    margin-top:-20px;
+    background-color: #f3f4f6;
+  }
+  .container3 h2{
+    margin-left: 15px;
   }
 }
 </style>
