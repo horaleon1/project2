@@ -1,20 +1,19 @@
 <template>
   <div class = "container">
-  
-  <home-responsive/>
+  <HomeAll/>
   </div>
 </template>
 
 <script>
-import HomeResponsive from '../components/HomeResponsive.vue'
-import HomeNormal from '../components/HomeNormal.vue'
+import HomeAll from '../components/HomeAll.vue'
+import Ayuda from '../components/Ayuda.vue'
 
 
 export default {
   name: 'home',
   components: {
-   HomeResponsive,
-   HomeNormal
+   HomeAll,
+   Ayuda
   }
 }
 </script>

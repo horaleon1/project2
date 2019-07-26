@@ -68,14 +68,21 @@
         </div>
       </div>
     </div>
+
     <!-- //ayuda -->
-    <home-normal v-show="ayuda"></home-normal>
+    <Ayuda v-show="ayuda" v-on:changeAyuda()="updateAyuda($event)"></Ayuda>
     <!-- //body  Intro -->
     <div class="container2">
       <div class="textContainer2">
-        <h1>Mas cerca, en lugar <br class="textBr">correcto 
-          y a tiempo.</h1>
-        <h3>Descubre como te podemos <br class="textBr">ayudar en una emergencia.</h3>
+        <h1>
+          Mas cerca, en lugar
+          <br class="textBr" />correcto
+          y a tiempo.
+        </h1>
+        <h3>
+          Descubre como te podemos
+          <br class="textBr" />ayudar en una emergencia.
+        </h3>
         <button class="buttonBody">Salva vidas con nosotros</button>
       </div>
     </div>
@@ -172,7 +179,7 @@
 
 
 <script>
-import HomeNormal from "../components/HomeNormal.vue";
+import Ayuda from "../components/Ayuda.vue";
 
 export default {
   data() {
@@ -181,9 +188,13 @@ export default {
       ayuda: false
     };
   },
-  methods: {},
+  methods: {
+    updateAyuda(){
+      this.ayuda = false;
+    }
+  },
   components: {
-    HomeNormal
+    Ayuda
   }
 };
 </script>
@@ -268,8 +279,8 @@ export default {
     margin-right: 70px;
     opacity: 0.7;
   } */
-  .textContainer2{
-    color:white;
+  .textContainer2 {
+    color: white;
     border: 1px solid white;
     width: 50%;
     background-color: white;
@@ -279,7 +290,7 @@ export default {
     top: 15%;
     padding: 19% 0%;
   }
-  .textContainer2 h1{
+  .textContainer2 h1 {
     font-size: 33px;
     color: black;
     text-align: right;
@@ -287,7 +298,7 @@ export default {
     right: 10%;
     top: 5%;
   }
-  .textContainer2 h3{
+  .textContainer2 h3 {
     font-size: 23px;
     color: black;
     text-align: right;
@@ -295,7 +306,7 @@ export default {
     right: 10%;
     top: 35%;
   }
-  .textContainer2 button{
+  .textContainer2 button {
     font-size: 20px;
     text-align: right;
     position: absolute;
@@ -307,60 +318,75 @@ export default {
     background-color: #040acb;
     color: white;
   }
-  .container3{
+  .container3 {
     margin-top: 120px;
   }
-  .container3 h2{
+  .container3 h2 {
     padding-left: 30px;
     font-size: 45px;
   }
-  .container3 ul{
+  .container3 ul {
     list-style: none;
     display: flex;
   }
-  .container3 ul li{
+  .container3 ul li {
     justify-content: space-between;
     padding-left: 100px;
   }
-  .container4{
+  .container4 {
     margin-top: 120px;
     text-align: right;
     margin-right: 30px;
   }
-  .container4 h3{
+  .container4 h3 {
     font-size: 45px;
   }
-  .container4 h1{
+  .container4 h1 {
     font-size: 45px;
     color: #040acb;
   }
-  .container5 h2{
+  .container5 h2 {
     margin-top: 120px;
-   font-size: 45px;
-   margin-left: 30px;
+    font-size: 45px;
+    margin-left: 30px;
   }
-  .containerStores{
+  .containerStores {
     margin-top: 100px;
     margin-left: 10%;
     margin-right: 10%;
     text-align: center;
   }
-  .appleStore{
+  .appleStore {
     height: 90px;
     width: 300px;
     margin-right: 5%;
   }
-  .playStore{
+  .playStore {
     height: 90px;
     width: 300px;
     margin-left: 5%;
   }
-  .containerFooter{
+  .containerFooter {
     margin-top: 100px;
-    height: 400px;
+    height: 300px;
     width: 100%;
     background-color: #040acb;
     color: white;
+  }
+  .containerIndices{
+    padding-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    margin-right: 20%;
+  }
+  
+  .indice1 ul, .indice2 ul, .indice3 ul {
+    list-style: none;
+    line-height: 30px;
+    letter-spacing: 1px;
+  }
+  .indice3{
+    margin-top: 40px;
   }
 }
 
@@ -379,7 +405,8 @@ export default {
 
 @media (max-width: 992px) {
   /* //elements hidden on this query (MOBILE)*/
-  .dropdownFullWidth,.textBr {
+  .dropdownFullWidth,
+  .textBr {
     display: none;
   }
 
@@ -624,6 +651,9 @@ export default {
   .containerIndices hr {
     width: 90%;
     color: lightslategray;
+  }
+  .indice3{
+    
   }
 }
 </style>
