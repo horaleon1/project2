@@ -652,9 +652,6 @@ export default {
     width: 90%;
     color: lightslategray;
   }
-  .indice3{
-    
-  }
 }
 </style>
 

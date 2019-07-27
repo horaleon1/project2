@@ -1,5 +1,8 @@
 <template>
-  
+<div class="container">
+sign in
+
+</div> 
 </template>
 
 <script>
