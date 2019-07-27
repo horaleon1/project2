@@ -40,7 +40,14 @@
         </button>
       </div>
 
-      <div v-show="programado" class="programado"></div>
+      <div v-show="programado" class="programado">
+        <h4 class="traslado">Traslado <br>
+          programado</h4>
+        <date-picker v-model="date" lang="en" type="date" format="YYYY-MM-dd" placeholder="Date" confirm class="date"></date-picker>
+        <date-picker v-model="time" lang="en" type="time" format="HH:mm p" :minute-step="1" placeholder="Time" confirm class="time"
+        ></date-picker>
+        
+      </div>
 
       <div class="containerInput2">
         <input type="text" placeholder="    Ingresa un hospital" class="input2" />
@@ -132,13 +139,19 @@
 </template>
 
 <script>
+import DatePicker from 'vue2-datepicker'
 export default {
+  components:{
+    DatePicker
+  },
   data() {
     return {
       sugerencias: false,
       programado: false,
       sideMenu: false,
-      user: ""
+      user: "",
+      date:'',
+      time:''
     };
   },
   mounted() {
@@ -305,6 +318,21 @@ top: 78%;
 }
 .containerInput4{
   margin-top: -5%;
+}
+.programado{
+  margin-left: 10%;
+  margin-bottom: 10%;
+  width: 100%;
+}
+.date{
+  margin-bottom: 5%;
+}
+.traslado{
+  color:#040acb;
+  text-align: right;
+  margin-right: 15%;
+  position: absolute;
+  right: -10%;
 }
 </style>
 
