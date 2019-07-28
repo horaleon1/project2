@@ -31,111 +31,19 @@
       <iframe
         src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyCHB7fzFranaqMKbud-JdC_4FwwPNsrNKs&origin=romanorte&destination=hospitalangelesmexico"
         width="100%"
-        height="420px"
+        height="450px"
       ></iframe>
     </div>
 
     <div class="containerTipoUsuario">
       <div class="listaTipoUsuario">
-        <ul>
-          <li>
-            <button @click="forMe = !forMe">Para mí</button>
-          </li>
-          <li>
-            <button>Circulo Familiar</button>
-          </li>
-          <li>
-            <button>Para otra Persona</button>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <!-- ////div (Para mi) -->
+        <button @click="user1F">Para mí</button>
+        <button @click="user2F">Circulo Familiar</button>
+        <button @click="user3F">Otra Persona</button>
 
-    <div class="paraMi" v-show="forMe">
-      <div class="informacion">
-        <div class="containerInput1">
-          <eva-icon name="search" class="icons"></eva-icon>
-          <input type="text" placeholder="   ¿En dónde es tu emergencia? " class="input1" />
-          <button @click="programado = !programado">
-            <eva-icon name="calendar" class="icons"></eva-icon>
-          </button>
-        </div>
-
-        <div v-show="programado" class="programado">
-          <h4 class="traslado">
-            Traslado
-            <br />programado
-          </h4>
-          <date-picker
-            v-model="date"
-            lang="en"
-            type="date"
-            format="dd-MM-YY"
-            placeholder="Date"
-            confirm
-            class="date"
-          ></date-picker>
-          <date-picker
-            v-model="time"
-            lang="en"
-            type="time"
-            format="HH:MM p"
-            :minute-step="1"
-            placeholder="Time"
-            confirm
-            class="time"
-          ></date-picker>
-        </div>
-
-        <div class="buttonInput3" @click="arrowInput3 = !arrowInput3">
-          <button>
-            Paciente 
-            <eva-icon name="arrow-ios-downward" class="icons arrow1" height="30px" width="30px"></eva-icon>
-          </button>
-        </div>
-
-        <div class="containerInput3" v-show="arrowInput3">
-          <div class="inputContainer3">
-            <form action>
-              <div class="personTypeDiv">
-                <h4>Bebe 0 - 12 meses</h4>
-                <input type="radio" name="personType" value="baby" />
-              </div>
-              <div class="personTypeDiv">
-                <h4>Niño 1 - 8 años</h4>
-                <input type="radio" name="personType" value="child" />
-              </div>
-              <div class="personTypeDiv">
-                <h4>Adulto + 8 años</h4>
-                <input type="radio" name="personType" value="adult" />
-              </div>
-            </form>
-          </div>
-        </div>
-
-        <!-- <div class="containerInput4">
-        <input type="text" placeholder="    Síntomas" class="input3"> 
-        <eva-icon name="list" class="icons" height="30px" width="30px"></eva-icon>
-        </div>-->
-
-        <div class="buttonInput4" @click="arrowInput4 = !arrowInput4">
-          <button>
-            Estado del Paciente 
-            <eva-icon name="arrow-ios-downward" class="icons arrow2" height="30px" width="30px"></eva-icon>
-          </button>
-        </div>
-
-        <div class="estadoUsuario" v-show="arrowInput4">
-          <div class="listaEstadoUsuario">
-            <form action>
-              <input type="radio" name="personState" value="awake" /> Despierto
-              <input type="radio" name="personState" value="unconscious" /> Inconsiente
-              <input type="radio" name="personState" value="dontKnow" /> No sé
-            </form>
-          </div>
-        </div>
-        <button class="pedir">Pedir</button>
+        <User1 v-show="user1" />
+        <User2 v-show="user2" />
+        <User3 v-show="user3" />
       </div>
     </div>
   </div>
@@ -143,12 +51,22 @@
 
 <script>
 import DatePicker from "vue2-datepicker";
-import Ayuda from "../components/Ayuda.vue";
+import Ayuda from "../components/Ayuda";
+import User1 from "../components/User1";
+import User2 from "../components/User2";
+import User3 from "../components/User3";
 
 export default {
   components: {
     DatePicker,
-    Ayuda
+    Ayuda,
+    User1,
+    User2,
+    User3,
+    // User1:"Para  mí",
+    // User2:"Circulo Familiar",
+    tabs: ["User1", "User2"],
+    selected: "User1"
   },
   data() {
     return {
@@ -160,7 +78,9 @@ export default {
       time: "",
       url: "",
       ayuda: false,
-      forMe: true,
+      user1: true,
+      user2: false,
+      user3: false,
       arrowInput3: false,
       arrowInput4: false
     };
@@ -174,7 +94,24 @@ export default {
       })
       .catch(err => console.log(err));
   },
-  created() {}
+  created() {},
+  methods: {
+    user1F() {
+      this.user1 = true;
+      this.user2 = false;
+      this.user3 = false;
+    },
+    user2F() {
+      this.user1 = false;
+      this.user2 = true;
+      this.user3 = false;
+    },
+    user3F() {
+      this.user1 = false;
+      this.user2 = false;
+      this.user3 = true;
+    }
+  }
 };
 </script>
 
@@ -247,13 +184,10 @@ export default {
   letter-spacing: 1.5px;
   text-align: center;
   font-size: 20px;
-  margin-top: 5%;
+  margin-top: 10%;
 }
 .pedir:active {
   opacity: 0.7;
-}
-
-.containerInput3 form input {
 }
 
 .sideMenuContainer {
@@ -269,13 +203,14 @@ export default {
   text-align: right;
   margin-right: 25%;
   font-size: 25px;
+  height: 100%;
 }
 .sideMenu ul li {
   list-style: none;
   margin-top: 20%;
 }
 
-.sideMenu ul hr {
+.sideMenu ul {
   width: 100%;
   margin-left: 10%;
   margin-top: 20%;
@@ -288,108 +223,13 @@ export default {
   right: 3%;
   top: 78%;
 }
-.input3 {
-  width: 70%;
-  height: 40px;
-  margin: 5% 6%;
-  border-radius: 15px;
-  background-color: #e4e4e5;
-  border: #e4e4e5;
+.listaTipoUsuario{
+ 
 }
-.containerInput4 {
-  margin-top: -5%;
-}
-.programado {
-  margin-left: 5%;
-  margin-bottom: 10%;
-  width: 100%;
-  margin-top: 5%;
-}
-.date {
-  margin-bottom: 5%;
-}
-.traslado {
-  color: #040acb;
-  text-align: right;
-  margin-right: 15%;
-  position: absolute;
-  right: -10%;
+.containerTipoUsuario{
+ margin: 5% 0% 10% 0%;
+ 
 }
 
-.listaTipoUsuario ul {
-  list-style: none;
-  margin-left: -10%;
-}
-.listaTipoUsuario ul li {
-  display: inline;
-}
-.listaTipoUsuario {
-  border-bottom: 1px solid lightgrey;
-  margin: 0% 5%;
-}
-.listaEstadoUsuario ul {
-  list-style: none;
-}
-.listaEstadoUsuario ul li {
-  display: inline;
-  margin-left: 10%;
-}
-.arrowInput3 {
-  margin-right: 12%;
-  position: absolute;
-  display: inline;
-}
-.estadoUsuario h3 {
-  font-size: 14px;
-  color: grey;
-  font-weight: 200;
-  letter-spacing: 0.5px;
-  margin-left: 13%;
-  margin-top: 15%;
-}
-.inputContainer3 {
-  margin-left: 10%;
-}
-.personTypeDiv h4 {
-  font-size: 14px;
-  color: grey;
-  font-weight: 500;
-  letter-spacing: 0.5px;
-}
-.arrowInput3 {
-  border-bottom: 1px solid lightgrey;
-  margin: 0% 5%;
-  width: 90%;
-  margin-bottom: 15%;
-}
-.buttonInput3, .buttonInput4{
-  border-bottom: 1px solid lightgrey;
-  width: 90%;
-  padding-right: -5%;
-}
-.buttonInput3 button, .buttonInput4 button{
-  margin: 5% 12%;
-  font-size: 15px;
-  color: grey;
-  font-weight: 200;
-  letter-spacing: 0.5px;
-}
-.arrow1{
-  /* position: absolute;
-  right: 9%;
-  top: 68.5%; */
-}
-.arrow2{
-}
-.listaEstadoUsuario{
-  margin: 5% 0%;
-  font-size: 15px;
-  color: grey;
-  font-weight: 200;
-  letter-spacing: 0.5px;
-}
-.listaEstadoUsuario form input{
-  margin-left: 5%;
-}
 </style>
 
