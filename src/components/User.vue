@@ -4,7 +4,7 @@
       <div class="sideMenu">
         <ul>
           <li>
-            <img src=" { user.results[0].picture.medium } " height="50px" width="50px" />
+            <img v-bind:src="url" height="50px" width="50px" />
           </li>
           <li>{{ user.results[0].name.firststring }} {{ user.results[0].name.last }}</li>
           <hr />
@@ -32,8 +32,19 @@
       ></iframe>
     </div>
 
+    <div class="containerTipoUsuario">
+      <div class="listaTipoUsuario">
+        <ul>
+          <li><button>Para mí</button> </li>
+          <li><button>Circulo Familiar</button> </li>
+          <li><button>Para otra Persona</button> </li>
+        </ul>
+      </div>
+    </div>
+
     <div class="informacion">
       <div class="containerInput1">
+        <eva-icon name="search" class="icons"></eva-icon>
         <input type="text" placeholder="   ¿En dónde es tu emergencia? " class="input1" />
         <button @click="programado = !programado">
           <eva-icon name="calendar" class="icons"></eva-icon>
@@ -49,16 +60,16 @@
         
       </div>
 
-      <div class="containerInput2">
+      <!-- <div class="containerInput2">
         <input type="text" placeholder="    Ingresa un hospital" class="input2" />
         <button @click="sugerencias = !sugerencias">
           <eva-icon name="activity" height="30px" width="30px" class="icons"></eva-icon>
         </button>
-      </div>
+      </div> -->
 
       
 
-      <div v-show="sugerencias" class="sugerencias">
+      <!-- <div v-show="sugerencias" class="sugerencias">
         <div class="listaHospitales">
           <ul>
             <li>
@@ -93,7 +104,7 @@
             </li>
           </ul>
         </div>
-      </div>
+      </div> -->
 
       <div class="containerInput3">
         <ul>
@@ -101,36 +112,44 @@
           <li>
             Bebe
             <br />
-            <br />0-24
+            <br />0 - 12
             <br />meses
           </li>
           <li>
             Niño
             <br />
-            <br />2-16
+            <br />1 - 8
             <br />años
           </li>
           <li>
             Adulto
             <br />
-            <br />16-60
+            <br />8 +
             <br />años
           </li>
-          <li>
-            Adulto
-            <br />Mayor
-            <br />60+
-            <br />años
-          </li>
-          
           <!-- <eva-icon name="person-add" class="icons person" height="30px" width="30px"></eva-icon>            -->
 
         </ul>
       </div>
 
-      <div class="containerInput4">
+      <!-- <div class="containerInput4">
         <input type="text" placeholder="    Síntomas" class="input3"> 
         <eva-icon name="list" class="icons" height="30px" width="30px"></eva-icon>
+      </div> -->
+
+      <div class="estadoUsuario">
+        <h3>Estado del Paciente</h3>
+       <div class="listaEstadoUsuario">
+        <ul>
+          <form action="">
+          <input type="radio" name="gender" value="male"> Despierto </input>
+          <input type="radio" name="gender" value="male"> Inconsiente </input>
+          <input type="radio" name="gender" value="male"> Nose </input>
+          </form>
+          <li>Inconsiente</li>
+          <li>Nose</li>
+        </ul>
+       </div>
       </div>
 
       <button class="pedir">Pedir</button>
@@ -140,6 +159,7 @@
 
 <script>
 import DatePicker from 'vue2-datepicker'
+import { log } from 'util';
 export default {
   components:{
     DatePicker
@@ -151,7 +171,8 @@ export default {
       sideMenu: false,
       user: "",
       date:'',
-      time:''
+      time:'',
+      url:''
     };
   },
   mounted() {
@@ -159,11 +180,13 @@ export default {
       .then(res => res.json())
       .then(data => {
         this.user = data;
-        console.log(this.user);
+        this.url = data.results[0].picture.medium;
       })
       .catch(err => console.log(err));
   },
-  created() {}
+  created() {
+
+  }
 };
 </script>
 
@@ -184,18 +207,21 @@ export default {
   padding: 10px;
   right: 5%;
   top: 2%;
-
+  z-index: 9999;
 }
 .informacion {
   width: 100%;
+  margin-left: 5%;
 }
+.informacion .containerInput1{
+ border-bottom: 1px solid lightgrey !important;
+ width: 90%;
+}
+
 .input1 {
-  width: 70%;
+  width: 75%;
   height: 40px;
-  margin: 5% 6%;
-  border-radius: 15px;
-  background-color: #e4e4e5;
-  border: #e4e4e5;
+  margin: 2% 1%;
 }
 .icons {
   fill: #040acb;
@@ -249,29 +275,38 @@ export default {
   display: inline-block;
   margin-left: 5%;
 }
-.containerInput3 {
-  margin-left: -5%;
-  margin-right: 1%;
-  margin-top: -5%;
+.listaHospitales ul li:nth-child(2){
+  border-right: 1px solid lightgray;
+  border-left: 1px solid lightgray;
+  padding: 0px 5px;
 }
-.containerInput3 h4 {
+.containerInput3 {
+  margin-right: 5%;
+  margin-left: -5%;
+  margin-top: 1%;
+}
+.containerInput3 ul{
+  display: flex;
+}
+/* .containerInput3 h4 {
   margin-left: 0%;
   border: 1px solid #e4e4e5;
   padding: 10px;
   border-radius: 15px;
   background-color: #e4e4e5;
   width: 16%;
-}
+} */
 
 .containerInput3 ul li {
   display: list-item;
   list-style: none;
   display: inline-block;
-  margin-left: 2%;
+  margin-left: 5%;
   border: 1px solid #e4e4e5;
-  padding: 10px;
+  padding: 15px;
   border-radius: 15px;
   background-color: #e4e4e5;
+  justify-content: space-around;
 }
 .containerInput3:hover ul:hover li:hover {
   opacity: 0.5;
@@ -333,6 +368,28 @@ top: 78%;
   margin-right: 15%;
   position: absolute;
   right: -10%;
+}
+
+.listaTipoUsuario{
+
+}
+.listaTipoUsuario ul{
+  list-style: none;
+  margin-left: -10%
+}
+.listaTipoUsuario ul li{
+  display: inline;
+}
+.listaTipoUsuario{
+  border-bottom: 1px solid lightgrey;
+  margin: 0% 5%;
+}
+.listaEstadoUsuario ul{
+  list-style: none;
+}
+.listaEstadoUsuario ul li{
+  display: inline;
+  margin-left: 10%;
 }
 </style>
 

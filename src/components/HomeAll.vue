@@ -70,7 +70,7 @@
     </div>
 
     <!-- //ayuda -->
-    <Ayuda v-show="ayuda" v-on:changeAyuda()="updateAyuda($event)"></Ayuda>
+    <Ayuda  v-show="ayuda" v-on:changeAyuda1="updateAyuda"></Ayuda>
     <!-- //body  Intro -->
     <div class="container2">
       <div class="textContainer2">

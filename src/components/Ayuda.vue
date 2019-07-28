@@ -17,7 +17,7 @@ export default {
   },
   methods:{
     changeAyuda(){
-      this.$emit("changeAyuda",'ayuda = !ayuda');
+      this.$emit("changeAyuda1",'false');
     },
     mensaje(){
       console.log("aqui estoy");
