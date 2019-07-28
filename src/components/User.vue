@@ -223,12 +223,13 @@ export default {
   right: 3%;
   top: 78%;
 }
-.listaTipoUsuario{
- 
-}
 .containerTipoUsuario{
  margin: 5% 0% 10% 0%;
  
+}
+.listaTipoUsuario button:focus{
+color: #040acb;
+font-weight: 700;
 }
 
 </style>

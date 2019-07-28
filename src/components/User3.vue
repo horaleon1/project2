@@ -1,11 +1,15 @@
 <template>
 <div class="container">
-  user 3
+  
 </div>
   
 </template>
 <script>
+import DatePicker from "vue2-datepicker";
 export default {
+  components: {
+    DatePicker
+  },
   
 }
 </script>
