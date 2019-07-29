@@ -376,8 +376,11 @@ export default {
   .containerIndices{
     padding-top: 30px;
     display: flex;
-    justify-content: space-between;
-    margin-right: 20%;
+   
+    margin-left: 5%;
+  }
+  .containerIndices .indice2{
+    padding-left: 10%;
   }
   
   .indice1 ul, .indice2 ul, .indice3 ul {
@@ -387,7 +390,10 @@ export default {
   }
   .indice3{
     margin-top: 40px;
+    margin-left: -5%;
+    margin-right: 20%;
   }
+
 }
 
 /* //////////////// */

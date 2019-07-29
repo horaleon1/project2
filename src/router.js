@@ -5,6 +5,7 @@ import Pruebas from './views/Pruebas.vue'
 import Signin from './views/Signin.vue'
 import User from './components/User.vue'
 import Signup from './views/Signup.vue'
+import UserAmbulance from './views/UserAmbulance.vue'
 
 Vue.use(Router)
 
@@ -44,6 +45,11 @@ export default new Router({
       path: '/signup',
       name: 'signup',
       component: Signup
+    },
+    {
+      path: '/ambulance',
+      name: 'userAmbulance',
+      component: UserAmbulance
     },
   ]
 })
