@@ -16,8 +16,10 @@
 #app{
   margin: -8px;
 }
-@media (max-width: 992px) {
-  #app {
+
+
+@media (max-width: 992px){
+   #app {
     max-width: 992px;
     margin: -8px;
     /* user agent stylesheet */

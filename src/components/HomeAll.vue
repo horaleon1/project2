@@ -20,7 +20,7 @@
             <router-link to="/signin" class="routers">Inicia Sesión</router-link>
           </li>
           <li>
-            <router-link to="/pruebas" class="routers">Regístrate</router-link>
+            <router-link to="/signup" class="routers">Regístrate</router-link>
           </li>
           <li class="menuFull">
             <button @click="dropdown = !dropdown">
@@ -267,7 +267,7 @@ export default {
     background: url("../assets/Ambulance.jpg");
     background-size: cover;
     width: 100%;
-    height: 500px;
+    height: 800px;
   }
   /* .divText {
     height: 450px;

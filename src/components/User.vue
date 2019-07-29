@@ -10,7 +10,7 @@
           <hr />
           <li>Cuenta</li>
           <li>Historial médico</li>
-          <li>Métodos de pago</li>
+          <li>Círculo Familiar</li>
           <li>Cerrar sesión</li>
           <li>
             <button @click="ayuda = !ayuda">Ayuda</button>
@@ -31,11 +31,11 @@
       <iframe
         src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyCHB7fzFranaqMKbud-JdC_4FwwPNsrNKs&origin=romanorte&destination=hospitalangelesmexico"
         width="100%"
-        height="450px"
+        height="430px"
       ></iframe>
     </div>
 
-    <div class="containerTipoUsuario">
+    <div class="containerTipoUsuario" v-show="!sideMenu">
       <div class="listaTipoUsuario">
         <button @click="user1F">Para mí</button>
         <button @click="user2F">Circulo Familiar</button>
@@ -118,6 +118,7 @@ export default {
 <style scoped>
 .container {
   background-color: #ffffff;
+  margin-top: 0%;
 }
 .circleLogo,
 .circleMenu {
@@ -223,14 +224,12 @@ export default {
   right: 3%;
   top: 78%;
 }
-.containerTipoUsuario{
- margin: 5% 0% 10% 0%;
- 
+.containerTipoUsuario {
+  margin-top: 5%;
 }
-.listaTipoUsuario button:focus{
-color: #040acb;
-font-weight: 700;
+.listaTipoUsuario button:focus {
+  color: #040acb;
+  font-weight: 700;
 }
-
 </style>
 

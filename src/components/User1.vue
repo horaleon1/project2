@@ -138,7 +138,6 @@ export default {
   .container {
     border-top: 1px solid lightgray;
     background-color: #ffffff;
-    margin-top: 5%;
   }
   .circleLogo,
   .circleMenu {
