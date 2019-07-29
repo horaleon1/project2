@@ -7,8 +7,8 @@
         <h3>Mas cerca, en lugar correcto y a tiempo.</h3>
       </div>
       <div class="buttons">
-        <router-link to="/signup" class="router1">Registrarse</router-link>
-        <router-link to="/signin" class="router2">Iniciar sesión</router-link>
+        <router-link to="/signup" class="router1">Iniciar sesión</router-link>
+        <router-link to="/signin" class="router2">Registrarse</router-link>
         
       </div>
     </div>
@@ -16,7 +16,13 @@
 </template>
 
 <script>
-export default {};
+export default {
+  methods:{
+    regresar(){
+      this.$router.go(-1);
+    }
+  }
+};
 </script>
 
 <style scoped>
