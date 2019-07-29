@@ -11,11 +11,13 @@
           <li>Cuenta</li>
           <li>Historial médico</li>
           <li>Círculo Familiar</li>
+          <li>Métodos de pago</li>
           <li>Cerrar sesión</li>
+          
           <li>
-            <button @click="ayuda = !ayuda">Ayuda</button>
+            <!-- <button @click="ayuda = !ayuda">Ayuda</button> -->
           </li>
-          <Ayuda v-show="ayuda" />
+          <!-- <Ayuda v-show="ayuda" v-on:changeAyuda1="updateAyuda" /> -->
           <li class="version">Versión 1.0.0</li>
         </ul>
       </div>
@@ -94,7 +96,9 @@ export default {
       })
       .catch(err => console.log(err));
   },
-  created() {},
+  created() {
+
+  },
   methods: {
     user1F() {
       this.user1 = true;
@@ -110,6 +114,9 @@ export default {
       this.user1 = false;
       this.user2 = false;
       this.user3 = true;
+    },
+    changeAyuda(){
+      this.$emit("changeAyuda1",'false');
     }
   }
 };
@@ -208,9 +215,11 @@ export default {
 }
 .sideMenu ul li {
   list-style: none;
-  margin-top: 20%;
+  margin-top: 10%;
 }
-
+.ayuda {
+font-size: 30px;
+}
 .sideMenu ul {
   width: 100%;
   margin-left: 10%;
