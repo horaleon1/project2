@@ -28,11 +28,8 @@
     <div class="mapContainer">
       <button class="buttonMenu" @click="sideMenu = !sideMenu">
         <img src alt />
-        <img v-bind:src="url" height="50px" width="50px" class="imageMenu" v-show="!sideMenu" />
-        <!-- <eva-icon name="menu" class="icons" height="30px" width="30px"></eva-icon> -->
+        <img :src="url" height="50px" width="50px" class="imageMenu" v-show="!sideMenu" />
       </button>
-
-      
 
       <iframe
         src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyCHB7fzFranaqMKbud-JdC_4FwwPNsrNKs&origin=romanorte&destination=hospitalangelesmexico"
@@ -42,8 +39,13 @@
     </div>
 
     <div class="iniciarDiv" if="sideMenu">
-        <button class="iniciar" @click="online">INICIAR</button>
-      </div>
+      <button
+        class="iniciar"
+        @click="online"
+        v-bind:class="[onlineStyle ? 'iniciar' : 'iniciar2']"
+      >{{ button }}</button>
+      <!-- v-bind:class="[onlineStyle ? 'iniciar2' : 'iniciar']" -->
+    </div>
   </div>
 </template>
 
@@ -53,7 +55,11 @@ export default {
     return {
       sideMenu: false,
       user: "",
-      url: ""
+      url: "",
+      onlineStyle: true,
+      // iniciar:true,
+      // iniciar2:false
+      button: "INICIO"
     };
   },
   mounted() {
@@ -67,14 +73,22 @@ export default {
   },
   methods: {
     online() {
-      alert("Te encuentras disponible para recibir pacientes");
+      if (this.onlineStyle) {
+        alert("Te encuentras disponible para recibir pacientes");
+        this.button = this.button === "INICIO" ? "DESCONECTARSE" : "INICIO";
+        this.onlineStyle = false;
+      } else {
+        alert("Te encuentras desconectado");
+        this.button = this.button === "INICIO" ? "DESCONECTARSE" : "INICIO";
+        this.onlineStyle = true;
+      }
     }
   }
 };
 </script>
 
 <style scoped>
-.container{
+.container {
   height: 812px;
 }
 .sideMenuContainer {
@@ -93,6 +107,9 @@ export default {
   margin-left: 5%;
   position: absolute;
 }
+.sideMenu {
+  height: 712px;
+}
 .sideMenu ul li {
   text-align: right;
   margin-right: -12%;
@@ -101,19 +118,31 @@ hr {
   border-top: 1.5px solid #040acb;
 }
 .iniciar {
-  border: 1px solid #E32B19;
+  border: 1px solid #e32b19;
   border-radius: 15px;
   padding: 12px 26px;
-  background-color: #E32B19;
-  color:white;
+  background-color: #e32b19;
+  color: white;
   width: 90%;
-  margin: 0%  5%;
+  margin: 0% 5%;
   text-align: center;
   margin-top: 2%;
+  content: "INICIAR";
 }
-.iniciarDiv{
+.iniciar2 {
+  border: 1px solid green;
+  border-radius: 15px;
+  padding: 12px 26px;
+  background-color: green;
+  color: white;
+  width: 90%;
+  margin: 0% 5%;
+  text-align: center;
+  margin-top: 2%;
+  content: "DESCONECTARSE";
+}
+.iniciarDiv {
   margin: 0 auto;
   width: 100%;
- 
 }
 </style>
