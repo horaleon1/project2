@@ -37,7 +37,7 @@
       <iframe
         src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyCHB7fzFranaqMKbud-JdC_4FwwPNsrNKs&origin=romanorte&destination=hospitalangelesmexico"
         width="100%"
-        height="600px"
+        height="500px"
       ></iframe>
     </div>
 

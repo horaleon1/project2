@@ -11,23 +11,39 @@
       </div>
       <div class="formulario">
         <form>
-          <input type="text" name="firstname" placeholder="Nombre"/><br>
-          <input type="text" name="lastname" placeholder="Apellido"/><br>
-          <input type="text" name="email" placeholder="Correo Electronico"/><br>
-          <input type="password" name="password" placeholder="Contraseña"/><br>
-          <input type="text" name="cellphone" placeholder="Número de teléfono"/><br>
+          <input type="text" name="firstname" placeholder="Nombre" />
+          <input type="text" name="lastname" placeholder="Apellido" />
+          <input type="text" name="email" placeholder="Correo Electronico" />
+          <br />
+          <input type="password" name="password" placeholder="Contraseña" />
+          <br />
+          <input type="text" name="cellphone" placeholder="Número de teléfono" />
+          <br />
         </form>
       </div>
+
       <div class="buttons">
         <router-link to="/signup" class="router2">Registrarse</router-link>
         <router-link to="/signin" class="router1">Iniciar sesión</router-link>
       </div>
+      <div class="bottonesSociales">
+        <ul>
+          <li><v-facebook-login app-id="966242223397117" class="facebook"></v-facebook-login></li>
+          <li class="google"><button><img src="../assets/google.png" alt=""><span class="buttonText">Sign in with Google</span></button></li>
+        </ul>
+      </div>
+      
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+import VFacebookLogin from "vue-facebook-login-component";
+export default {
+  components: {
+    VFacebookLogin
+  }
+};
 </script>
 
 <style scoped>
@@ -53,13 +69,19 @@ export default {};
     margin-left: 8%;
     margin-right: 5%;
   }
-  .formulario{
+  .formulario {
     margin-top: 5%;
     margin-left: 7%;
     margin-right: 5%;
   }
-   input{
-    width: 85%;
+  input:nth-child(1) {
+    width: 40.5%;
+  }
+  input:nth-child(2) {
+    width: 40.5%;
+  }
+  input {
+    width: 86%;
     margin-bottom: 3%;
     margin-left: 1%;
     border-radius: 10px;
@@ -72,7 +94,7 @@ export default {};
   .router1 {
     display: block;
     width: 80%;
-    margin-top: 5%;
+    margin-top: 3%;
     margin-left: 5%;
     margin-right: 5%;
     border: 1px solid #040acb;
@@ -86,7 +108,7 @@ export default {};
   .router2 {
     display: block;
     width: 80%;
-    margin-top: 5%;
+    margin-top: 3%;
     margin-left: 5%;
     margin-right: 5%;
     border: 1px solid lightgray;
@@ -97,10 +119,39 @@ export default {};
     text-align: center;
     text-decoration: none;
   }
-  .arrow{
+  .arrow {
     fill: #040acb;
     margin-left: -35%;
     margin-top: 5%;
+  }
+  .facebook {
+    width: 86%;
+    margin-top: 3%;
+    margin-left: 1%;
+    margin-right: 5%;
+    border-radius: 14px;
+  }
+  
+  .google button{
+    width: 86%;
+    margin-top: 3%;
+    margin-left: 1%;
+    border-radius: 14px;
+    height:40px;
+    color: grey;
+    border: 1px solid lightgray;
+    text-align: center;
+  }
+  .google button img{
+    height: 25px;
+    width:25px;
+    margin-left:-3%;
+  }
+   ul{
+   list-style: none;
+  }
+  .buttonText{
+    margin-left:1.5%;
   }
 }
 
@@ -117,18 +168,24 @@ export default {};
     margin-left: 8%;
     margin-right: 5%;
   }
-  .formulario{
+  .formulario {
     margin-top: 8%;
     margin-left: 8%;
     margin-right: 5%;
   }
-  input{
+  input {
     width: 85%;
     margin-bottom: 3%;
     margin-left: 1%;
     border-radius: 10px;
     padding: 14px;
     border: 1px solid #f3f4f6;
+  }
+  input:nth-child(1) {
+    width: 85%;
+  }
+  input:nth-child(2) {
+    width: 85%;
   }
   .buttons {
     margin-top: 5%;
@@ -161,10 +218,42 @@ export default {};
     text-align: center;
     text-decoration: none;
   }
-  .arrow{
+  .arrow {
     fill: #040acb;
     margin-top: 5%;
     margin-left: 5%;
+  }
+  .facebook {
+    margin-top: 5%;
+    margin-left: -6%;
+    margin-right: 5%;
+    border-radius: 14px;
+    width: 101%;
+  }
+  .google button{
+    width: 101%;
+    margin-top: 5%;
+    margin-left: -6%;
+    margin-right: 5%;
+    border-radius: 14px;
+    height:40px;
+    color: grey;
+    border: 1px solid lightgray;
+    text-align: center;
+    background-color: white;
+    
+  }
+  .google button img{
+    height: 25px;
+    width:25px;
+    margin-right: 5%;
+    position: relative;
+  }
+   ul{
+   list-style: none;
+  }
+  .buttonText{
+    display: none;
   }
 }
 </style>
