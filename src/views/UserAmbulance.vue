@@ -15,7 +15,7 @@
           <li>Historial de Servicios</li>
           <li>Tripulación</li>
           <li>Vehículos</li>
-          <li>Cerrar sesión</li>
+          <li><router-link to="/"  class="router" >Cerrar sesión</router-link> </li>
           <li>
             <!-- <button @click="ayuda = !ayuda">Ayuda</button> -->
           </li>
@@ -34,7 +34,7 @@
       <iframe
         src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyCHB7fzFranaqMKbud-JdC_4FwwPNsrNKs&origin=romanorte&destination=hospitalangelesmexico"
         width="100%"
-        height="500px"
+        height="470px"
       ></iframe>
     </div>
 
@@ -42,15 +42,23 @@
       <button
         class="iniciar"
         @click="online"
-        v-bind:class="[onlineStyle ? 'iniciar' : 'iniciar2']"
+        :class="[onlineStyle ? 'iniciar2' : 'iniciar1']"
       >{{ button }}</button>
-      <!-- v-bind:class="[onlineStyle ? 'iniciar2' : 'iniciar']" -->
     </div>
+
+    <InfoAmbulance/>
+
+    <div class="tips"></div>
   </div>
 </template>
 
 <script>
+import InfoAmbulance from '../views/InfoAmbulance'
+
 export default {
+  components:{
+    InfoAmbulance
+  },
   data() {
     return {
       sideMenu: false,
@@ -90,9 +98,14 @@ export default {
 <style scoped>
 .container {
   height: 812px;
+  background-color:white;
 }
 .sideMenuContainer {
   position: absolute;
+}
+.router{
+  text-decoration: none;
+  color: black;
 }
 .imageMenu {
   border-radius: 50%;
@@ -127,7 +140,6 @@ hr {
   margin: 0% 5%;
   text-align: center;
   margin-top: 2%;
-  content: "INICIAR";
 }
 .iniciar2 {
   border: 1px solid green;
@@ -139,10 +151,10 @@ hr {
   margin: 0% 5%;
   text-align: center;
   margin-top: 2%;
-  content: "DESCONECTARSE";
 }
 .iniciarDiv {
   margin: 0 auto;
   width: 100%;
 }
+
 </style>
