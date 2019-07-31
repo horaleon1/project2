@@ -6,14 +6,14 @@
           <li>
             <img v-bind:src="url" height="50px" width="50px" />
           </li>
-          <li>{{ user.results[0].name.first }} {{ user.results[0].name.last }}</li>
+          <li>{{ user.results[0].name.first | capitalize }} {{ user.results[0].name.last | capitalize }}</li>
           <hr />
           <li>Cuenta</li>
           <li>Historial médico</li>
           <li>Círculo Familiar</li>
           <li>Métodos de pago</li>
-          <li>Cerrar sesión</li>
-          
+          <li><router-link to="/" class="router">Cerrar sesión</router-link></li>
+
           <li>
             <!-- <button @click="ayuda = !ayuda">Ayuda</button> -->
           </li>
@@ -30,11 +30,40 @@
         <eva-icon name="menu" class="icons" height="30px" width="30px"></eva-icon>
       </button>
 
-      <iframe
+      <!-- <iframe
         src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyCHB7fzFranaqMKbud-JdC_4FwwPNsrNKs&origin=romanorte&destination=hospitalangelesmexico"
         width="100%"
         height="430px"
-      ></iframe>
+      ></iframe>-->
+
+
+
+      <GmapMap
+        :center="{lat:19.4326, lng:-99.1332}"
+        :zoom="13.5"
+        map-type-id="terrain"
+        style="width: 100%; height: 450px"
+        :options="{
+   zoomControl: true,
+   mapTypeControl: false,
+   scaleControl: false,
+   scaleControlOption:false,
+   streetViewControl: false,
+   rotateControl: false,
+   fullscreenControl: true,
+   disableDefaultUi: false,
+   
+ }"
+      >
+        <GmapMarker
+          :key="index"
+          v-for="(m, index) in markers"
+          :position="m.position"
+          :clickable="true"
+          :draggable="true"
+          @click="center=m.position"
+        />
+      </GmapMap>
     </div>
 
     <div class="containerTipoUsuario" v-show="!sideMenu">
@@ -64,11 +93,9 @@ export default {
     Ayuda,
     User1,
     User2,
-    User3,
+    User3
     // User1:"Para  mí",
     // User2:"Circulo Familiar",
-    tabs: ["User1", "User2"],
-    selected: "User1"
   },
   data() {
     return {
@@ -84,7 +111,8 @@ export default {
       user2: false,
       user3: false,
       arrowInput3: false,
-      arrowInput4: false
+      arrowInput4: false,
+      markers: ""
     };
   },
   mounted() {
@@ -96,9 +124,7 @@ export default {
       })
       .catch(err => console.log(err));
   },
-  created() {
-
-  },
+  created() {},
   methods: {
     user1F() {
       this.user1 = true;
@@ -115,8 +141,15 @@ export default {
       this.user2 = false;
       this.user3 = true;
     },
-    changeAyuda(){
-      this.$emit("changeAyuda1",'false');
+    changeAyuda() {
+      this.$emit("changeAyuda1", "false");
+    }
+  },
+  filters: {
+    capitalize: function(value) {
+      if (!value) return "";
+      value = value.toString();
+      return value.charAt(0).toUpperCase() + value.slice(1);
     }
   }
 };
@@ -125,7 +158,6 @@ export default {
 <style scoped>
 .container {
   background-color: #ffffff;
-  margin-top: 0%;
 }
 .circleLogo,
 .circleMenu {
@@ -204,6 +236,7 @@ export default {
   height: 100%;
   width: 100%;
   right: 0%;
+  z-index: 9999;
 }
 .sideMenu {
   margin-left: 10%;
@@ -218,7 +251,7 @@ export default {
   margin-top: 10%;
 }
 .ayuda {
-font-size: 30px;
+  font-size: 30px;
 }
 .sideMenu ul {
   width: 100%;
@@ -234,11 +267,18 @@ font-size: 30px;
   top: 78%;
 }
 .containerTipoUsuario {
-  margin-top: 5%;
+ margin-top: 5%;
 }
 .listaTipoUsuario button:focus {
   color: #040acb;
   font-weight: 700;
+}
+.listaTipoUsuario button{
+  padding-bottom: 5%;
+}
+.router{
+text-decoration: none;
+color: black;
 }
 </style>
 

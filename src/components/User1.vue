@@ -4,7 +4,15 @@
       <div class="informacion">
         <div class="containerInput1">
           <eva-icon name="search" class="icons"></eva-icon>
-          <input type="text" placeholder="   ¿En dónde es tu emergencia? " class="input1" />
+          <!-- <input
+            type="text"
+            placeholder="   ¿En dónde es tu emergencia? "
+            class="input1"
+            ref="autocomplete"
+          /> -->
+        <gmap-autocomplete @place_changed="setPlace" class="input1" placeholder="   ¿En dónde es tu emergencia? " ></gmap-autocomplete>
+        
+      
           <button @click="programado = !programado">
             <eva-icon name="calendar" class="icons"></eva-icon>
           </button>
@@ -127,7 +135,9 @@ export default {
       circle: false,
       other: false,
       arrowInput3: false,
-      arrowInput4: false
+      arrowInput4: false,
+      key:"AIzaSyCHB7fzFranaqMKbud-JdC_4FwwPNsrNKs",
+      setPlace:''
     };
   }
 };
@@ -261,6 +271,7 @@ export default {
     margin-right: 15%;
     position: absolute;
     right: -10%;
+    font-size: 14px;
   }
 
   .listaTipoUsuario ul {

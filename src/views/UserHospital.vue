@@ -47,8 +47,8 @@
                 <li>
                   <img :src="url" alt />
                 </li>
-                <li>{{ user.results[0].name.first }} {{ user.results[0].name.last }}</li>
-                <li>Padecimiento: {{ padecimiento }} </li>
+                <li>{{ user.results[0].name.first | capitalize }} {{ user.results[0].name.last | capitalize }}</li>
+                <li>Padecimiento: {{ padecimiento }}</li>
                 <li>
                   <button>Información básica</button>
                 </li>
@@ -62,7 +62,11 @@
         <li>
           <div class="timer">
             <div class="timer2">
-              <eva-icon name="clock" class="icons" height="50px" width="50px"></eva-icon><h3>A <span>{{ time }}</span> minutos del hospital.</h3>
+              <eva-icon name="clock" class="icons" height="50px" width="50px"></eva-icon>
+              <h3>
+                A
+                <span>{{ time }}</span> minutos del hospital.
+              </h3>
               <div class="progress">
                 <div class="progressMoving"></div>
               </div>
@@ -79,20 +83,24 @@
               <ul>
                 <li>
                   <img :src="url" alt />
-                  {{ user.results[0].name.first }} {{ user.results[0].name.last }} <span>10 min</span>
+                  {{ user.results[0].name.first | capitalize }} {{ user.results[0].name.last | capitalize }}
+                  <span>10 min</span>
                 </li>
                 <li>
                   <img :src="url" alt />
-                  {{ user.results[0].name.first }} {{ user.results[0].name.last }} <span>7 min</span>
+                  {{ user.results[0].name.first | capitalize }} {{ user.results[0].name.last | capitalize }}
+                  <span>7 min</span>
                 </li>
                 <li>
                   <img :src="url" alt />
-                  {{ user.results[0].name.first }} {{ user.results[0].name.last }} <span>2 min</span>
+                  {{ user.results[0].name.first | capitalize }} {{ user.results[0].name.last | capitalize }}
+                  <span>2 min</span>
                 </li>
               </ul>
             </div>
           </div>
         </li>
+        
       </ul>
     </div>
   </div>
@@ -105,18 +113,39 @@ export default {
       menu: false,
       url: "",
       user: "",
-      time:5,
-      padecimiento: 'infarto'
+      time: 5,
+      padecimiento: "infarto",
+      formulario: {
+        Direccion: {
+          Calle: "Tonala",
+          Numero: "10",
+          Colonia: "Roma Norte",
+          CodigoPostal: "00000"
+        },
+        Contacto: {
+          Nombre: "Jose Luis",
+          Apellido: "Lopez",
+          Celular: "5554122343"
+        }
+      },
+      formularioactive: false
     };
   },
   mounted() {
     fetch("https://randomuser.me/api/")
       .then(res => res.json())
-      .then(data => {
-        this.user = data;
-        this.url = data.results[0].picture.medium;
+      .then(data1 => {
+        this.user = data1;
+        this.url = data1.results[0].picture.medium;
       })
       .catch(err => console.log(err));
+  },
+  filters: {
+    capitalize: function(value) {
+      if (!value) return "";
+      value = value.toString();
+      return value.charAt(0).toUpperCase() + value.slice(1);
+    }
   }
 };
 </script>
@@ -132,18 +161,24 @@ export default {
   font-size: 20px;
 }
 .dropdown {
-  height: 1000px;
+  height: 850px;
   width: 18%;
   background-color: #f8f8f8;
-  float: right;
+  right: 0%;
+  position: absolute
 }
-.sideMenu {
-  margin-top: 15%;
-}
+
 .sideMenu {
   float: right;
   text-align: right;
   margin-right: 15%;
+  margin-top: 15%;
+}
+.dropdown {
+  border-left: 1px solid lightgrey;
+  border-bottom: 1px solid lightgrey;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 ul {
   list-style: none;
@@ -158,21 +193,17 @@ ul {
 }
 
 .paciente {
-  display: flex;
-  align-content: space-between;
   height: 830px;
-  width: 30%;
+  width: 24%;
   border: 1px solid lightgrey;
   border-radius: 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   position: absolute;
 }
 .timer {
-  display: flex;
-  align-content: space-between;
   height: 830px;
-  width: 26%;
-  margin-left: 32%;
+  width: 24%;
+  margin-left: 26.5%;
   border: 1px solid lightgrey;
   border-radius: 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -181,35 +212,36 @@ ul {
   text-align: center;
 }
 .listaPacientes {
-  display: flex;
-  align-content: space-between;
   height: 830px;
-  width: 18%;
-  margin-left: 60%;
+  width: 24%;
+  margin-left: 53%;
   border: 1px solid lightgrey;
   border-radius: 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   position: absolute;
 }
 .paciente2 {
-  margin-top: 5%;
+  margin-top: 10%;
   margin-left: 2%;
 }
 .paciente img {
   border-radius: 50%;
 }
 .paciente li {
-  margin-bottom: 20%;
+  margin-bottom: 10%;
   font-size: 20px;
 }
 .paciente2 button {
-  border-right: 1.5px solid lightgrey;
-  border-bottom: 1px solid lightgrey;
+  border-right: 2px solid lightgrey;
+  border-bottom: 2px solid lightgrey;
   border-radius: 5px;
   font-size: 16px;
 }
 .listaPacientes2 {
-  margin-left: 0%;
+  margin-top: 10%;
+}
+.listaPacientes2 ul{
+  margin-top: 10%;
 }
 .listaPacientes2 img {
   border-radius: 50%;
@@ -218,43 +250,45 @@ ul {
 }
 .listaPacientes2 li {
   border-bottom: 1px solid lightgray;
-  width: 100%;
+  width: 80%;
   font-size: 20px;
-  margin-bottom: 20%;
+  margin-bottom: 10%;
   margin-right: 5%;
 }
-.listaPacientes2 h3{
+.listaPacientes2 h3 {
   font-size: 20px;
   margin-left: 8%;
 }
-.icons{
+.icons {
   fill: #040acb;
   margin-top: 10%;
 }
-.timer2{
+.timer2 {
   margin-left: 5%;
   text-align: center;
-  margin:0 auto;
+  margin: 0 auto;
 }
-.timer2 span{
-  color:#040acb;
+.timer2 span {
+  color: #040acb;
   font-size: 25px;
 }
-.progress{
+.progress {
   height: 40px;
+  padding: 1px;
   border: 1px solid lightblue;
   border-radius: 10px;
-  width: 100%;
-  margin-top: 20%;
-
+  width: 80%;
+  margin-top: 15%;
+  margin-left: 10%;
 }
-.progressMoving{
+.progressMoving {
   width: 20%;
-  background-color:lightskyblue;
+  background-color: lightskyblue;
   height: 36.5px;
   border: 1px;
   margin: 1px;
   border-radius: 10px;
 }
+
 </style>
 
