@@ -53,7 +53,7 @@
 </template>
 
 <script>
-import InfoAmbulance from '../views/InfoAmbulance'
+import InfoAmbulance from '../components/InfoAmbulance'
 
 export default {
   components:{
