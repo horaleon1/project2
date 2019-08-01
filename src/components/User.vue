@@ -64,6 +64,7 @@
           @click="center=m.position"
         />
       </GmapMap>
+       <UserTimeRemaining/>
     </div>
 
     <div class="containerTipoUsuario" v-show="$store.state.pedido" >
@@ -78,6 +79,7 @@
       </div>
     </div>
 
+  <!-- <InfoAmbulance/> -->
 
 
   </div>
@@ -90,6 +92,8 @@ import User1 from "../components/User1";
 import User2 from "../components/User2";
 import User3 from "../components/User3";
 import SearchingAmbulance from "../components/SearchingAmbulance"
+import InfoAmbulance from '../components/InfoAmbulance'
+import UserTimeRemaining from '../components/UserTimeRemaining'
 
 export default {
   components: {
@@ -98,9 +102,9 @@ export default {
     User1,
     User2,
     User3,
-    SearchingAmbulance
-    // User1:"Para  mí",
-    // User2:"Circulo Familiar",
+    SearchingAmbulance,
+    InfoAmbulance,
+    UserTimeRemaining
   },
   data() {
     return {
