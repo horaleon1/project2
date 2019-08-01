@@ -66,7 +66,7 @@
       </GmapMap>
     </div>
 
-    <div class="containerTipoUsuario" v-show="!sideMenu">
+    <div class="containerTipoUsuario" v-show="$store.state.pedido" >
       <div class="listaTipoUsuario">
         <button @click="user1F">Para mí</button>
         <button @click="user2F">Circulo Familiar</button>

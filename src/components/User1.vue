@@ -47,7 +47,7 @@
         <div class="buttonInput3" @click="arrowInput3 = !arrowInput3">
           <div class="input3Text">
             <button>
-              <h4>Paciente</h4>
+              <h4>Edad del paciente</h4>
             </button>
           </div>
           <div class="input3Arrow">
@@ -174,7 +174,7 @@ export default {
   }
 
   .input1 {
-    width: 75%;
+    width: 70%;
     height: 40px;
     margin: 2% 1%;
     font-size: 14px;
