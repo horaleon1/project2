@@ -5,7 +5,8 @@ Vue.use(Vuex)
 
 export const store = new Vuex.Store({
   state: {
-    pedido:true
+    pedido:true,
+    minutos:0
   },
   mutations:{
     

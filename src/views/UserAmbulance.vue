@@ -30,7 +30,7 @@
         <img src alt />
         <img :src="url" height="50px" width="50px" class="imageMenu" v-show="!sideMenu" />
       </button>
-
+<SearchingAmbulance/>
       <iframe
         src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyCHB7fzFranaqMKbud-JdC_4FwwPNsrNKs&origin=romanorte&destination=hospitalangelesmexico"
         width="100%"
@@ -46,7 +46,10 @@
       >{{ button }}</button>
     </div>
 
-    <InfoAmbulance/>
+    
+
+    <!-- <InfoAmbulance/> -->
+    <DataPatient/>
 
     <div class="tips"></div>
   </div>
@@ -54,10 +57,14 @@
 
 <script>
 import InfoAmbulance from '../components/InfoAmbulance'
+import SearchingAmbulance from '../components/SearchingAmbulance'
+import DataPatient from '../components/DataPatient'
 
 export default {
   components:{
-    InfoAmbulance
+    InfoAmbulance,
+    SearchingAmbulance,
+    DataPatient
   },
   data() {
     return {

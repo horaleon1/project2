@@ -77,6 +77,9 @@
         <User3 v-show="user3" />
       </div>
     </div>
+
+
+
   </div>
 </template>
 
@@ -86,6 +89,7 @@ import Ayuda from "../components/Ayuda";
 import User1 from "../components/User1";
 import User2 from "../components/User2";
 import User3 from "../components/User3";
+import SearchingAmbulance from "../components/SearchingAmbulance"
 
 export default {
   components: {
@@ -93,7 +97,8 @@ export default {
     Ayuda,
     User1,
     User2,
-    User3
+    User3,
+    SearchingAmbulance
     // User1:"Para  mí",
     // User2:"Circulo Familiar",
   },

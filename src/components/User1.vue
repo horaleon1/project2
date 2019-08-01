@@ -107,7 +107,7 @@
             </form>
           </div>
         </div>
-        <button class="pedir">Pedir</button>
+        <button class="pedir" @click="$store.state.pedido = !$store.state.pedido">Pedir</button>
       </div>
     </div>
   </div>
@@ -139,6 +139,8 @@ export default {
       key:"AIzaSyCHB7fzFranaqMKbud-JdC_4FwwPNsrNKs",
       setPlace:''
     };
+  },methods:{
+    
   }
 };
 </script>
