@@ -30,7 +30,7 @@
         <img src alt />
         <img :src="url" height="50px" width="50px" class="imageMenu" v-show="!sideMenu" />
       </button>
-<SearchingAmbulance/>
+      <SearchingAmbulance v-show="alertAmbulance"/>
       <iframe
         src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyCHB7fzFranaqMKbud-JdC_4FwwPNsrNKs&origin=romanorte&destination=hospitalangelesmexico"
         width="100%"
@@ -74,7 +74,8 @@ export default {
       onlineStyle: true,
       // iniciar:true,
       // iniciar2:false
-      button: "INICIO"
+      button: "INICIO",
+      alertAmbulance:true
     };
   },
   mounted() {
@@ -97,7 +98,15 @@ export default {
         this.button = this.button === "INICIO" ? "DESCONECTARSE" : "INICIO";
         this.onlineStyle = true;
       }
+    },
+    countdownSearchAmbulance(){
+      if(this.$store.state.segundosRestantes === 0){
+        this.alertAmbulance = !this.alertAmbulance
+      } 
     }
+  },
+  created(){
+    this.countdownSearchAmbulance()
   }
 };
 </script>

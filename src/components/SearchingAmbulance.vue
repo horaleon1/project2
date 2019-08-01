@@ -4,7 +4,7 @@
       <div class="animacion">
         <div class="animacion2">
           <h1>Emergencia</h1>
-          <h3> {{ segundosRestantes }} </h3>
+          <h3> {{ $store.state.segundosRestantes }} </h3>
         </div>
       </div>
     </button>
@@ -13,12 +13,30 @@
 </template>
 
 <script>
+import { setTimeout } from 'timers';
+
 export default {
   data(){
     return{
-      segundosRestantes:10
+    
     }
-  }
+  },
+  methods:{
+    countDown(){
+      if(this.$store.state.segundosRestantes > 0){
+        setTimeout( () => {
+          this.$store.state.segundosRestantes -= 1
+          this.countDown()
+        },1000)
+      }
+    }
+  },
+  created() {
+     this.countDown()
+  },
+  // beforeDestroy(){
+  //   clearInterval()
+  // }
 };
 </script> 
 
@@ -29,7 +47,7 @@ export default {
   margin-left: 16%;
   position: absolute;
 }
-.animacion {
+.animacion:not(h3) {
   width: 250px;
   height: 250px;
   border-radius: 50%;
@@ -54,7 +72,7 @@ export default {
   }
 }
 
-.animacion2 {
+.animacion2:not(h3) {
   width: 230px;
   height: 230px;
   border-radius: 50%;
@@ -89,7 +107,8 @@ h1 {
   background-origin: 1px solid lightgrey;
 }
 h3{
-  font-size: 30px;
+  font-size: 35px;
+  color: black;
 }
 </style>
 
