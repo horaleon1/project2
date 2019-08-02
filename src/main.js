@@ -7,11 +7,12 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 import EvaIcons from 'vue-eva-icons'
 import * as  VueGoogleMaps from 'vue2-google-maps'
 import { store } from './store.js'
-
+import axios from 'axios';
 
 Vue.use(BootstrapVue)
 Vue.use(EvaIcons)
 Vue.use(Vuex)
+Vue.use(axios)
 Vue.config.productionTip = false
 
 

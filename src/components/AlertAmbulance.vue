@@ -1,6 +1,6 @@
 <template>
-  <div class="containerAnimacion">
-    <button>
+  <div class="containerAnimacion" v-show="alertOff">
+    <button @click="alertOff = !alertOff">
       <div class="animacion">
         <div class="animacion2">
           <h1>Emergencia</h1>
@@ -18,7 +18,7 @@ import { setTimeout } from 'timers';
 export default {
   data(){
     return{
-      
+      alertOff: true
     }
   },
   methods:{
@@ -44,7 +44,6 @@ export default {
 
 <style scoped>
 .containerAnimacion {
-  background-color: #4d4d4d;
   margin-top: 30%;
   margin-left: 16%;
   position: absolute;
@@ -111,6 +110,7 @@ h1 {
 h3{
   font-size: 35px;
   color: black;
+  font-weight: 700;
 }
 </style>
 

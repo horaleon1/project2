@@ -20,58 +20,66 @@ export const store = new Vuex.Store({
 
     user: {
       nombre: {
-        primerNombre: "",
-        apellido: ""
+        primerNombre: "-",
+        apellido: "-"
       },
-      edad: "",
-      estado: "",
-      correoElectronico: "",
-      contraseña: "",
-      telefono: "",
+      edad: "-",
+      estado: "-",
+      correoElectronico: "-",
+      contraseña: "-",
+      telefono: "-",
       direccion: {
-        calle: "",
-        numero: "",
-        colonia: "",
-        codigoPostal: ""
+        calle: "-",
+        numero: "-",
+        colonia: "-",
+        codigoPostal: "-"
       },
-      historial: ""
+      historial: "-",
+      padecimiento:'-',
+      alergias:'-',
+      polizaSeguro:{
+        compania:'-',
+        numero:'-'
+      }
     },
-    
+
     userAmbulance: {
       tripulacion: {
         one: {
           nombre: {
-            primerNombre: "",
-            apellido: ""
+            primerNombre: "-",
+            apellido: "-"
           },
-          correoElectronico: "",
-          contraseña: "",
-          telefono: ""
+          correoElectronico: "-",
+          contraseña: "-",
+          telefono: "-"
         },
         two: {
           nombre: {
-            primerNombre: "",
-            apellido: ""
+            primerNombre: "-",
+            apellido: "-"
           },
-          correoElectronico: "",
-          contraseña: "",
-          telefono: ""
+          correoElectronico: "-",
+          contraseña: "-",
+          telefono: "-"
         },
         three: {
           nombre: {
-            primerNombre: "",
-            apellido: ""
+            primerNombre: "-",
+            apellido: "-"
           },
-          correoElectronico: "",
-          contraseña: "",
-          telefono: ""
+          correoElectronico: "-",
+          contraseña: "-",
+          telefono: "-"
         }
       },
-      historial:'aqui'
+      historial:'-'
     },
     alertAmbulance: false
   },
   mutations: {},
-  actions: {},
+  actions: {
+   
+  },
   getters: {}
 });

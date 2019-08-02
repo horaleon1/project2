@@ -25,7 +25,9 @@
           </li>
           <hr />
           <li>Cuenta</li>
-          <li>Historial</li>
+          <li>
+            <router-link to="/historyHospital" class="router">Historial de pacientes</router-link>
+          </li>
           <li>Pacientes</li>
           <li>Ayuda</li>
           <li>Ajustes</li>
@@ -47,14 +49,33 @@
                 <li>
                   <img :src="url" alt />
                 </li>
-                <li>{{ user.results[0].name.first | capitalize }} {{ user.results[0].name.last | capitalize }}</li>
-                <li>Padecimiento: {{ padecimiento }}</li>
                 <li>
-                  <button>Información básica</button>
+                  <h2>{{ user.results[0].name.first | capitalize }} {{ user.results[0].name.last | capitalize }}</h2>
+                </li>
+                <li class="padecimiento">
+                  <h4>Padecimiento: {{ $store.state.user.padecimiento }}</h4>
                 </li>
                 <li>
-                  <button>Seguro</button>
+                  <ul>
+                    <li>
+                      <h4>Información basica</h4>
+                    </li>
+                    <li></li>
+                    <li>Dirección</li>
+                    <li>Calle:</li>
+                    <li>
+                      Numero:
+                      Exterior:
+                    </li>
+                    <li>Colonia: C.P.:</li>
+                    <li>Ciudad:</li>
+                  </ul>
                 </li>
+                <li>
+                  <h4>Poliza de Seguro</h4>
+                </li>
+                <li>Compañia:</li>
+                <li>Numero:</li>
               </ul>
             </div>
           </div>
@@ -100,7 +121,6 @@
             </div>
           </div>
         </li>
-        
       </ul>
     </div>
   </div>
@@ -165,7 +185,7 @@ export default {
   width: 18%;
   background-color: #f8f8f8;
   right: 0%;
-  position: absolute
+  position: absolute;
 }
 
 .sideMenu {
@@ -221,7 +241,7 @@ ul {
   position: absolute;
 }
 .paciente2 {
-  margin-top: 10%;
+  margin-top: 5%;
   margin-left: 2%;
 }
 .paciente img {
@@ -240,7 +260,7 @@ ul {
 .listaPacientes2 {
   margin-top: 10%;
 }
-.listaPacientes2 ul{
+.listaPacientes2 ul {
   margin-top: 10%;
 }
 .listaPacientes2 img {
@@ -289,6 +309,12 @@ ul {
   margin: 1px;
   border-radius: 10px;
 }
-
+.padecimiento {
+  color: #fc3904;
+}
+.router {
+  text-decoration: none;
+  color: black;
+}
 </style>
 
