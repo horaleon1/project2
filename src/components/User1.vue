@@ -47,7 +47,7 @@
         <div class="buttonInput3" @click="arrowInput3 = !arrowInput3">
           <div class="input3Text">
             <button>
-              <h4>Edad del paciente</h4>
+              Edad del paciente
             </button>
           </div>
           <div class="input3Arrow">
@@ -61,15 +61,15 @@
           <div class="inputContainer3">
             <form action>
               <div class="personTypeDiv">
-                <h4>Bebe 0 - 12 meses</h4>
+                Bebe 0 - 12 meses
                 <input type="radio" name="personType" value="baby" />
               </div>
               <div class="personTypeDiv">
-                <h4>Niño 1 - 8 años</h4>
+                Niño 1 - 8 años   
                 <input type="radio" name="personType" value="child" />
               </div>
               <div class="personTypeDiv">
-                <h4>Adulto + 8 años</h4>
+                Adulto + 8 años   
                 <input type="radio" name="personType" value="adult" />
               </div>
             </form>
@@ -79,7 +79,7 @@
         <div class="buttonInput4" @click="arrowInput4 = !arrowInput4">
           <div class="input4Text">
             <button>
-              <h4>Estado del Paciente</h4>
+              Estado del Paciente
             </button>
           </div>
           <div class="input4Arrow">
@@ -90,18 +90,18 @@
         </div>
 
         <div class="estadoUsuario" v-show="arrowInput4">
-          <div class="listaEstadoUsuario">
+          <div class="inputContainer3">
             <form action>
-              <div class="personStateDiv">
-                <h4>Despierto</h4>
+              <div class="personTypeDiv">
+                Despierto
                 <input type="radio" name="personState" value="awake" />
               </div>
-              <div class="personStateDiv">
-                <h4>Inconsiente</h4>
+              <div class="personTypeDiv">
+                Inconsiente
                 <input type="radio" name="personState" value="unconscious" />
               </div>
-              <div class="personStateDiv">
-                <h4>No sé</h4>
+              <div class="personTypeDiv">
+                No sé
                 <input type="radio" name="personState" value="dontKnow" />
               </div>
             </form>
@@ -189,8 +189,8 @@ export default {
   .icons:active {
     opacity: 0.5;
   }
-  .containerInput2 {
-    margin-top: -25px;
+  .containerInput1 {
+    margin-bottom: 5%;
   }
   .containerInput2 button {
     fill: #040acb;
@@ -254,7 +254,6 @@ export default {
     right: 3%;
     top: 78%;
   }
-
   .containerInput4 {
     margin-top: -5%;
   }
@@ -301,35 +300,38 @@ export default {
   }
   .inputContainer3 {
     margin-left: 10%;
+    margin-bottom: 10%;
   }
-
   .buttonInput3 {
-    margin: 0% 0%;
     font-size: 14px;
     color: grey;
     font-weight: 200;
     letter-spacing: 0.5px;
+    margin-bottom: 5%;
   }
+  
   .buttonInput3 button,
   .buttonInput4 button {
     font-size: 14px;
     color: grey;
     font-weight: 100;
     letter-spacing: 0.5px;
+    padding-bottom: 5%;
+    padding-left: 5%;
   }
   .arrow1 {
     position: absolute;
-    right: 9%;
+    right: 16%;
     margin-top: -5%;
   }
   .arrow2 {
     position: absolute;
-    right: 9%;
+    right: 16%;
     margin-top: -5%;
   }
   .listaEstadoUsuario,
   .inputContainer3 {
-    margin: -5% 13%;
+    margin: 5% 18%;
     font-size: 15px;
     color: grey;
     font-weight: 100;
@@ -338,6 +340,7 @@ export default {
   .listaEstadoUsuario form input {
     margin-left: 5%;
     display: block;
+    padding-bottom: 5%;
   }
   .input3Text,
   .input4Text {
@@ -352,7 +355,9 @@ export default {
   .buttonInput3 {
     border-bottom: 1px solid lightgray;
     width: 90%;
-    margin-top: 3%;
+  }
+  .personTypeDiv{
+    padding-bottom: 5%;
   }
 }
 </style>

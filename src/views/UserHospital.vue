@@ -192,7 +192,7 @@ export default {
   float: right;
   text-align: right;
   margin-right: 15%;
-  margin-top: 15%;
+
 }
 .dropdown {
   border-left: 1px solid lightgrey;
@@ -210,6 +210,7 @@ ul {
 .imgHospital {
   border-radius: 50%;
   margin-bottom: 10%;
+  margin-right: 20%;
 }
 
 .paciente {

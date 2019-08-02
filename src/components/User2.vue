@@ -40,7 +40,7 @@
         <div class="buttonInput3" @click="arrowInput3 = !arrowInput3">
           <div class="input3Text">
             <button>
-              <h4>Círculo Familiar</h4>
+              Círculo Familiar
             </button>
           </div>
           <div class="input3Arrow">
@@ -54,15 +54,15 @@
           <div class="inputContainer3">
             <form action>
               <div class="personTypeDiv">
-                <h4>Mamá</h4>
+                Mamá
                 <input type="radio" name="personType" value="baby" />
               </div>
               <div class="personTypeDiv">
-                <h4>Papá</h4>
+                Papá
                 <input type="radio" name="personType" value="child" />
               </div>
               <div class="personTypeDiv">
-                <h4>Laura</h4>
+                Laura
                 <input type="radio" name="personType" value="adult" />
               </div>
             </form>
@@ -72,7 +72,7 @@
         <div class="buttonInput4" @click="arrowInput4 = !arrowInput4">
           <div class="input4Text">
             <button>
-              <h4>Estado del Paciente</h4>
+              Estado del Paciente
             </button>
           </div>
           <div class="input4Arrow">
@@ -83,18 +83,18 @@
         </div>
 
         <div class="estadoUsuario" v-show="arrowInput4">
-          <div class="listaEstadoUsuario">
+          <div class="inputContainer3">
             <form action>
-              <div class="personStateDiv">
-                <h4>Despierto</h4>
+              <div class="personTypeDiv">
+                Despierto
                 <input type="radio" name="personState" value="awake" />
               </div>
-              <div class="personStateDiv">
-                <h4>Inconsiente</h4>
+              <div class="personTypeDiv">
+                Inconsiente
                 <input type="radio" name="personState" value="unconscious" /> 
               </div>
-              <div class="personStateDiv">
-                <h4>No sé</h4>
+              <div class="personTypeDiv">
+                No sé
                 <input type="radio" name="personState" value="dontKnow" />
               </div> 
             </form>

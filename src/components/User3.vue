@@ -1,12 +1,16 @@
 <template>
-<div class="container">
+  <div class="container">
     <div class="paraMi">
       <div class="informacion">
         <div class="containerInput1">
           <eva-icon name="search" class="icons"></eva-icon>
           <!-- <input type="text" placeholder="   ¿En dónde es tu emergencia? " class="input1" /> -->
-        <gmap-autocomplete @place_changed="setPlace" class="input1" placeholder="   ¿En dónde es tu emergencia? " ></gmap-autocomplete>
-          
+          <gmap-autocomplete
+            @place_changed="setPlace"
+            class="input1"
+            placeholder="   ¿En dónde es tu emergencia? "
+          ></gmap-autocomplete>
+
           <button @click="programado = !programado">
             <eva-icon name="calendar" class="icons"></eva-icon>
           </button>
@@ -38,11 +42,16 @@
           ></date-picker>
         </div>
 
+        <div class="inputNameContainer">
+          <div class="inputName">
+            <input type="text" placeholder="   Nombre del paciente" class="inputUser3" />
+            <eva-icon name="person" class="icons arrow" height="25px" width="25px"></eva-icon>
+          </div>
+        </div>
+
         <div class="buttonInput3" @click="arrowInput3 = !arrowInput3">
           <div class="input3Text">
-            <button>
-              <h4>Edad del paciente</h4>
-            </button>
+            <button>Edad del paciente</button>
           </div>
           <div class="input3Arrow">
             <button>
@@ -55,15 +64,15 @@
           <div class="inputContainer3">
             <form action>
               <div class="personTypeDiv">
-                <h4>Bebe 0 - 12 meses</h4>
+                Bebe 0 - 12 meses
                 <input type="radio" name="personType" value="baby" />
               </div>
               <div class="personTypeDiv">
-                <h4>Niño 1 - 8 años</h4>
+                Niño 1 - 8 años
                 <input type="radio" name="personType" value="child" />
               </div>
               <div class="personTypeDiv">
-                <h4>Adulto + 8 años</h4>
+                Adulto + 8 años
                 <input type="radio" name="personType" value="adult" />
               </div>
             </form>
@@ -72,9 +81,7 @@
 
         <div class="buttonInput4" @click="arrowInput4 = !arrowInput4">
           <div class="input4Text">
-            <button>
-              <h4>Estado del Paciente</h4>
-            </button>
+            <button>Estado del Paciente</button>
           </div>
           <div class="input4Arrow">
             <button>
@@ -84,18 +91,18 @@
         </div>
 
         <div class="estadoUsuario" v-show="arrowInput4">
-          <div class="listaEstadoUsuario">
+          <div class="inputContainer3">
             <form action>
-              <div class="personStateDiv">
-                <h4>Despierto</h4>
+              <div class="personTypeDiv">
+                Despierto
                 <input type="radio" name="personState" value="awake" />
               </div>
-              <div class="personStateDiv">
-                <h4>Inconsiente</h4>
+              <div class="personTypeDiv">
+                Inconsiente
                 <input type="radio" name="personState" value="unconscious" />
               </div>
-              <div class="personStateDiv">
-                <h4>No sé</h4>
+              <div class="personTypeDiv">
+                No sé
                 <input type="radio" name="personState" value="dontKnow" />
               </div>
             </form>
@@ -105,7 +112,6 @@
       </div>
     </div>
   </div>
-  
 </template>
 <script>
 import DatePicker from "vue2-datepicker";
@@ -113,8 +119,8 @@ export default {
   components: {
     DatePicker
   },
-   data(){
-    return{
+  data() {
+    return {
       sugerencias: false,
       programado: false,
       sideMenu: false,
@@ -125,16 +131,48 @@ export default {
       ayuda: false,
       forMe: true,
       circle: false,
-      other:false,
+      other: false,
       arrowInput3: false,
       arrowInput4: false,
-      setPlace:''
-    }
+      setPlace: ""
+    };
   }
-  
-}
+};
 </script>
 
 <style scoped>
-
+.inputName {
+  border-bottom: 1px solid lightgray;
+  width: 90%;
+}
+.inputName input {
+  margin-left: 10%;
+  padding-left: 1.5%;
+}
+.buttonInput3 {
+  padding-top: 5%;
+}
+.inputUser3 {
+  padding-bottom: 5%;
+  font-size: 14px;
+  color: grey;
+  font-weight: 200;
+}
+.arrow{
+  position: absolute;
+    right: 16%;
+    margin-top: 0%;
+}
+.pedir {
+    margin-top: 4%;
+    width: 90%;
+    border-radius: 13px;
+    padding: 9px 7px;
+    border: #fb2f1b;
+    background-color: #fb2f1b;
+    color: white;
+    letter-spacing: 1.5px;
+    text-align: center;
+    font-size: 18px;
+  }
 </style>

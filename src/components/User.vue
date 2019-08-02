@@ -30,6 +30,8 @@
         <eva-icon name="menu" class="icons" height="30px" width="30px"></eva-icon>
       </button>
 
+      <AlertUser/>
+
       <!-- <iframe
         src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyCHB7fzFranaqMKbud-JdC_4FwwPNsrNKs&origin=romanorte&destination=hospitalangelesmexico"
         width="100%"
@@ -50,7 +52,7 @@
    scaleControlOption:false,
    streetViewControl: false,
    rotateControl: false,
-   fullscreenControl: true,
+   fullscreenControl: false,
    disableDefaultUi: false,
    
  }"
@@ -80,9 +82,14 @@
       </div>
     </div>
 
+  <!-- //////////////////////   -->
+
     <!-- //once the ambulace accepts the service the User gets the info of the ambulace -->
-  <InfoAmbulance/>
-  <UserTimeRemaining/>
+  <!-- <InfoAmbulance/> -->
+
+    <!-- //once the ambulace accepts the service the User gets the remaining time -->
+  
+  <!-- <UserTimeRemaining/> -->
    
 
   </div>
@@ -97,6 +104,7 @@ import User3 from "../components/User3";
 import AlertAmbulance from "../components/AlertAmbulance"
 import InfoAmbulance from '../components/InfoAmbulance'
 import UserTimeRemaining from '../components/UserTimeRemaining'
+import AlertUser from '../components/AlertUser'
 
 export default {
   components: {
@@ -107,7 +115,8 @@ export default {
     User3,
     AlertAmbulance,
     InfoAmbulance,
-    UserTimeRemaining
+    UserTimeRemaining,
+    AlertUser
   },
   data() {
     return {
@@ -236,7 +245,7 @@ export default {
   letter-spacing: 1.5px;
   text-align: center;
   font-size: 20px;
-  margin-top: 10%;
+  margin-top: 5%;
 }
 .pedir:active {
   opacity: 0.7;
@@ -279,14 +288,15 @@ export default {
   top: 78%;
 }
 .containerTipoUsuario {
- margin-top: 5%;
+ margin-top: 7%;
 }
 .listaTipoUsuario button:focus {
   color: #040acb;
   font-weight: 700;
 }
 .listaTipoUsuario button{
-  padding-bottom: 5%;
+  padding-bottom: 7%;
+  font-size: 15px;
 }
 .router{
 text-decoration: none;
