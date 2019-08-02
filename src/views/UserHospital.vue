@@ -85,8 +85,8 @@
             <div class="timer2">
               <eva-icon name="clock" class="icons" height="50px" width="50px"></eva-icon>
               <h3>
-                A
-                <span>{{ time }}</span> minutos del hospital.
+                Llegada en:
+                <span>{{ $store.state.minutos }}</span>  minutos.
               </h3>
               <div class="progress">
                 <div class="progressMoving"></div>
@@ -105,17 +105,17 @@
                 <li>
                   <img :src="url" alt />
                   {{ user.results[0].name.first | capitalize }} {{ user.results[0].name.last | capitalize }}
-                  <span>10 min</span>
+                 <br> <br> <span>Llegada en: 22 minutos</span>
                 </li>
                 <li>
                   <img :src="url" alt />
                   {{ user.results[0].name.first | capitalize }} {{ user.results[0].name.last | capitalize }}
-                  <span>7 min</span>
+                 <br> <br> <span>Llegada en: 2 minutos</span>
                 </li>
                 <li>
                   <img :src="url" alt />
                   {{ user.results[0].name.first | capitalize }} {{ user.results[0].name.last | capitalize }}
-                  <span>2 min</span>
+                 <br>  <br> <span>Llegada en: 10 minutos</span>
                 </li>
               </ul>
             </div>
@@ -258,10 +258,10 @@ ul {
   font-size: 16px;
 }
 .listaPacientes2 {
-  margin-top: 10%;
+  margin-top: 5%;
 }
 .listaPacientes2 ul {
-  margin-top: 10%;
+  margin-top: 5%;
 }
 .listaPacientes2 img {
   border-radius: 50%;
@@ -276,8 +276,10 @@ ul {
   margin-right: 5%;
 }
 .listaPacientes2 h3 {
-  font-size: 20px;
-  margin-left: 8%;
+  font-size: 25px;
+  color: black;
+  padding-bottom: 5%;
+  margin-left: 5%;
 }
 .icons {
   fill: #040acb;
@@ -293,8 +295,8 @@ ul {
   font-size: 25px;
 }
 .progress {
-  height: 40px;
-  padding: 1px;
+  height: 42px;
+  padding: 3px 2px 0px 2px;
   border: 1px solid lightblue;
   border-radius: 10px;
   width: 80%;
@@ -302,7 +304,7 @@ ul {
   margin-left: 10%;
 }
 .progressMoving {
-  width: 20%;
+  width: 70%;
   background-color: lightskyblue;
   height: 36.5px;
   border: 1px;
