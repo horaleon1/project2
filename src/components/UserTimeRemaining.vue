@@ -23,12 +23,12 @@ export default {};
 <style scoped>
 .containerTime {
   height: 60px;
-  width: 70%;
+  width: 80%;
   background-color: #0435fc;
   position: absolute;
-  margin-top: -25%;
+  margin-top: 0%;
   border-radius: 10px;
-  margin-left: 15%;
+  margin-left: 10%;
   opacity: 0.9;
 }
 .minutos {
@@ -47,7 +47,7 @@ button {
   border-radius: 10px;
   padding: 7px;
   color: white;
-  margin-left: 10%;
+  margin-left: 40%;
 }
 ul {
   list-style: none;

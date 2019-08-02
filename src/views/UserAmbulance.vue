@@ -12,10 +12,12 @@
           <li>{{ user.results[0].name.first }} {{ user.results[0].name.last }}</li>
           <hr />
           <li>Cuenta</li>
-          <li>Historial de Servicios</li>
+          <li><router-link to="/historyAmbulance" class="router">Historial de Servicios</router-link></li>
           <li>Tripulación</li>
           <li>Vehículos</li>
-          <li><router-link to="/"  class="router" >Cerrar sesión</router-link> </li>
+          <li>
+            <router-link to="/" class="router">Cerrar sesión</router-link>
+          </li>
           <li>
             <!-- <button @click="ayuda = !ayuda">Ayuda</button> -->
           </li>
@@ -30,7 +32,9 @@
         <img src alt />
         <img :src="url" height="50px" width="50px" class="imageMenu" v-show="!sideMenu" />
       </button>
-      <SearchingAmbulance v-show="alertAmbulance"/>
+
+      <AlertAmbulance v-if='!this.$store.state.alertAmbulance'/>
+
       <iframe
         src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyCHB7fzFranaqMKbud-JdC_4FwwPNsrNKs&origin=romanorte&destination=hospitalangelesmexico"
         width="100%"
@@ -46,10 +50,8 @@
       >{{ button }}</button>
     </div>
 
-    
-
     <!-- <InfoAmbulance/> -->
-    <DataPatient/>
+    <DataPatient />
 
     <div class="tips"></div>
   </div>
@@ -57,13 +59,13 @@
 
 <script>
 import InfoAmbulance from '../components/InfoAmbulance'
-import SearchingAmbulance from '../components/SearchingAmbulance'
+import AlertAmbulance from '../components/AlertAmbulance'
 import DataPatient from '../components/DataPatient'
 
 export default {
   components:{
     InfoAmbulance,
-    SearchingAmbulance,
+    AlertAmbulance,
     DataPatient
   },
   data() {
@@ -75,7 +77,7 @@ export default {
       // iniciar:true,
       // iniciar2:false
       button: "INICIO",
-      alertAmbulance:true
+      AAmbulance:true
     };
   },
   mounted() {
@@ -98,28 +100,29 @@ export default {
         this.button = this.button === "INICIO" ? "DESCONECTARSE" : "INICIO";
         this.onlineStyle = true;
       }
-    },
-    countdownSearchAmbulance(){
-      if(this.$store.state.segundosRestantes === 0){
-        this.alertAmbulance = !this.alertAmbulance
-      } 
     }
   },
-  created(){
-    this.countdownSearchAmbulance()
+  computed:{
+    // return this.countdownSearchAmbulance();
+    // countdownSearchAmbulance: () => {
+    //   if(this.$store.state.segundosRestantes === 0){
+    //     return this.AAmbulance = !this.AAmbulance
+    //   } 
+    // }
   }
 };
+
 </script>
 
 <style scoped>
 .container {
   height: 812px;
-  background-color:white;
+  background-color: white;
 }
 .sideMenuContainer {
   position: absolute;
 }
-.router{
+.router {
   text-decoration: none;
   color: black;
 }
@@ -172,5 +175,4 @@ hr {
   margin: 0 auto;
   width: 100%;
 }
-
 </style>

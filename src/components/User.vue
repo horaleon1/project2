@@ -11,7 +11,7 @@
           <li>Cuenta</li>
           <li>Historial médico</li>
           <li>Círculo Familiar</li>
-          <li>Métodos de pago</li>
+          <li><router-link to="/historyUser" class="router">Historial de Servicios</router-link></li>
           <li><router-link to="/" class="router">Cerrar sesión</router-link></li>
 
           <li>
@@ -64,7 +64,8 @@
           @click="center=m.position"
         />
       </GmapMap>
-       <UserTimeRemaining/>
+      <!-- //once pedir and accepted by the Userambulance , user gets the UserTimeRemaining -->
+       <!-- <UserTimeRemaining/> -->
     </div>
 
     <div class="containerTipoUsuario" v-show="$store.state.pedido" >
@@ -79,8 +80,10 @@
       </div>
     </div>
 
-  <!-- <InfoAmbulance/> -->
-
+    <!-- //once the ambulace accepts the service the User gets the info of the ambulace -->
+  <InfoAmbulance/>
+  <UserTimeRemaining/>
+   
 
   </div>
 </template>
@@ -91,7 +94,7 @@ import Ayuda from "../components/Ayuda";
 import User1 from "../components/User1";
 import User2 from "../components/User2";
 import User3 from "../components/User3";
-import SearchingAmbulance from "../components/SearchingAmbulance"
+import AlertAmbulance from "../components/AlertAmbulance"
 import InfoAmbulance from '../components/InfoAmbulance'
 import UserTimeRemaining from '../components/UserTimeRemaining'
 
@@ -102,7 +105,7 @@ export default {
     User1,
     User2,
     User3,
-    SearchingAmbulance,
+    AlertAmbulance,
     InfoAmbulance,
     UserTimeRemaining
   },

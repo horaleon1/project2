@@ -18,7 +18,7 @@ import { setTimeout } from 'timers';
 export default {
   data(){
     return{
-    
+      
     }
   },
   methods:{
@@ -28,6 +28,8 @@ export default {
           this.$store.state.segundosRestantes -= 1
           this.countDown()
         },1000)
+      } else if(this.$store.state.segundosRestantes == 0) {
+        this.$store.state.alertAmbulance = !this.$store.state.alertAmbulance
       }
     }
   },
@@ -43,7 +45,7 @@ export default {
 <style scoped>
 .containerAnimacion {
   background-color: #4d4d4d;
-  margin-top: 25%;
+  margin-top: 30%;
   margin-left: 16%;
   position: absolute;
 }
@@ -52,7 +54,7 @@ export default {
   height: 250px;
   border-radius: 50%;
   box-shadow: 0 0 0 #f91a1a;
-  animation: pulse 1.5s infinite;
+  animation: pulse 2s infinite;
   position: absolute;
   opacity: 1;
 }

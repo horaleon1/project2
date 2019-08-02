@@ -8,6 +8,8 @@ import Signup from './views/Signup.vue'
 import UserAmbulance from './views/UserAmbulance.vue'
 import UserHospital from './views/UserHospital.vue'
 import UserDoctor from './views/UserDoctor.vue'
+import ServiceHistoryUser from './views/ServiceHistoryUser.vue'
+import ServiceHistoryAmbulance from './views/ServiceHistoryAmbulance.vue'
 
 Vue.use(Router)
 
@@ -62,6 +64,16 @@ export default new Router({
       path: '/doctor',
       name: 'userDoctor',
       component: UserDoctor
+    },
+    {
+      path: '/historyUser',
+      name: 'historyUser',
+      component: ServiceHistoryUser
+    },
+    {
+      path: '/historyAmbulance',
+      name: 'historyAmbulance',
+      component: ServiceHistoryAmbulance
     },
   ]
 })
