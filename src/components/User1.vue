@@ -107,7 +107,7 @@
             </form>
           </div>
         </div>
-        <button class="pedir" @click="$store.state.pedido = !$store.state.pedido">Pedir</button>
+        <button class="pedir" @click="pedirServicio">Pedir</button>
       </div>
     </div>
   </div>
@@ -140,6 +140,10 @@ export default {
       setPlace:''
     };
   },methods:{
+    pedirServicio(){
+      this.$store.state.pedir = !this.$store.state.pedir
+      this.$store.state.pedido = !this.$store.state.pedido
+    }
     
   }
 };

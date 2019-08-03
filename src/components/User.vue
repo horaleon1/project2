@@ -24,13 +24,14 @@
     </div>
 
     <div class="mapContainer">
+
       <!-- <h3 class="circleLogo">LOGO</h3> -->
       <button class="circleMenu" @click="sideMenu = !sideMenu">
         <img src alt />
         <eva-icon name="menu" class="icons" height="30px" width="30px"></eva-icon>
       </button>
 
-      <AlertUser/>
+      
 
       <!-- <iframe
         src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyCHB7fzFranaqMKbud-JdC_4FwwPNsrNKs&origin=romanorte&destination=hospitalangelesmexico"
@@ -69,6 +70,8 @@
       <!-- //once pedir and accepted by the Userambulance , user gets the UserTimeRemaining -->
        <!-- <UserTimeRemaining/> -->
     </div>
+
+    <AlertUser v-show="$store.state.pedir"/>
 
     <div class="containerTipoUsuario" v-show="$store.state.pedido" >
       <div class="listaTipoUsuario">

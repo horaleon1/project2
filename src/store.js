@@ -6,6 +6,7 @@ Vue.use(Vuex);
 export const store = new Vuex.Store({
   state: {
     pedido: true,
+    pedir:false,
     minutos: 22,
     segundosRestantes: 20,
     direccion: {
