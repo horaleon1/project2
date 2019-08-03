@@ -3,10 +3,7 @@
     <div class="minutos">
       <ul>
         <li>
-          <h1>{{ $store.state.minutos }}</h1>
-        </li>
-        <li>
-          <h3>Minutos</h3>
+           Llega en  {{ $store.state.minutos }} minutos
         </li>
         <li>
           <button>Cancelar</button>
@@ -26,19 +23,13 @@ export default {};
   width: 80%;
   background-color: #0435fc;
   position: absolute;
-  margin-top: 0%;
   border-radius: 10px;
   margin-left: 10%;
   opacity: 0.9;
 }
-.minutos {
-  margin-left: -10%;
-  margin-top: -10%;
-}
-.minutos h1,
-.minutos h3 {
+
+.minutos{
   color: white;
-  margin-bottom: 10%;
 }
 
 button {
@@ -54,6 +45,9 @@ ul {
 }
 ul li {
   display: inline-block;
+}
+.min{
+  font-size: 30px;
 }
 </style>
 

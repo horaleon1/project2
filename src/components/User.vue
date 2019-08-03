@@ -67,8 +67,11 @@
           @click="center=m.position"
         />
       </GmapMap>
+
+
       <!-- //once pedir and accepted by the Userambulance , user gets the UserTimeRemaining -->
        <!-- <UserTimeRemaining/> -->
+
     </div>
 
     <AlertUser v-show="$store.state.pedir"/>
@@ -82,6 +85,7 @@
         <User1 v-show="user1" />
         <User2 v-show="user2" />
         <User3 v-show="user3" />
+        
       </div>
     </div>
 
@@ -108,6 +112,8 @@ import AlertAmbulance from "../components/AlertAmbulance"
 import InfoAmbulance from '../components/InfoAmbulance'
 import UserTimeRemaining from '../components/UserTimeRemaining'
 import AlertUser from '../components/AlertUser'
+
+import {mapState} from 'vuex'
 
 export default {
   components: {
@@ -175,7 +181,11 @@ export default {
       value = value.toString();
       return value.charAt(0).toUpperCase() + value.slice(1);
     }
-  }
+  },
+  computed:{
+    
+    }
+  
 };
 </script>
 

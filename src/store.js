@@ -1,7 +1,9 @@
 import Vue from "vue";
 import Vuex from "vuex";
+import axios from "axios";
 
 Vue.use(Vuex);
+Vue.use(axios);
 
 export const store = new Vuex.Store({
   state: {
@@ -78,9 +80,26 @@ export const store = new Vuex.Store({
     },
     alertAmbulance: false
   },
-  mutations: {},
-  actions: {
-   
+  mutations: {
+    getData2(state, data2){
+      state.data2 = data2
+    }
+
   },
+  actions: {
+
+    loadData(){
+      axios 
+      .get('https://randomuser.me/api/')
+      .then(data => {
+        console.log(data.results[0].name.first)
+        let data2 = data.results[0].name.first
+        this.commit('getData2',data2)
+      })
+      .catch( error => console.log(error))
+    }
+
+  },
+
   getters: {}
 });
