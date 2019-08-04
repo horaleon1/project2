@@ -9,11 +9,27 @@ import * as  VueGoogleMaps from 'vue2-google-maps'
 import { store } from './store.js'
 import axios from 'axios';
 
+// import 'vue-googlemaps/dist/vue-googlemaps.css';
+// import VueGoogleMaps from 'vue-googlemaps';
+
+// Vue.use(VueGoogleMaps, {
+//   load: {
+//     // Google API key
+//     apiKey: 'AIzaSyCHB7fzFranaqMKbud-JdC_4FwwPNsrNKs',
+//     // Enable more Google Maps libraries here
+//     libraries: ['places'],
+//     // Use new renderer
+//     useBetaRenderer: false,
+//   },
+// })
+
 Vue.use(BootstrapVue)
 Vue.use(EvaIcons)
 Vue.use(Vuex)
 Vue.use(axios)
 Vue.config.productionTip = false
+
+
 
 
 Vue.use(VueGoogleMaps, {

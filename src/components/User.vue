@@ -11,8 +11,12 @@
           <li>Cuenta</li>
           <li>Historial médico</li>
           <li>Círculo Familiar</li>
-          <li><router-link to="/historyUser" class="router">Historial de Servicios</router-link></li>
-          <li><router-link to="/" class="router">Cerrar sesión</router-link></li>
+          <li>
+            <router-link to="/historyUser" class="router">Historial de Servicios</router-link>
+          </li>
+          <li>
+            <router-link to="/" class="router">Cerrar sesión</router-link>
+          </li>
 
           <li>
             <!-- <button @click="ayuda = !ayuda">Ayuda</button> -->
@@ -24,14 +28,12 @@
     </div>
 
     <div class="mapContainer">
-
+      <div id="map"></div>
       <!-- <h3 class="circleLogo">LOGO</h3> -->
       <button class="circleMenu" @click="sideMenu = !sideMenu">
         <img src alt />
         <eva-icon name="menu" class="icons" height="30px" width="30px"></eva-icon>
       </button>
-
-      
 
       <!-- <iframe
         src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyCHB7fzFranaqMKbud-JdC_4FwwPNsrNKs&origin=romanorte&destination=hospitalangelesmexico"
@@ -39,18 +41,16 @@
         height="430px"
       ></iframe>-->
 
-
-
-      <GmapMap
+      <gmapMap
         :center="{lat:19.4326, lng:-99.1332}"
         :zoom="13.5"
         map-type-id="terrain"
         style="width: 100%; height: 450px"
         :options="{
-   zoomControl: true,
+   zoomControl: false,
    mapTypeControl: false,
    scaleControl: false,
-   scaleControlOption:false,
+   scaleControlOption:true,
    streetViewControl: false,
    rotateControl: false,
    fullscreenControl: false,
@@ -58,7 +58,7 @@
    
  }"
       >
-        <GmapMarker
+        <gmapMarker
           :key="index"
           v-for="(m, index) in markers"
           :position="m.position"
@@ -66,17 +66,15 @@
           :draggable="true"
           @click="center=m.position"
         />
-      </GmapMap>
-
+      </gmapMap>
 
       <!-- //once pedir and accepted by the Userambulance , user gets the UserTimeRemaining -->
-       <!-- <UserTimeRemaining/> -->
-
+      <!-- <UserTimeRemaining/> -->
     </div>
 
-    <AlertUser v-show="$store.state.pedir"/>
+    <AlertUser v-show="$store.state.pedir" />
 
-    <div class="containerTipoUsuario" v-show="$store.state.pedido" >
+    <div class="containerTipoUsuario" v-show="$store.state.pedido">
       <div class="listaTipoUsuario">
         <button @click="user1F">Para mí</button>
         <button @click="user2F">Circulo Familiar</button>
@@ -85,20 +83,17 @@
         <User1 v-show="user1" />
         <User2 v-show="user2" />
         <User3 v-show="user3" />
-        
       </div>
     </div>
 
-  <!-- //////////////////////   -->
+    <!-- //////////////////////   -->
 
     <!-- //once the ambulace accepts the service the User gets the info of the ambulace -->
-  <!-- <InfoAmbulance/> -->
+    <!-- <InfoAmbulance/> -->
 
     <!-- //once the ambulace accepts the service the User gets the remaining time -->
-  
-  <!-- <UserTimeRemaining/> -->
-   
 
+    <!-- <UserTimeRemaining/> -->
   </div>
 </template>
 
@@ -108,12 +103,12 @@ import Ayuda from "../components/Ayuda";
 import User1 from "../components/User1";
 import User2 from "../components/User2";
 import User3 from "../components/User3";
-import AlertAmbulance from "../components/AlertAmbulance"
-import InfoAmbulance from '../components/InfoAmbulance'
-import UserTimeRemaining from '../components/UserTimeRemaining'
-import AlertUser from '../components/AlertUser'
+import AlertAmbulance from "../components/AlertAmbulance";
+import InfoAmbulance from "../components/InfoAmbulance";
+import UserTimeRemaining from "../components/UserTimeRemaining";
+import AlertUser from "../components/AlertUser";
 
-import {mapState} from 'vuex'
+import { mapState } from "vuex";
 
 export default {
   components: {
@@ -142,7 +137,17 @@ export default {
       user3: false,
       arrowInput3: false,
       arrowInput4: false,
-      markers: ""
+      myMarkers: [],
+      places: [],
+      currentPlace: null,
+
+      lng: "",
+      lat: "",
+      center: {
+       long: "",
+       lati: ""
+      }
+      
     };
   },
   mounted() {
@@ -153,8 +158,14 @@ export default {
         this.url = data.results[0].picture.medium;
       })
       .catch(err => console.log(err));
+
+    ////google maps
+    this.geolocate();
+    ///google maps
   },
-  created() {},
+  created() {
+    this.currentLocation();
+  },
   methods: {
     user1F() {
       this.user1 = true;
@@ -173,23 +184,93 @@ export default {
     },
     changeAyuda() {
       this.$emit("changeAyuda1", "false");
-    }
-  },
-  filters: {
-    capitalize: function(value) {
-      if (!value) return "";
-      value = value.toString();
-      return value.charAt(0).toUpperCase() + value.slice(1);
-    }
-  },
-  computed:{
+    },
     
-    }
+    currentLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(this.displayLocationInfo);
+      }
+    },
+    displayLocationInfo(position) {
+      this.long = position.coords.longitude;
+      this.lati = position.coords.latitude;
+
+      console.log(`longitude: ${this.long}  latitude: ${this.lati}`);
+    },
+    // addMarker(){
+    //   const marker = new google.maps.Marker({
+    //     position = this.center,
+
+    //   });
+    // },
+    // my own google maps
+    
+    //google maps
+
+    // setPlace(place) {
+    //   this.currentPlace = place;
+    // },
+    // addMarker() {
+    //   if (this.currentPlace) {
+    //     const marker = {
+    //       lat: this.currentPlace.geometry.location.lat(),
+    //       lng: this.currentPlace.geometry.location.lng()
+    //     };
+    //     this.markers.push({ position: marker });
+    //     this.places.push(this.currentPlace);
+    //     this.center = marker;
+    //     this.currentPlace = null;
+    //   }
+    // },
+    // geolocate: function() {
+    //   navigator.geolocation.getCurrentPosition(position => {
+    //     this.center = {
+    //       lat: position.coords.latitude,
+    //       lng: position.coords.longitude
+    //     };
+    //   });
+    // },
+
+//////google maps end
   
+    filters: {
+      capitalize: function(value) {
+        if (!value) return "";
+        value = value.toString();
+        return value.charAt(0).toUpperCase() + value.slice(1);
+      }
+    }
+  }
 };
+// mounted: function(){
+//       import  from "https://maps.googleapis.com/maps/api/js?key=AIzaSyCHB7fzFranaqMKbud-JdC_4FwwPNsrNKs&callback=initMap"
+//       console.log("map: ", google.maps)
+//           this.map = new google.maps.Map(document.getElementById('map'), {
+//           center: {lat:61.180059, lng: -149.822075},
+//           scrollwheel: false,
+//           zoom: 4
+//           })
+// }
+
+//javascript
+
+// Initialize and add the map
+// function initMap() {
+//   // The location of Uluru
+//   var uluru = {lat: -25.344, lng: 131.036};
+//   // The map, centered at Uluru
+//   var map = new google.maps.Map(
+//       document.getElementById('map'), {zoom: 4, center: uluru});
+//   // The marker, positioned at Uluru
+//   var marker = new google.maps.Marker({position: uluru, map: map});
+// }
 </script>
 
 <style scoped>
+#div {
+  width: 100%;
+  height: 450px;
+}
 .container {
   background-color: #ffffff;
 }
@@ -301,19 +382,19 @@ export default {
   top: 78%;
 }
 .containerTipoUsuario {
- margin-top: 7%;
+  margin-top: 7%;
 }
 .listaTipoUsuario button:focus {
   color: #040acb;
   font-weight: 700;
 }
-.listaTipoUsuario button{
+.listaTipoUsuario button {
   padding-bottom: 7%;
   font-size: 15px;
 }
-.router{
-text-decoration: none;
-color: black;
+.router {
+  text-decoration: none;
+  color: black;
 }
 </style>
 

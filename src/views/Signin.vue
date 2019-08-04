@@ -9,18 +9,18 @@
        
       <div class="formulario">
         <form>
-          <input type="text" name="email" placeholder="Correo Electronico"/><br>
-          <input type="password" name="password" placeholder="Contraseña"/><br>
+          <input type="text" name="email" placeholder="Correo Electronico" v-model="correoInput" autocomplete="on"/><br>
+          <input type="password" name="password" placeholder="Contraseña" v-model="constrasenaInput" autocomplete="on"/><br>
         </form>
       </div>
       
       <div class="buttons">
-        <router-link to="/signin" class="router1">Iniciar sesión</router-link>
-        <router-link to="/signup" class="router2">Registrarse</router-link>
+        <button to="/signin" class="button1" @submit="hacerUnaCuenta">Iniciar sesión</button>
+        <router-link to="/signup" class="router2" >Registrarse</router-link>
       </div>
       <div class="bottonesSociales">
         <ul>
-          <li><v-facebook-login app-id="966242223397117" id="facebook" ></v-facebook-login></li>
+          <!-- <li><v-facebook-login app-id="966242223397117" id="facebook" ></v-facebook-login></li> -->
           <!-- <li class="google" id="facebook"><button><img src="../assets/google.png" alt=""><span class="buttonText">Sign in with Facebook</span></button></li> -->
           <li class="google"><button><img src="../assets/google.png" alt=""><span class="buttonText">Sign in with Google</span></button></li>
         </ul>
@@ -33,9 +33,20 @@
 import VFacebookLogin from "vue-facebook-login-component";
 
 export default {
+  data(){
+    return{
+      correoInput:'',
+      contrasenaInput:''
+    }
+  },
   methods:{
     regresar(){
       this.$router.go(-1);
+    },
+    hacerUnaCuenta() {
+      fetch('/signin', {email: this.correoInput, pass: this.contrasenaInput}, {
+
+      })
     }
   },
   components: {
@@ -177,7 +188,7 @@ export default {
   }
   .router2 {
     display: block;
-    width: 85%;
+    width: 84%;
     margin-top: 5%;
     margin-left: 5%;
     margin-right: 5%;
@@ -188,6 +199,19 @@ export default {
     color: grey;
     text-align: center;
     text-decoration: none;
+  }
+  .button1{
+    display: block;
+    width: 90%;
+    margin-top: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
+    border: 1px solid #040acb;
+    padding: 13px;
+    border-radius: 14px;
+    background-color: #040acb;
+    color: white;
+    text-align: center;
   }
   .arrow{
     fill: #040acb;
@@ -214,7 +238,7 @@ export default {
   }
   .google button{
     width: 101%;
-    margin-top: 5%;
+    margin-top: 2%;
     margin-left: -6%;
     margin-right: 5%;
     border-radius: 14px;

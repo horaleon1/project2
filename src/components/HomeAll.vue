@@ -114,14 +114,14 @@
     <!-- // body3 Vidas Salvadas -->
 
     <div class="container4">
-      <h3>Numero de Vidas Salvadas</h3>
+      <h3>Número de Vidas Salvadas</h3>
       <h1>10,341</h1>
     </div>
 
     <!-- //body4 Aplicaciones Soon -->
 
     <div class="container5">
-      <h2>Proximamente Disponible en</h2>
+      <h2>Próximamente Disponible en</h2>
       <div class="containerStores">
         <img
           src="https://i.ibb.co/8jbvcwR/badge-iphone.png"

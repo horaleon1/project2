@@ -72,7 +72,7 @@
                   </ul>
                 </li>
                 <li>
-                  <h4>Poliza de Seguro</h4>
+                  <h4>Póliza de Seguro</h4>
                 </li>
                 <li>Compañia:</li>
                 <li>Numero:</li>
