@@ -21,63 +21,6 @@ export const store = new Vuex.Store({
       apellido: "Perez"
     },
 
-    user: {
-      nombre: {
-        primerNombre: "-",
-        apellido: "-"
-      },
-      edad: "-",
-      estado: "-",
-      correoElectronico: "-",
-      contraseña: "-",
-      telefono: "-",
-      direccion: {
-        calle: "-",
-        numero: "-",
-        colonia: "-",
-        codigoPostal: "-"
-      },
-      historial: "-",
-      padecimiento:'-',
-      alergias:'-',
-      polizaSeguro:{
-        compania:'-',
-        numero:'-'
-      }
-    },
-
-    userAmbulance: {
-      tripulacion: {
-        one: {
-          nombre: {
-            primerNombre: "-",
-            apellido: "-"
-          },
-          correoElectronico: "-",
-          contraseña: "-",
-          telefono: "-"
-        },
-        two: {
-          nombre: {
-            primerNombre: "-",
-            apellido: "-"
-          },
-          correoElectronico: "-",
-          contraseña: "-",
-          telefono: "-"
-        },
-        three: {
-          nombre: {
-            primerNombre: "-",
-            apellido: "-"
-          },
-          correoElectronico: "-",
-          contraseña: "-",
-          telefono: "-"
-        }
-      },
-      historial:'-'
-    },
     alertAmbulance: false
   },
   mutations: {

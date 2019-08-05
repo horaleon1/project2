@@ -35,6 +35,12 @@
 
       <AlertAmbulance v-if='!this.$store.state.alertAmbulance'/>
 
+      <div class="containerNav" v-show="nav" >
+      <button>
+        <Navigation/>
+      </button>
+    </div>
+
       <iframe
         src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyCHB7fzFranaqMKbud-JdC_4FwwPNsrNKs&origin=romanorte&destination=hospitalangelesmexico"
         width="100%"
@@ -61,12 +67,14 @@
 import InfoAmbulance from '../components/InfoAmbulance'
 import AlertAmbulance from '../components/AlertAmbulance'
 import DataPatient from '../components/DataPatient'
+import Navigation from '../components/Navigation'
 
 export default {
   components:{
     InfoAmbulance,
     AlertAmbulance,
-    DataPatient
+    DataPatient,
+    Navigation
   },
   data() {
     return {
@@ -77,7 +85,8 @@ export default {
       // iniciar:true,
       // iniciar2:false
       button: "INICIO",
-      AAmbulance:true
+      AAmbulance:true,
+      nav:false
     };
   },
   mounted() {
@@ -174,5 +183,10 @@ hr {
 .iniciarDiv {
   margin: 0 auto;
   width: 100%;
+}
+.containerNav{
+  position: absolute;
+  bottom: 42%;
+  margin-left: 37%;
 }
 </style>

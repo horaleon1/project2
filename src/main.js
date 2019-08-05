@@ -29,6 +29,18 @@ Vue.use(Vuex)
 Vue.use(axios)
 Vue.config.productionTip = false
 
+// export const loadedGoogleMapsAPI = new Promise( (resolve,reject) => {
+
+//   window['GoogleMapsInit'] = resolve;
+
+//   let GMap = document.createElement('script');
+
+//   GMap.setAttribute('src',
+//  `https://maps.googleapis.com/maps/api/js?key=AIzaSyCHB7fzFranaqMKbud-JdC_4FwwPNsrNKs&callback=initMap`);
+
+//   document.body.appendChild(GMap); 
+// });
+
 
 
 

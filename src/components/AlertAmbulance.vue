@@ -3,11 +3,14 @@
     <button @click="alertOff = !alertOff">
       <div class="animacion">
         <div class="animacion2">
-          <h1>Emergencia</h1>
-          <h3> {{ $store.state.segundosRestantes }} </h3>
         </div>
       </div>
+          <h3> {{ $store.state.segundosRestantes }} </h3>
+          
+          <h1>Emergencia</h1>
     </button>
+
+    
     
   </div>
 </template>
@@ -15,7 +18,11 @@
 <script>
 import { setTimeout } from 'timers';
 
+
 export default {
+  components:{
+
+  },
   data(){
     return{
       alertOff: true
@@ -99,9 +106,10 @@ export default {
   }
 }
 h1 {
-  margin-top: 40%;
-  margin-left: 10%;
+  margin-top: 0%;
+  margin-left: 23%;
   font-size: 30px;
+  opacity: 0.8;
 }
 .direccion{
   margin:5%;
@@ -111,6 +119,9 @@ h3{
   font-size: 35px;
   color: black;
   font-weight: 700;
+  padding-left: 40%;
+  padding-top: 20%;
+  opacity: 0.8;
 }
 </style>
 

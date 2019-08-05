@@ -1,46 +1,38 @@
 <template>
-<div>
-
-
-  <!-- User Position -->
-
-
-
-
-</div>
+  <div>
+    <div id="map"></div>
+  </div>
 </template>
 
 <script>
-// import { MapElement } from 'vue-googlemaps'
-// export default {
-//   mixins: [
-//     // You need to use this mixin
-//     MapElement,
-//   ],
+// import GoogleMapsApiLoader from "google-maps-api-loader";
+import { loadedGoogleMapsAPI } from '@/main'
 
-//   // When Google Maps is ready
-//   googleMapsReady () {
-//     const options = Object.assign({}, this.$props)
-//     options.map = this.$_map
+export default {
+  data() {
+    return {
 
-//     // Create Google Maps objects
-//     this.$_marker = new window.google.maps.Marker(options)
-//     // Bind the Vue props
-//     this.bindProps(this.$_marker, boundProps)
-//     // Emit the events from Google Maps
-//     this.redirectEvents(this.$_marker, redirectedEvents)
-//   },
-
-//   beforeDestroy () {
-//     // Teardown
-//     if (this.$_marker) {
-//       this.$_marker.setMap(null)
-//     }
-//   },
-  
-// }
+    };
+  },
+  mounted(){  
+       loadedGoogleMapsAPI.then(()=>{
+         this.initMap()
+       })
+  },
+  methods:{
+     initMap(){
+        console.log(google.maps); //You can now access google maps object here
+        new google.maps.Map(document.getElementById('map'), {
+          // You configuration goes here
+        })
+     }
+  }
+};
 </script>
 
 <style scoped>
-
+#map {
+  width: 100%;
+  height: 400px;
+}
 </style>

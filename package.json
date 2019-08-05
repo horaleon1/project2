@@ -13,6 +13,8 @@
     "bootstrap-vue": "^2.0.0-rc.27",
     "core-js": "^2.6.5",
     "dotenv": "^8.0.0",
+    "google-autocomplete-vue": "^1.0.17",
+    "google-maps-api-loader": "^1.1.1",
     "mapbox-gl-vue": "^1.9.0",
     "vue": "^2.6.10",
     "vue-eva-icons": "^1.1.1",
@@ -23,6 +25,7 @@
     "vue-router": "^3.0.3",
     "vue2-datepicker": "^2.12.0",
     "vue2-google-maps": "^0.10.7",
+    "vuemit": "^1.0.9",
     "vuetify": "^1.5.16",
     "vuex": "^3.1.1"
   },

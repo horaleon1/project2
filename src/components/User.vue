@@ -68,6 +68,8 @@
         />
       </gmapMap>
 
+      <!-- @click="center=m.position" -->
+
       <!-- //once pedir and accepted by the Userambulance , user gets the UserTimeRemaining -->
       <!-- <UserTimeRemaining/> -->
     </div>
@@ -140,6 +142,7 @@ export default {
       myMarkers: [],
       places: [],
       currentPlace: null,
+      markers:'',
 
       lng: "",
       lat: "",
@@ -197,6 +200,7 @@ export default {
 
       console.log(`longitude: ${this.long}  latitude: ${this.lati}`);
     },
+    
     // addMarker(){
     //   const marker = new google.maps.Marker({
     //     position = this.center,

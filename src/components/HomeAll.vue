@@ -202,6 +202,7 @@ export default {
 
 <style>
 @media (min-width: 993px) {
+  
   .container {
     font-family: Arial, Helvetica, sans-serif;
     z-index: 100;
