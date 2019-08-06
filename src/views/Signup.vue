@@ -23,15 +23,16 @@
       </div>
 
       <div class="buttons">
-        <router-link to="/signup" class="router2">Registrarse</router-link>
+        <button class="button1">Registrarse</button>
         <router-link to="/signin" class="router1">Iniciar sesión</router-link>
+         <img src="../assets/ambulance2.png" alt="" class="ambulance2">
       </div>
-      <div class="bottonesSociales">
+      <!-- <div class="bottonesSociales">
         <ul>
           <li><v-facebook-login app-id="966242223397117" class="facebook"></v-facebook-login></li>
           <li class="google"><button><img src="../assets/google.png" alt=""><span class="buttonText">Sign in with Google</span></button></li>
         </ul>
-      </div>
+      </div> -->
       
     </div>
   </div>
@@ -75,10 +76,10 @@ export default {
     margin-right: 5%;
   }
   input:nth-child(1) {
-    width: 40.5%;
+    width: 40%;
   }
   input:nth-child(2) {
-    width: 40.5%;
+    width: 40%;
   }
   input {
     width: 86%;
@@ -93,7 +94,7 @@ export default {
   }
   .router1 {
     display: block;
-    width: 80%;
+    width: 82%;
     margin-top: 3%;
     margin-left: 5%;
     margin-right: 5%;
@@ -104,6 +105,7 @@ export default {
     color: white;
     text-align: center;
     text-decoration: none;
+    font-size: 18px;
   }
   .router2 {
     display: block;
@@ -118,6 +120,22 @@ export default {
     color: grey;
     text-align: center;
     text-decoration: none;
+    font-size: 18px;
+  }
+  .button1{
+    display: block;
+    width: 85%;
+    margin-top: 3%;
+    margin-left: 5%;
+    margin-right: 5%;
+    border: 1px solid lightgray;
+    padding: 10px;
+    border-radius: 14px;
+    background-color: white;
+    color: grey;
+    text-align: center;
+    text-decoration: none;
+    font-size: 18px;
   }
   .arrow {
     fill: #040acb;
@@ -152,6 +170,12 @@ export default {
   }
   .buttonText{
     margin-left:1.5%;
+  }
+  .ambulance2{
+    height: 180px;
+    width: 200px;
+    margin-left:35%;
+    margin-top: 8%;
   }
 }
 
@@ -192,9 +216,9 @@ export default {
   }
   .router1 {
     display: block;
-    width: 85%;
-    margin-top: 5%;
-    margin-left: 5%;
+    width: 80%;
+    margin-top: 7%;
+    margin-left: 7%;
     margin-right: 5%;
     border: 1px solid #040acb;
     padding: 10px;
@@ -203,12 +227,13 @@ export default {
     color: white;
     text-align: center;
     text-decoration: none;
+    font-size:16px;
   }
   .router2 {
     display: block;
-    width: 85%;
-    margin-top: 5%;
-    margin-left: 5%;
+    width: 81%;
+    margin-top: 7%;
+    margin-left: 7%;
     margin-right: 5%;
     border: 1px solid lightgray;
     padding: 10px;
@@ -217,6 +242,21 @@ export default {
     color: grey;
     text-align: center;
     text-decoration: none;
+  }
+  .button1{
+    display: block;
+    width: 85.5%;
+    margin-top: 7%;
+    margin-left: 7%;
+    margin-right: 5%;
+    border: 1px solid lightgray;
+    padding: 10px;
+    border-radius: 14px;
+    background-color: white;
+    color: grey;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
   }
   .arrow {
     fill: #040acb;
@@ -254,6 +294,12 @@ export default {
   }
   .buttonText{
     display: none;
+  }
+  .ambulance2{
+    height: 90px;
+    width: 100px;
+    margin-left:38%;
+    margin-top: 10%;
   }
 }
 </style>

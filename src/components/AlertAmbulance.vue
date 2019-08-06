@@ -1,12 +1,13 @@
 <template>
   <div class="containerAnimacion" v-show="alertOff">
     <button @click="alertOff = !alertOff">
+      
       <div class="animacion">
-        <div class="animacion2">
+        <div class="animacion2"> 
         </div>
       </div>
+          <img src="../assets/siren.png" alt="" id="siren">
           <h3> {{ $store.state.segundosRestantes }} </h3>
-          
           <h1>Emergencia</h1>
     </button>
 
@@ -51,7 +52,7 @@ export default {
 
 <style scoped>
 .containerAnimacion {
-  margin-top: 30%;
+  margin-top:20%;
   margin-left: 16%;
   position: absolute;
 }
@@ -106,7 +107,7 @@ export default {
   }
 }
 h1 {
-  margin-top: 0%;
+  margin-top: -10%;
   margin-left: 23%;
   font-size: 30px;
   opacity: 0.8;
@@ -119,9 +120,29 @@ h3{
   font-size: 35px;
   color: black;
   font-weight: 700;
-  padding-left: 40%;
-  padding-top: 20%;
+  padding-left: 35%;
   opacity: 0.8;
+  margin-top: 10%;
+}
+#siren{
+  height:50px;
+  width: 50px;
+  margin-left: 35%;
+  margin-top: 15%;
+  animation: pulse3 1s infinite;
+  opacity: 1;
+}
+@keyframes pulse3 {
+  0% {
+    opacity: 1;
+  }
+  70% {
+
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 0.6;
+  }
 }
 </style>
 

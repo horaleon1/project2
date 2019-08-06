@@ -32,7 +32,7 @@ export default {
   height: 900px;
   position:absolute;
   height: 100%;
-  margin-top: 10%;
+  margin-top: -1%;
 }
 .container h1{
  margin-top: 25%;

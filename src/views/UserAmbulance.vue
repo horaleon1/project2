@@ -56,8 +56,8 @@
       >{{ button }}</button>
     </div>
 
-    <!-- <InfoAmbulance/> -->
-    <DataPatient />
+    <InfoAmbulance/>
+    <!-- <DataPatient /> -->
 
     <div class="tips"></div>
   </div>
@@ -109,7 +109,25 @@ export default {
         this.button = this.button === "INICIO" ? "DESCONECTARSE" : "INICIO";
         this.onlineStyle = true;
       }
-    }
+    },
+    // saveGeneral() {
+    //   axios
+    //     .put("http://localhost:3000/clients/" + this.clientId, {
+    //       personalInfo: this.general.personalInfo,
+    //       professionalInfo: this.general.professionalInfo,
+    //       legalInfo: this.general.legalInfo,
+    //       additionalInfo: this.general.additionalInfo
+    //     })
+    //     .then(res => {
+    //       this.generalInfoEditMode = false;
+    //       // this.reRender();
+    //     })
+    //     .catch(err => {
+    //       alert(
+    //         "Lo sentimos, no se pudo editar el registro, favor de intentar más tarde."
+    //       );
+    //     });
+    // }
   },
   computed:{
     // return this.countdownSearchAmbulance();

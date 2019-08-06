@@ -169,6 +169,7 @@
             <li>Privacidad</li>
             <br />
             <li>© 2019 miAmbulancia S.A.P.I. de C.V.</li>
+            <li> Hecho con <img src="../assets/cardio.png" alt="red heart" height="40px" width="35px"> en Ironhack México</li>
           </ul>
         </div>
       </div>
@@ -390,7 +391,7 @@ export default {
     letter-spacing: 1px;
   }
   .indice3{
-    margin-top: 40px;
+    margin-top: 8px;
     margin-left: -5%;
     margin-right: 20%;
   }
@@ -633,7 +634,7 @@ export default {
   }
   .containerFooter {
     background-color: #040acb;
-    height: 600px;
+    height: 650px;
     width: 100%;
   }
   .indice1 ul,
@@ -659,6 +660,7 @@ export default {
     width: 90%;
     color: lightslategray;
   }
+
 }
 </style>
 

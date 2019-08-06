@@ -17,12 +17,13 @@
       <div class="buttons">
         <button to="/signin" class="button1" @submit="hacerUnaCuenta">Iniciar sesión</button>
         <router-link to="/signup" class="router2" >Registrarse</router-link>
+        <img src="../assets/ambulance2.png" alt="ambulance" class="ambulance2">
       </div>
       <div class="bottonesSociales">
         <ul>
           <!-- <li><v-facebook-login app-id="966242223397117" id="facebook" ></v-facebook-login></li> -->
           <!-- <li class="google" id="facebook"><button><img src="../assets/google.png" alt=""><span class="buttonText">Sign in with Facebook</span></button></li> -->
-          <li class="google"><button><img src="../assets/google.png" alt=""><span class="buttonText">Sign in with Google</span></button></li>
+          <!-- <li class="google"><button><img src="../assets/google.png" alt=""><span class="buttonText">Sign in with Google</span></button></li> -->
         </ul>
       </div>
     </div>
@@ -97,7 +98,7 @@ export default {
   }
   .router2 {
     display: block;
-    width: 80%;
+    width: 81%;
     margin-top: 3%;
     margin-left: 5%;
     margin-right: 5%;
@@ -108,6 +109,7 @@ export default {
     color: grey;
     text-align: center;
     text-decoration: none;
+    font-size: 18px;
   }
   .arrow{
     fill: #040acb;
@@ -115,7 +117,7 @@ export default {
     margin-top: 5%;
   }
   .formulario{
-    margin-top: 5%;
+    margin-top: 3%;
   }
    input{
     width: 80%;
@@ -134,14 +136,15 @@ export default {
   }
   
   .google button{
-    width: 86%;
-    margin-top: 3%;
+    width: 85.5%;
+    margin-top: 1%;
     margin-left: 1%;
     border-radius: 14px;
     height:40px;
     color: grey;
     border: 1px solid lightgray;
     text-align: center;
+    font-size:18px;
   }
   .google button img{
     height: 25px;
@@ -153,6 +156,26 @@ export default {
   }
   .buttonText{
     margin-left:1.5%;
+  }
+  .button1{
+    display: block;
+    width: 83%;
+    margin-top: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
+    border: 1px solid #040acb;
+    padding: 12px;
+    border-radius: 14px;
+    background-color: #040acb;
+    color: white;
+    text-align: center;
+    font-size: 18px;
+  }
+  .ambulance2{
+    height: 180px;
+    width: 200px;
+    margin-left:35%;
+    margin-top: 5%;
   }
 }
 
@@ -188,21 +211,22 @@ export default {
   }
   .router2 {
     display: block;
-    width: 84%;
+    width: 80.5%;
     margin-top: 5%;
     margin-left: 5%;
     margin-right: 5%;
     border: 1px solid lightgray;
-    padding: 10px;
+    padding: 13px;
     border-radius: 14px;
     background-color: white;
     color: grey;
     text-align: center;
     text-decoration: none;
+    font-size: 16px;
   }
   .button1{
     display: block;
-    width: 90%;
+    width: 88%;
     margin-top: 5%;
     margin-left: 5%;
     margin-right: 5%;
@@ -212,6 +236,7 @@ export default {
     background-color: #040acb;
     color: white;
     text-align: center;
+    font-size: 16px;
   }
   .arrow{
     fill: #040acb;
@@ -260,6 +285,12 @@ export default {
   }
   .buttonText{
     display: none;
+  }
+  .ambulance2{
+    height: 90px;
+    width: 100px;
+    margin-left:37%;
+    margin-top: 10%;
   }
 }
 </style>
