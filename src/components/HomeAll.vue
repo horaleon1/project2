@@ -2,8 +2,8 @@
   <div class="container">
     <nav class="navHolder">
       <a class="logoA">
-        <h2 class="logoText">LOGO</h2>
-        <!-- <img src="../assets/logo.png" alt class="logo" /> -->
+        <!-- <h2 class="logoText">LOGO</h2> -->
+        <img src="../assets/3fA.png" alt class="logo" />
       </a>
       <!-- // menu full width -->
       <div class="dropdownFullWidth">
@@ -221,13 +221,14 @@ export default {
     display: block;
   }
   .logo {
-    height: 50px;
-    width: 50px;
+    height: 140px;
+    width: 150px;
     background-color: transparent;
+    position: absolute;
+    top: -3.5%;
+    margin-left: 3%;
   }
   .logoA {
-    margin-top: 5px;
-    margin-left: 50px;
     color: white;
   }
   .menuDer {
@@ -255,6 +256,9 @@ export default {
   li .routers {
     margin-left: 3px;
   }
+  .dropdownFullWidth{
+    margin-left: 10%;
+  }
   .dropdownFullWidth ul {
     list-style: none;
     font-size: 20px;
@@ -263,7 +267,7 @@ export default {
   }
   .dropdownFullWidth ul li {
     display: inline-block;
-    margin-left: 30px;
+    margin-left: 100px;
   }
   .container2 {
     background: url("../assets/Ambulance.jpg");
@@ -438,13 +442,11 @@ export default {
     display: block;
   }
   .logo {
-    height: 50px;
-    width: 50px;
     background-color: transparent;
   }
   .logoA {
     margin-top: 15px;
-    margin-left: 20px;
+    margin-left: 3px;
   }
   .menuDer {
     font-size: 15px;
@@ -660,7 +662,13 @@ export default {
     width: 90%;
     color: lightslategray;
   }
-
+  .logo{
+    height: 110px;
+    width: 100px;
+    position:absolute;
+    margin-top: -8%;
+    margin-left: 2%;
+  }
 }
 </style>
 

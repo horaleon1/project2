@@ -29,19 +29,21 @@
 
     <div class="mapContainer">
       <div id="map"></div>
-      <!-- <h3 class="circleLogo">LOGO</h3> -->
+      <img src="../assets/h.png" alt="Logo miAmbulancia" class="logoMap">
       <button class="circleMenu" @click="sideMenu = !sideMenu">
         <img src alt />
         <eva-icon name="menu" class="icons" height="30px" width="30px"></eva-icon>
       </button>
 
+
+<Map/>
       <!-- <iframe
         src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyCHB7fzFranaqMKbud-JdC_4FwwPNsrNKs&origin=romanorte&destination=hospitalangelesmexico"
         width="100%"
         height="430px"
       ></iframe>-->
 
-      <gmapMap
+      <!-- <gmapMap
         :center="{lat:19.4326, lng:-99.1332}"
         :zoom="13.5"
         map-type-id="terrain"
@@ -66,7 +68,7 @@
           :draggable="true"
           @click="center=m.position"
         />
-      </gmapMap>
+      </gmapMap> -->
 
       <!-- @click="center=m.position" -->
 
@@ -109,6 +111,7 @@ import AlertAmbulance from "../components/AlertAmbulance";
 import InfoAmbulance from "../components/InfoAmbulance";
 import UserTimeRemaining from "../components/UserTimeRemaining";
 import AlertUser from "../components/AlertUser";
+import Map from "../components/Map"
 
 import { mapState } from "vuex";
 
@@ -122,7 +125,8 @@ export default {
     AlertAmbulance,
     InfoAmbulance,
     UserTimeRemaining,
-    AlertUser
+    AlertUser,
+    Map
   },
   data() {
     return {
@@ -162,13 +166,13 @@ export default {
       })
       .catch(err => console.log(err));
 
-    ////google maps
-    this.geolocate();
-    ///google maps
+    // ////google maps
+    // this.geolocate();
+    // ///google maps
   },
-  created() {
-    this.currentLocation();
-  },
+  // created() {
+  //   this.currentLocation();
+  // },
   methods: {
     user1F() {
       this.user1 = true;
@@ -189,17 +193,17 @@ export default {
       this.$emit("changeAyuda1", "false");
     },
     
-    currentLocation() {
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(this.displayLocationInfo);
-      }
-    },
-    displayLocationInfo(position) {
-      this.long = position.coords.longitude;
-      this.lati = position.coords.latitude;
+    // currentLocation() {
+    //   if (navigator.geolocation) {
+    //     navigator.geolocation.getCurrentPosition(this.displayLocationInfo);
+    //   }
+    // },
+    // displayLocationInfo(position) {
+    //   this.long = position.coords.longitude;
+    //   this.lati = position.coords.latitude;
 
-      console.log(`longitude: ${this.long}  latitude: ${this.lati}`);
-    },
+    //   console.log(`longitude: ${this.long}  latitude: ${this.lati}`);
+    // },
     
     // addMarker(){
     //   const marker = new google.maps.Marker({
@@ -399,6 +403,13 @@ export default {
 .router {
   text-decoration: none;
   color: black;
+}
+.logoMap{
+ position: absolute;
+ height: 100px;
+ width: 100px;
+ margin-top: -3%;
+ margin-left: 3%;
 }
 </style>
 

@@ -4,13 +4,13 @@
       <div class="informacion">
         <div class="containerInput1">
           <eva-icon name="search" class="icons"></eva-icon>
-          <!-- <input
+          <input
             type="text"
             placeholder="   ¿En dónde es tu emergencia? "
             class="input1"
             ref="autocomplete"
-          /> -->
-        <gmap-autocomplete @place_changed="setPlace" class="input1" placeholder="   ¿En dónde es tu emergencia? " ></gmap-autocomplete>
+          />
+        <!-- <gmap-autocomplete @place_changed="setPlace" class="input1" placeholder="   ¿En dónde es tu emergencia? " ></gmap-autocomplete> -->
 
 
         
