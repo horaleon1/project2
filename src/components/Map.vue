@@ -1,6 +1,6 @@
 <template>
   <div class="containerMap">
-    <iframe :src="generatedSrc" width="378px" height="450px" style="border:0" allowfullscreen></iframe>
+    <iframe :src="generatedSrc" width="378px" height="450px" style="border:0" allowfullscreen ></iframe>
   </div>
 </template>
 
@@ -53,6 +53,8 @@ export default {
 
 
 <style scoped>
+
+
 </style>
 
 

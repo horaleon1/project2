@@ -1,49 +1,55 @@
 <template>
   <div class="containerAnimacion" v-show="alertOff">
     <button @click="alertOff = !alertOff">
-      
       <div class="animacion">
-        <div class="animacion2"> 
-        </div>
+        <div class="animacion2"></div>
       </div>
-          <img src="../assets/siren.png" alt="" id="siren">
-          <h3> {{ $store.state.segundosRestantes }} </h3>
-          <h1>Emergencia</h1>
+      <img src="../assets/siren.png" alt="Imagen sirena Ambulancia" id="siren" />
+      <h3>{{ $store.state.segundosRestantes }}</h3>
+      <h1>Emergencia</h1>
     </button>
 
-    
-    
+    <div v-show="alertOff">
+      <audio autoplay loop>
+        <source src="../assets/soundAlertAmbulance.wav" type="audio/wav" />
+      </audio>
+    </div>
+
   </div>
 </template>
 
 <script>
-import { setTimeout } from 'timers';
-
+import { setTimeout } from "timers";
 
 export default {
-  components:{
-
+  props: {
+    sound: "./assets/soundAlertAmbulance.wav"
   },
-  data(){
-    return{
+  components: {},
+  data() {
+    return {
       alertOff: true
-    }
+    };
   },
-  methods:{
-    countDown(){
-      if(this.$store.state.segundosRestantes > 0){
-        setTimeout( () => {
-          this.$store.state.segundosRestantes -= 1
-          this.countDown()
-        },1000)
-      } else if(this.$store.state.segundosRestantes == 0) {
-        this.$store.state.alertAmbulance = !this.$store.state.alertAmbulance
+  methods: {
+    countDown() {
+      if (this.$store.state.segundosRestantes > 0) {
+        setTimeout(() => {
+          this.$store.state.segundosRestantes -= 1;
+          this.countDown();
+        }, 1000);
+      } else if (this.$store.state.segundosRestantes == 0) {
+        this.$store.state.alertAmbulance = !this.$store.state.alertAmbulance;
       }
+    },
+    soundAlert() {
+      var audio = new Audio("./assets/soundAlertAmbulance.wav");
+      audio.play();
     }
   },
   created() {
-     this.countDown()
-  },
+    this.countDown();
+  }
   // beforeDestroy(){
   //   clearInterval()
   // }
@@ -52,7 +58,7 @@ export default {
 
 <style scoped>
 .containerAnimacion {
-  margin-top:20%;
+  margin-top: 20%;
   margin-left: 16%;
   position: absolute;
 }
@@ -112,11 +118,11 @@ h1 {
   font-size: 30px;
   opacity: 0.8;
 }
-.direccion{
-  margin:5%;
+.direccion {
+  margin: 5%;
   background-origin: 1px solid lightgrey;
 }
-h3{
+h3 {
   font-size: 35px;
   color: black;
   font-weight: 700;
@@ -124,10 +130,10 @@ h3{
   opacity: 0.8;
   margin-top: 10%;
 }
-#siren{
-  height:50px;
+#siren {
+  height: 50px;
   width: 50px;
-  margin-left: 35%;
+  margin-left: 38%;
   margin-top: 15%;
   animation: pulse3 1s infinite;
   opacity: 1;
@@ -137,11 +143,10 @@ h3{
     opacity: 1;
   }
   70% {
-
-    opacity: 0.6;
+    opacity: 0.8;
   }
   100% {
-    opacity: 0.6;
+    opacity: 0.7;
   }
 }
 </style>

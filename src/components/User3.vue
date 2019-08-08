@@ -4,12 +4,12 @@
       <div class="informacion">
         <div class="containerInput1">
           <eva-icon name="search" class="icons"></eva-icon>
-          <!-- <input type="text" placeholder="   ¿En dónde es tu emergencia? " class="input1" /> -->
-          <gmap-autocomplete
+          <input type="text" placeholder="   ¿En dónde es tu emergencia? " class="input1" />
+          <!-- <gmap-autocomplete
             @place_changed="setPlace"
             class="input1"
             placeholder="   ¿En dónde es tu emergencia? "
-          ></gmap-autocomplete>
+          ></gmap-autocomplete> -->
 
           <button @click="programado = !programado">
             <eva-icon name="calendar" class="icons"></eva-icon>

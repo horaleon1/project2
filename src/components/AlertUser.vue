@@ -126,16 +126,16 @@ export default {
   padding: 10px;
 }
 .cancelar {
-  margin-left: 37%;
+  margin-left: 39%;
   margin-top: 20%;
   margin-bottom: 10%;
 }
 .cancelar button {
   border: 1px solid #fb2f1b;
   background-color: #fb2f1b;
-  border-radius: 10px;
+  border-radius: 12px;
   color: white;
-  padding: 5px 10px;
+  padding: 8px 12px;
 }
 .conjunto{
   margin: 75% 5% 0% -10%;
