@@ -4,45 +4,79 @@
       <router-link to="/" class="router3">
         <eva-icon name="arrow-back" class="arrow" height="30px" width="30px"></eva-icon>
       </router-link>
-      <div class="logo">LOGO</div>
+      <div class="logoS">
+        <img src="../assets/h.png" alt class="logoSign" height="100px" width="100px" />
+      </div>
       <div class="titulos">
         <h2>Registrate</h2>
         <h4>Ingresa tus datos para crear una cuenta.</h4>
       </div>
       <div class="formulario">
         <form>
-          <input type="text" name="firstname" placeholder="Nombre" />
-          <input type="text" name="lastname" placeholder="Apellido" />
-          <input type="text" name="email" placeholder="Correo Electronico" />
+          <input type="text" name="name" placeholder="Nombre" v-model="name" autocomplete="on"/>
+          <input type="text" name="lastName" placeholder="Apellido" v-model="lastName" autocomplete="on"/>
+          <input type="text" name="email" placeholder="Correo Electronico" v-model="email" autocomplete="on"/>
           <br />
-          <input type="password" name="password" placeholder="Contraseña" />
+          <input type="password" name="password" placeholder="Contraseña" v-model="password" autocomplete="on"/>
           <br />
-          <input type="text" name="cellphone" placeholder="Número de teléfono" />
+          <input type="text" name="cellphone" placeholder="Número de teléfono" v-model="cellphone" @click="mandarDatos" autocomplete="on"/>
           <br />
         </form>
       </div>
 
       <div class="buttons">
-        <button class="button1">Registrarse</button>
+        <button class="button1" @click="mandarDatos">Registrarse</button>
         <router-link to="/signin" class="router1">Iniciar sesión</router-link>
-         <img src="../assets/ambulance2.png" alt="" class="ambulance2">
+        <img src="../assets/ambulance2.png" alt class="ambulance2" />
       </div>
       <!-- <div class="bottonesSociales">
         <ul>
           <li><v-facebook-login app-id="966242223397117" class="facebook"></v-facebook-login></li>
           <li class="google"><button><img src="../assets/google.png" alt=""><span class="buttonText">Sign in with Google</span></button></li>
         </ul>
-      </div> -->
-      
+      </div>-->
     </div>
   </div>
 </template>
 
 <script>
+import axios from "axios";
+
 import VFacebookLogin from "vue-facebook-login-component";
 export default {
   components: {
     VFacebookLogin
+  },
+  data() {
+    return {
+      name: "",
+      lastName: "",
+      email: "",
+      password: "",
+      cellphone: ""
+    };
+  },
+  methods: {
+    mandarDatos() {
+      axios
+        .post("http://localhost:3041/userPublic/", {
+          name: this.name,
+          lastName: this.lastName,
+          email: this.email,
+          password: this.password,
+          cellphone: this.cellphone
+        })
+        .then(res => {
+          console.log(
+            this.name,
+            this.lastName,
+            this.email,
+            this.password,
+            this.cellphone
+          );
+        })
+        .catch(err => console.log(err));
+    }
   }
 };
 </script>
@@ -59,11 +93,11 @@ export default {
   .center {
     margin: auto;
     width: 50%;
-    margin-top: 5%;
+    margin-top: 2%;
     /* text-align: center; */
   }
-  .logo {
-    margin: 0% 0% 0% 10%;
+  .logoS {
+    margin: 0% 0% 0% 5%;
   }
   .titulos {
     margin-top: 0%;
@@ -122,7 +156,7 @@ export default {
     text-decoration: none;
     font-size: 18px;
   }
-  .button1{
+  .button1 {
     display: block;
     width: 85%;
     margin-top: 3%;
@@ -149,32 +183,32 @@ export default {
     margin-right: 5%;
     border-radius: 14px;
   }
-  
-  .google button{
+
+  .google button {
     width: 86%;
     margin-top: 3%;
     margin-left: 1%;
     border-radius: 14px;
-    height:40px;
+    height: 40px;
     color: grey;
     border: 1px solid lightgray;
     text-align: center;
   }
-  .google button img{
+  .google button img {
     height: 25px;
-    width:25px;
-    margin-left:-3%;
+    width: 25px;
+    margin-left: -3%;
   }
-   ul{
-   list-style: none;
+  ul {
+    list-style: none;
   }
-  .buttonText{
-    margin-left:1.5%;
+  .buttonText {
+    margin-left: 1.5%;
   }
-  .ambulance2{
+  .ambulance2 {
     height: 180px;
     width: 200px;
-    margin-left:35%;
+    margin-left: 35%;
     margin-top: 8%;
   }
 }
@@ -184,16 +218,16 @@ export default {
     background-color: #f3f4f6;
     height: 900px;
   }
-  .logo {
-    margin: 5% 0% 2% 15%;
+  .logoS {
+    margin: 0% 0% 5% 35%;
   }
   .titulos {
-    margin-top: 0%;
+    margin-top: 5%;
     margin-left: 8%;
     margin-right: 5%;
   }
   .formulario {
-    margin-top: 8%;
+    margin-top: 10%;
     margin-left: 8%;
     margin-right: 5%;
   }
@@ -227,7 +261,7 @@ export default {
     color: white;
     text-align: center;
     text-decoration: none;
-    font-size:16px;
+    font-size: 16px;
   }
   .router2 {
     display: block;
@@ -243,7 +277,7 @@ export default {
     text-align: center;
     text-decoration: none;
   }
-  .button1{
+  .button1 {
     display: block;
     width: 85.5%;
     margin-top: 7%;
@@ -270,35 +304,34 @@ export default {
     border-radius: 14px;
     width: 101%;
   }
-  .google button{
+  .google button {
     width: 101%;
     margin-top: 5%;
     margin-left: -6%;
     margin-right: 5%;
     border-radius: 14px;
-    height:40px;
+    height: 40px;
     color: grey;
     border: 1px solid lightgray;
     text-align: center;
     background-color: white;
-    
   }
-  .google button img{
+  .google button img {
     height: 25px;
-    width:25px;
+    width: 25px;
     margin-right: 5%;
     position: relative;
   }
-   ul{
-   list-style: none;
+  ul {
+    list-style: none;
   }
-  .buttonText{
+  .buttonText {
     display: none;
   }
-  .ambulance2{
+  .ambulance2 {
     height: 90px;
     width: 100px;
-    margin-left:38%;
+    margin-left: 38%;
     margin-top: 10%;
   }
 }

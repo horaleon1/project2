@@ -587,7 +587,7 @@ export default {
 
   .container3 {
     margin-top: 90px;
-    background-color: #f3f4f6;
+    /* background-color: #f3f4f6; */
   }
   .container3 h2 {
     margin-right: 25px;

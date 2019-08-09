@@ -2,7 +2,7 @@
   <div class="container">
     <nav class="navHolder">
       <a class="logoA">
-        <h2 class="logoText">LOGO</h2>
+        <img src="../assets/3fA.png" alt class="logoS" height="120px" width="120px" />
         <!-- <img src="../assets/logo.png" alt class="logo" /> -->
       </a>
       <div class="menuDer">
@@ -53,7 +53,7 @@
                   <h2>{{ user.results[0].name.first | capitalize }} {{ user.results[0].name.last | capitalize }}</h2>
                 </li>
                 <li class="padecimiento">
-                  <h4>Padecimiento: {{ $store.state.user.padecimiento }}</h4>
+                  <h4>Padecimiento:</h4>
                 </li>
                 <li>
                   <ul>
@@ -318,6 +318,10 @@ ul {
 .router {
   text-decoration: none;
   color: black;
+}
+.logoS{
+  margin-left: 40%;
+  margin-top: -15%;
 }
 </style>
 

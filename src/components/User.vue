@@ -8,7 +8,7 @@
           </li>
           <li>{{ user.results[0].name.first | capitalize }} {{ user.results[0].name.last | capitalize }}</li>
           <hr />
-          <li>Cuenta</li>
+          <li><router-link to="/account" class="router">Cuenta</router-link></li> 
           <li>Historial médico</li>
           <li>Círculo Familiar</li>
           <li>
@@ -28,15 +28,17 @@
     </div>
 
     <div class="mapContainer">
-      <div id="map"></div>
-      <img src="../assets/h.png" alt="Logo miAmbulancia" class="logoMap">
+      <div id="map">
+        <Map2/>
+      </div>
+      <!-- <img src="../assets/h.png" alt="Logo miAmbulancia" class="logoMap"> -->
       <button class="circleMenu" @click="sideMenu = !sideMenu">
         <img src alt />
         <eva-icon name="menu" class="icons" height="30px" width="30px"></eva-icon>
       </button>
 
 
-<Map/>
+
       <!-- <iframe
         src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyCHB7fzFranaqMKbud-JdC_4FwwPNsrNKs&origin=romanorte&destination=hospitalangelesmexico"
         width="100%"
@@ -112,6 +114,7 @@ import InfoAmbulance from "../components/InfoAmbulance";
 import UserTimeRemaining from "../components/UserTimeRemaining";
 import AlertUser from "../components/AlertUser";
 import Map from "../components/Map"
+import Map2 from "../components/Map2"
 
 import { mapState } from "vuex";
 
@@ -126,7 +129,8 @@ export default {
     InfoAmbulance,
     UserTimeRemaining,
     AlertUser,
-    Map
+    Map,
+    Map2
   },
   data() {
     return {
@@ -408,8 +412,9 @@ export default {
  position: absolute;
  height: 100px;
  width: 100px;
- margin-top: -3%;
+ margin-top: -120%;
  margin-left: 3%;
+ z-index: 9999;
 }
 </style>
 

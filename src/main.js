@@ -5,10 +5,13 @@ import Vuex from 'vuex'
 import EvaIcons from 'vue-eva-icons'
 import { store } from './store.js'
 import axios from 'axios';
+import GoogleMapsLoader from 'google-maps';
+require('dotenv').config()
 
 Vue.use(EvaIcons)
 Vue.use(Vuex)
 Vue.use(axios)
+Vue.use(GoogleMapsLoader)
 Vue.config.productionTip = false
 
 new Vue({

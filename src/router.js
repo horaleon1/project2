@@ -13,6 +13,7 @@ import ServiceHistoryAmbulance from './views/ServiceHistoryAmbulance.vue'
 import ServiceHistoryHospital from './views/ServiceHistoryHospital.vue'
 import Pruebas2 from './views/Pruebas2.vue'
 import Users from './views/Users.vue'
+import Cuenta from './views/Cuenta.vue'
 
 Vue.use(Router)
 
@@ -92,6 +93,11 @@ export default new Router({
       path: '/users',
       name: 'users',
       component: Users
-    }, 
+    },
+    {
+      path: '/account',
+      name: 'account',
+      component: Cuenta
+    },  
   ]
 })

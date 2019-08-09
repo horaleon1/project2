@@ -28,24 +28,26 @@
     </div>
 
     <div class="mapContainer">
+      <Map2 class="map2"/>
+      <AlertAmbulance v-if='!this.$store.state.alertAmbulance'/>
       <button class="buttonMenu" @click="sideMenu = !sideMenu">
         <img src alt />
         <img :src="url" height="50px" width="50px" class="imageMenu" v-show="!sideMenu" />
       </button>
 
-      <AlertAmbulance v-if='!this.$store.state.alertAmbulance'/>
 
       <div class="containerNav" v-show="nav" >
-      <button>
-        <Navigation/>
-      </button>
+      <!-- <button>
+        <!-- <Navigation/> -->
+      <!-- </button> --> -->
     </div>
 
-      <iframe
+      <!-- <iframe
         src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyCHB7fzFranaqMKbud-JdC_4FwwPNsrNKs&origin=romanorte&destination=hospitalangelesmexico"
         width="100%"
         height="470px"
-      ></iframe>
+      ></iframe> -->
+      
     </div>
 
     <div class="iniciarDiv" if="sideMenu">
@@ -56,7 +58,7 @@
       >{{ button }}</button>
     </div>
 
-    <InfoAmbulance/>
+    <InfoAmbulance class="infoAmbulance"/>
     <!-- <DataPatient /> -->
 
     <div class="tips"></div>
@@ -68,13 +70,15 @@ import InfoAmbulance from '../components/InfoAmbulance'
 import AlertAmbulance from '../components/AlertAmbulance'
 import DataPatient from '../components/DataPatient'
 import Navigation from '../components/Navigation'
+import Map2 from '../components/Map2'
 
 export default {
   components:{
     InfoAmbulance,
     AlertAmbulance,
     DataPatient,
-    Navigation
+    Navigation,
+    Map2
   },
   data() {
     return {
@@ -142,6 +146,15 @@ export default {
 </script>
 
 <style scoped>
+.map2{
+  z-index:0;
+}
+.map2, .infoAmbulance{
+ position: absolute;
+}
+.infoAmbulance{
+  bottom:3%;
+}
 .container {
   height: 812px;
   background-color: white;
@@ -168,6 +181,10 @@ export default {
 }
 .sideMenu {
   height: 712px;
+  position:absolute;
+  z-index:9999;
+  background-color: #f3f4f6;
+  width:80%;
 }
 .sideMenu ul li {
   text-align: right;
@@ -201,6 +218,8 @@ hr {
 .iniciarDiv {
   margin: 0 auto;
   width: 100%;
+  position:absolute;
+  top:57%;
 }
 .containerNav{
   position: absolute;

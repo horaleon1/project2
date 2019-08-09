@@ -2,7 +2,9 @@
   <div class="container">
     <div class="center">
       <router-link to="/" class="router3"><eva-icon name="arrow-back" class="arrow" height="30px" width="30px"></eva-icon></router-link>
-      <div class="logo">LOGO</div>
+      <div class="logoS">
+        <img src="../assets/h.png" alt class="logoSign" height="100px" width="100px" />
+      </div>
       <div class="titulos">
         <h3>Mas cerca, en lugar correcto y a tiempo.</h3>
       </div>
@@ -17,7 +19,7 @@
       <div class="buttons">
         <button to="/signin" class="button1" @submit="hacerUnaCuenta">Iniciar sesión</button>
         <router-link to="/signup" class="router2" >Registrarse</router-link>
-        <img src="../assets/ambulance2.png" alt="ambulance" class="ambulance2">
+        <!-- <img src="../assets/ambulance2.png" alt="ambulance" class="ambulance2"> -->
       </div>
       <div class="bottonesSociales">
         <ul>
@@ -177,6 +179,9 @@ export default {
     margin-left:35%;
     margin-top: 5%;
   }
+  .logoS{
+    margin-left: 2%;
+  }
 }
 
 @media (max-width: 993px) {
@@ -291,6 +296,9 @@ export default {
     width: 100px;
     margin-left:37%;
     margin-top: 10%;
+  }
+  .logoS{
+    margin-left: 32%;
   }
 }
 </style>
