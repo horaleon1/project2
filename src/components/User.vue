@@ -8,7 +8,9 @@
           </li>
           <li>{{ user.results[0].name.first | capitalize }} {{ user.results[0].name.last | capitalize }}</li>
           <hr />
-          <li><router-link to="/account" class="router">Cuenta</router-link></li> 
+          <li>
+            <router-link to="/account" class="router">Cuenta</router-link>
+          </li>
           <li>Historial médico</li>
           <li>Círculo Familiar</li>
           <li>
@@ -27,17 +29,38 @@
       </div>
     </div>
 
+    <div class="fullMenu">
+      <div class="fullMenuList">
+        <ul>
+          <li>
+            <img v-bind:src="url" height="50px" width="50px" />
+          </li>
+          <li>{{ user.results[0].name.first | capitalize }} {{ user.results[0].name.last | capitalize }}</li>
+          <li> <hr> </li>
+          <li>Cuenta</li>
+          <li>Historial médico</li>
+          <li>Círculo familiar</li>
+          <li>
+            <router-link to="/historyUser" class="router">Historial de Servicios</router-link>
+          </li>
+          <li>
+            <router-link to="/" class="router">Cerrar sesión</router-link>
+          </li>
+          <li class="version">Versión 1.0.0</li>
+        </ul>
+      </div>
+    </div>
+
     <div class="mapContainer">
       <div id="map">
-        <Map2/>
+        <Map2 class="map2" />
+        <Map3 class="map3" />
       </div>
       <!-- <img src="../assets/h.png" alt="Logo miAmbulancia" class="logoMap"> -->
       <button class="circleMenu" @click="sideMenu = !sideMenu">
         <img src alt />
         <eva-icon name="menu" class="icons" height="30px" width="30px"></eva-icon>
       </button>
-
-
 
       <!-- <iframe
         src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyCHB7fzFranaqMKbud-JdC_4FwwPNsrNKs&origin=romanorte&destination=hospitalangelesmexico"
@@ -70,7 +93,7 @@
           :draggable="true"
           @click="center=m.position"
         />
-      </gmapMap> -->
+      </gmapMap>-->
 
       <!-- @click="center=m.position" -->
 
@@ -78,7 +101,7 @@
       <!-- <UserTimeRemaining/> -->
     </div>
 
-    <AlertUser v-show="$store.state.pedir" />
+    <AlertUser v-show="$store.state.pedir" class="alertUser"/>
 
     <div class="containerTipoUsuario" v-show="$store.state.pedido">
       <div class="listaTipoUsuario">
@@ -113,8 +136,8 @@ import AlertAmbulance from "../components/AlertAmbulance";
 import InfoAmbulance from "../components/InfoAmbulance";
 import UserTimeRemaining from "../components/UserTimeRemaining";
 import AlertUser from "../components/AlertUser";
-import Map from "../components/Map"
-import Map2 from "../components/Map2"
+import Map2 from "../components/Map2";
+import Map3 from "../components/Map3";
 
 import { mapState } from "vuex";
 
@@ -129,8 +152,8 @@ export default {
     InfoAmbulance,
     UserTimeRemaining,
     AlertUser,
-    Map,
-    Map2
+    Map2,
+    Map3
   },
   data() {
     return {
@@ -150,15 +173,14 @@ export default {
       myMarkers: [],
       places: [],
       currentPlace: null,
-      markers:'',
+      markers: "",
 
       lng: "",
       lat: "",
       center: {
-       long: "",
-       lati: ""
+        long: "",
+        lati: ""
       }
-      
     };
   },
   mounted() {
@@ -196,7 +218,7 @@ export default {
     changeAyuda() {
       this.$emit("changeAyuda1", "false");
     },
-    
+
     // currentLocation() {
     //   if (navigator.geolocation) {
     //     navigator.geolocation.getCurrentPosition(this.displayLocationInfo);
@@ -208,7 +230,7 @@ export default {
 
     //   console.log(`longitude: ${this.long}  latitude: ${this.lati}`);
     // },
-    
+
     // addMarker(){
     //   const marker = new google.maps.Marker({
     //     position = this.center,
@@ -216,7 +238,7 @@ export default {
     //   });
     // },
     // my own google maps
-    
+
     //google maps
 
     // setPlace(place) {
@@ -243,8 +265,8 @@ export default {
     //   });
     // },
 
-//////google maps end
-  
+    //////google maps end
+
     filters: {
       capitalize: function(value) {
         if (!value) return "";
@@ -279,142 +301,224 @@ export default {
 </script>
 
 <style scoped>
-#div {
-  width: 100%;
-  height: 450px;
-}
-.container {
-  background-color: #ffffff;
-}
-.circleLogo,
-.circleMenu {
-  position: absolute;
+@media (min-width: 993px) {
+  .map2 {
+    visibility: hidden;
+    position: absolute;
+  }
+  .alertUser{
+    margin-left: 21%;
+  }
+  .sideMenuContainer, .circleMenu {
+    visibility: hidden;
+  }
+  .fullMenu {
+    position: absolute;
+    right: 0%;
+    text-align: right;
+    width: 14.5%;
+    height: 900px;
+    border-radius: 10px;
+    border: 1px solid lightgray;
+    background-color: #f3f3f3;
+  }
+  .fullMenuList {
+    padding-top: 20%;
+  }
+  .fullMenuList ul {
+    list-style: none;
+    margin-right: 10%;
+  }
+  .fullMenuList ul li{
+    padding-bottom: 15%;
+  }
+  .ful{
+  padding-bottom: 30%;
+  }
+  .fullMenuList ul li:nth-child(8){
+    padding-bottom: 150%;
+  }
+  .fullMenuList ul li img{
+    border-radius: 50%;
+  }
+  .router{
+    text-decoration: none;
+    color: black;
+  }
+  .containerTipoUsuario{
+    position: absolute;
+    top: 0%;
+    width: 400px;
+    margin-top: 3%;
+    margin-left: 3%;
+  }
+  .listaTipoUsuario{
+    padding: 5%; 
+    background-color: #f3f4f6;
+    border-radius: 18px;
+    border: 1px solid lightgray;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  .listaTipoUsuario button:enabled{
+    margin-right: 3%;
+    border: 0px;
+    background-color: transparent;
+    color: black;
+    padding-bottom: 5%;
+    color: #040acb;
+  }
+ .listaTipoUsuario button:focus{
+   color: #fb2f1b;
+  }
+
 }
 
-.circleMenu {
-  border-radius: 50%;
-  border: 1px solid white;
-  background-color: white;
-  opacity: 0.9;
-  padding: 10px;
-  right: 5%;
-  top: 2%;
-  z-index: 9999;
-}
-.informacion {
-  width: 100%;
-  margin-left: 5%;
-}
-.informacion .containerInput1 {
-  border-bottom: 1px solid lightgrey !important;
-  width: 90%;
-}
+@media (max-width: 992px) {
+  .map3 {
+    visibility: hidden;
+    position: absolute;
+  }
+  .fullMenu {
+    visibility: hidden;
+    position: absolute;
+  }
+  #div {
+    width: 100%;
+    height: 450px;
+  }
+  .container {
+    background-color: #ffffff;
+  }
+  .circleLogo,
+  .circleMenu {
+    position: absolute;
+  }
 
-.input1 {
-  width: 75%;
-  height: 40px;
-  margin: 2% 1%;
-  font-size: 14px;
-  color: grey;
-  font-weight: 200;
-}
-.icons {
-  fill: #040acb;
-}
-.icons:active {
-  opacity: 0.5;
-}
-.containerInput2 {
-  margin-top: -25px;
-}
-.containerInput2 button {
-  fill: #040acb;
-}
-.input2 {
-  width: 70%;
-  height: 40px;
-  margin: 5% 6%;
-  border-radius: 15px;
-  background-color: #e4e4e5;
-  border: #e4e4e5;
-}
-.sugerencias {
-  width: 90%;
-}
-.pedir {
-  width: 90%;
-  border-radius: 15px;
-  padding: 12px 10px;
-  border: #fb2f1b;
-  background-color: #fb2f1b;
-  color: white;
-  letter-spacing: 1.5px;
-  text-align: center;
-  font-size: 20px;
-  margin-top: 5%;
-}
-.pedir:active {
-  opacity: 0.7;
-}
+  .circleMenu {
+    border-radius: 50%;
+    border: 1px solid white;
+    background-color: white;
+    opacity: 0.9;
+    padding: 10px;
+    right: 5%;
+    top: 2%;
+    z-index: 9999;
+  }
+  .informacion {
+    width: 100%;
+    margin-left: 5%;
+  }
+  .informacion .containerInput1 {
+    border-bottom: 1px solid lightgrey !important;
+    width: 90%;
+  }
 
-.sideMenuContainer {
-  position: absolute;
-  background-color: #f3f4f6;
-  height: 100%;
-  width: 100%;
-  right: 0%;
-  z-index: 9999;
-}
-.sideMenu {
-  margin-left: 10%;
-  margin-top: 30%;
-  text-align: right;
-  margin-right: 25%;
-  font-size: 25px;
-  height: 100%;
-}
-.sideMenu ul li {
-  list-style: none;
-  margin-top: 10%;
-}
-.ayuda {
-  font-size: 30px;
-}
-.sideMenu ul {
-  width: 100%;
-  margin-left: 10%;
-  margin-top: 20%;
-}
-.sideMenu ul li img {
-  border-radius: 50%;
-}
-.person {
-  position: absolute;
-  right: 3%;
-  top: 78%;
-}
-.containerTipoUsuario {
-  margin-top: 7%;
-}
-.listaTipoUsuario button:focus {
-  color: #040acb;
-  font-weight: 700;
-}
-.listaTipoUsuario button {
-  padding-bottom: 7%;
-  font-size: 15px;
-}
-.router {
-  text-decoration: none;
-  color: black;
-}
-.logoMap{
- position: absolute;
- height: 100px;
- width: 100px;
- margin-top: -120%;
- margin-left: 3%;
- z-index: 9999;
+  .input1 {
+    width: 75%;
+    height: 40px;
+    margin: 2% 1%;
+    font-size: 14px;
+    color: grey;
+    font-weight: 200;
+  }
+  .icons {
+    fill: #040acb;
+  }
+  .icons:active {
+    opacity: 0.5;
+  }
+  .containerInput2 {
+    margin-top: -25px;
+  }
+  .containerInput2 button {
+    fill: #040acb;
+  }
+  .input2 {
+    width: 70%;
+    height: 40px;
+    margin: 5% 6%;
+    border-radius: 15px;
+    background-color: #e4e4e5;
+    border: #e4e4e5;
+  }
+  .sugerencias {
+    width: 90%;
+  }
+  .pedir {
+    width: 90%;
+    border-radius: 15px;
+    padding: 12px 10px;
+    border: #fb2f1b;
+    background-color: #fb2f1b;
+    color: white;
+    letter-spacing: 1.5px;
+    text-align: center;
+    font-size: 20px;
+    margin-top: 5%;
+  }
+  .pedir:active {
+    opacity: 0.7;
+  }
+
+  .sideMenuContainer {
+    position: absolute;
+    background-color: #f3f4f6;
+    height: 100%;
+    width: 100%;
+    right: 0%;
+    z-index: 9999;
+  }
+  .sideMenu {
+    margin-left: 10%;
+    margin-top: 30%;
+    text-align: right;
+    margin-right: 25%;
+    font-size: 25px;
+    height: 100%;
+  }
+  .sideMenu ul li {
+    list-style: none;
+    margin-top: 10%;
+  }
+  .ayuda {
+    font-size: 30px;
+  }
+  .sideMenu ul {
+    width: 100%;
+    margin-left: 10%;
+    margin-top: 20%;
+  }
+  .sideMenu ul li img {
+    border-radius: 50%;
+  }
+  .person {
+    position: absolute;
+    right: 3%;
+    top: 78%;
+  }
+  .containerTipoUsuario {
+    margin-top: 7%;
+  }
+  .listaTipoUsuario button:focus {
+    color: #040acb;
+    font-weight: 700;
+  }
+  .listaTipoUsuario button {
+    padding-bottom: 7%;
+    font-size: 15px;
+  }
+  .router {
+    text-decoration: none;
+    color: black;
+  }
+  .logoMap {
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    margin-top: -120%;
+    margin-left: 3%;
+    z-index: 9999;
+  }
 }
 </style>
 

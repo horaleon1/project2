@@ -10,11 +10,13 @@
             class="input1"
             ref="autocomplete"
           />
-        <!-- <gmap-autocomplete @place_changed="setPlace" class="input1" placeholder="   ¿En dónde es tu emergencia? " ></gmap-autocomplete> -->
+          <!-- <vue-google-autocomplete
+            id="map"
+            class="form-control input1"
+            placeholder="  ¿En dónde es tu emergencia?"
+            v-on:placechanged="getAddressData"
+          ></vue-google-autocomplete>-->
 
-
-        
-      
           <button @click="programado = !programado">
             <eva-icon name="calendar" class="icons"></eva-icon>
           </button>
@@ -48,9 +50,7 @@
 
         <div class="buttonInput3" @click="arrowInput3 = !arrowInput3">
           <div class="input3Text">
-            <button>
-              Edad del paciente
-            </button>
+            <button>Edad del paciente</button>
           </div>
           <div class="input3Arrow">
             <button>
@@ -67,22 +67,48 @@
                 <input type="radio" name="personType" value="baby" />
               </div>
               <div class="personTypeDiv">
-                Niño 1 - 8 años   
+                Niño 1 - 8 años
                 <input type="radio" name="personType" value="child" />
               </div>
               <div class="personTypeDiv">
-                Adulto + 8 años   
+                Adulto + 8 años
                 <input type="radio" name="personType" value="adult" />
               </div>
             </form>
           </div>
         </div>
 
+        <div class="containerInput3Full">
+          <div class="inputContainer3Full">
+            <div class="listInputContainer3Full">
+              <h5>Edad del paciente</h5>
+              <ul>
+                <li>
+                  <input type="radio" name="personType" value="baby" />
+                  <br />
+                  <br />Bebé
+                  <br />0-12 meses
+                </li>
+                <li>
+                  <input type="radio" name="personType" value="child" />
+                  <br />
+                  <br />Niño
+                  <br />1 - 8 años
+                </li>
+                <li>
+                  <input type="radio" name="personType" value="adult" />
+                  <br />
+                  <br />Adulto
+                  <br />+ 8 años
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
         <div class="buttonInput4" @click="arrowInput4 = !arrowInput4">
           <div class="input4Text">
-            <button>
-              Estado del Paciente
-            </button>
+            <button>Estado del Paciente</button>
           </div>
           <div class="input4Arrow">
             <button>
@@ -109,6 +135,35 @@
             </form>
           </div>
         </div>
+
+        <div class="containerInput4Full">
+          <div class="inputContainer4Full">
+            <div class="listInputContainer4Full">
+              <h5>Estado del paciente</h5>
+              <ul>
+                <li>
+                <input type="radio" name="personState" value="awake" />                  
+                  <br />
+                  <br />
+                  Despierto
+                </li>
+                <li>
+                <input type="radio" name="personState" value="unconscious" />                  
+                  <br />
+                  <br />
+                Inconsiente
+                </li>
+                <li>
+                 <input type="radio" name="personState" value="dontKnow" />
+                  <br />
+                  <br />
+                  No sé
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
         <button class="pedir" @click="pedirServicio">Pedir</button>
       </div>
     </div>
@@ -118,6 +173,7 @@
 
 <script>
 import DatePicker from "vue2-datepicker";
+import VueGoogleAutocomplete from "vue-google-autocomplete";
 
 export default {
   components: {
@@ -138,21 +194,123 @@ export default {
       other: false,
       arrowInput3: false,
       arrowInput4: false,
-      key:"AIzaSyCHB7fzFranaqMKbud-JdC_4FwwPNsrNKs",
-      setPlace:''
+      key: "AIzaSyCHB7fzFranaqMKbud-JdC_4FwwPNsrNKs",
+      setPlace: ""
     };
-  },methods:{
-    pedirServicio(){
-      this.$store.state.pedir = !this.$store.state.pedir
-      this.$store.state.pedido = !this.$store.state.pedido
+  },
+  methods: {
+    pedirServicio() {
+      this.$store.state.pedir = !this.$store.state.pedir;
+      this.$store.state.pedido = !this.$store.state.pedido;
     }
-    
   }
 };
 </script>
 
 <style >
+@media (min-width: 994px) {
+  .container {
+    background-color: #f3f4f6;
+  }
+  .informacion .containerInput1 {
+    width: 100%;
+    background-color: transparent;
+    padding-right: 0%;
+  }
+  .containerInput1 {
+    border-bottom: 1px solid lightgrey !important;
+    width: 95%;
+  }
+  .input1 {
+    width: 70%;
+    height: 35px;
+    margin: 3% 4%;
+    font-size: 14px;
+    color: grey;
+    font-weight: 200;
+    border-radius: 10px;
+    border: 1px solid lightgrey;
+    background-color: #f3f4f6;
+  }
+  .icons {
+    fill: #040acb;
+    background-color: transparent;
+    border: 0px solid transparent;
+  }
+  .icons:active {
+    opacity: 0.5;
+  }
+  .pedir {
+    width: 100%;
+    border-radius: 15px;
+    padding: 8px 10px;
+    border: #fb2f1b;
+    background-color: #fb2f1b;
+    color: white;
+    letter-spacing: 1.5px;
+    text-align: center;
+    font-size: 20px;
+    margin-top: 10%;
+  }
+  .pedir:active {
+    opacity: 0.7;
+  }
+  .traslado {
+    color: #040acb;
+    margin-left: 5%;
+  }
+  .buttonInput3 {
+    margin-top: 5%;
+  }
+  .input3Arrow,
+  .input4Arrow,
+  .buttonInput3,
+  .buttonInput4 {
+    visibility: hidden;
+  }
+  .listInputContainer3Full {
+    width: 350px;
+  }
+  .listInputContainer3Full ul {
+    list-style: none;
+  }
+  .listInputContainer3Full ul li {
+    display: inline-block;
+    font-size: 14px;
+    padding-right: 5%;
+    padding-left: 5%;
+  }
+  .listInputContainer3Full ul li:not(:nth-child(3)) {
+    border-right: 1px solid lightgray;
+  }
+  .containerInput3 {
+    width: 100%;
+  }
+  .listInputContainer4Full {
+    width: 350px;
+  }
+  .listInputContainer4Full ul {
+    list-style: none;
+  }
+  .listInputContainer4Full ul li {
+    display: inline-block;
+    font-size: 14px;
+    padding-right: 5%;
+    padding-left: 5%;
+  }
+  .listInputContainer4Full ul li:not(:nth-child(3)) {
+    border-right: 1px solid lightgray;
+  }
+  .buttonInput3,.buttonInput4{
+    position: absolute;
+  }
+}
+
 @media (max-width: 993px) {
+  .containerInput3Full, .containerInput4Full{
+    position: absolute;
+    visibility: hidden;
+  }
   .container {
     border-top: 1px solid lightgray;
     background-color: #ffffff;
@@ -315,7 +473,7 @@ export default {
     letter-spacing: 0.5px;
     margin-bottom: 5%;
   }
-  
+
   .buttonInput3 button,
   .buttonInput4 button {
     font-size: 14px;
@@ -362,7 +520,7 @@ export default {
     border-bottom: 1px solid lightgray;
     width: 90%;
   }
-  .personTypeDiv{
+  .personTypeDiv {
     padding-bottom: 5%;
   }
 }
