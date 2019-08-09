@@ -164,7 +164,7 @@
           </div>
         </div>
 
-        <button class="pedir" @click="pedirServicio">Seguir</button>
+        <button class="pedir" @click="seguirServicio">Seguir</button>
       </div>
     </div>
   </div>
@@ -195,13 +195,14 @@ export default {
       arrowInput3: false,
       arrowInput4: false,
       key: "AIzaSyCHB7fzFranaqMKbud-JdC_4FwwPNsrNKs",
-      setPlace: ""
+      setPlace: "",
     };
   },
   methods: {
-    pedirServicio() {
-      this.$store.state.pedir = !this.$store.state.pedir;
-      this.$store.state.pedido = !this.$store.state.pedido;
+    seguirServicio() {
+      // this.$store.state.pedir = !this.$store.state.pedir;
+      this.$store.state.seguir = !this.$store.state.seguir;
+      this.$store.state.confirmAddress = !this.$store.state.confirmAddress;
     }
   }
 };

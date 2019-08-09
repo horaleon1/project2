@@ -51,6 +51,9 @@
       </div>
     </div>
 
+     <ConfirmAddress v-show="$store.state.confirmAddress"/>
+
+
     <div class="mapContainer">
       <div id="map">
         <Map2 class="map2" />
@@ -102,11 +105,10 @@
      
     </div>
 
-     <ConfirmAddress/>
 
     <AlertUser v-show="$store.state.pedir" class="alertUser"/>
 
-    <div class="containerTipoUsuario" v-show="$store.state.pedido">
+    <div class="containerTipoUsuario" v-show="$store.state.seguir">
       <div class="listaTipoUsuario">
         <button @click="user1F">Para mí</button>
         <button @click="user2F">Circulo Familiar</button>

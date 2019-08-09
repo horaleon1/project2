@@ -20,8 +20,10 @@ export const store = new Vuex.Store({
       nombre: "Jorge",
       apellido: "Perez"
     },
+    seguir:true,
 
-    alertAmbulance: false
+    alertAmbulance: false,
+    confirmAddress: false,
   },
   mutations: {
     getData2(state, data2){
