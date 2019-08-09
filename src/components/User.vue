@@ -101,7 +101,7 @@
       <!-- <UserTimeRemaining/> -->
     </div>
 
-    <AlertUser v-show="$store.state.pedir" class="alertUser"/>
+    <!-- <AlertUser v-show="$store.state.pedir" class="alertUser"/> -->
 
     <div class="containerTipoUsuario" v-show="$store.state.pedido">
       <div class="listaTipoUsuario">
@@ -118,7 +118,8 @@
     <!-- //////////////////////   -->
 
     <!-- //once the ambulace accepts the service the User gets the info of the ambulace -->
-    <!-- <InfoAmbulance/> -->
+    <InfoAmbulance/>
+    
 
     <!-- //once the ambulace accepts the service the User gets the remaining time -->
 
@@ -153,7 +154,7 @@ export default {
     UserTimeRemaining,
     AlertUser,
     Map2,
-    Map3
+    Map3,
   },
   data() {
     return {
@@ -317,7 +318,7 @@ export default {
     right: 0%;
     text-align: right;
     width: 14.5%;
-    height: 900px;
+    height: 850px;
     border-radius: 10px;
     border: 1px solid lightgray;
     background-color: #f3f3f3;
@@ -336,7 +337,7 @@ export default {
   padding-bottom: 30%;
   }
   .fullMenuList ul li:nth-child(8){
-    padding-bottom: 150%;
+    padding-bottom: 120%;
   }
   .fullMenuList ul li img{
     border-radius: 50%;

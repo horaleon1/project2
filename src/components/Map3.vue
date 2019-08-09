@@ -31,14 +31,15 @@ export default {
 			default: 85
 		},
 		height: {
-			default: 900
+			default: 850
 		}
 	},
 
 	mounted() {
 		this.divId = 'map' + Math.random();
 		GoogleMapsLoader.KEY = this.apiKey;
-		GoogleMapsLoader.VERSION = '3.37';
+    GoogleMapsLoader.VERSION = '3.37';
+    GoogleMapsLoader.LANGUAGE = 'es';
 		this.getLocation();		
 	},
 
