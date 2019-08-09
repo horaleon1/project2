@@ -58,8 +58,8 @@
       >{{ button }}</button>
     </div>
 
-    <InfoAmbulance class="infoAmbulance"/>
-    <!-- <DataPatient /> -->
+    <!-- <InfoAmbulance class="infoAmbulance"/> -->
+    <DataPatient class="dataPatient"/>
 
     <div class="tips"></div>
   </div>
@@ -225,5 +225,9 @@ hr {
   position: absolute;
   bottom: 42%;
   margin-left: 37%;
+}
+.dataPatient{
+  position: absolute;
+  bottom: 3%;
 }
 </style>

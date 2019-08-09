@@ -3,10 +3,10 @@
     <div class="paraMi">
       <div class="informacion">
         <div class="containerInput1">
-          <eva-icon name="search" class="icons"></eva-icon>
+          <eva-icon name="person-delete" class="icons"></eva-icon>
           <input
             type="text"
-            placeholder="   ¿En dónde es tu emergencia? "
+            placeholder="   Ingresa el padecimiento... "
             class="input1"
             ref="autocomplete"
           />
@@ -164,7 +164,7 @@
           </div>
         </div>
 
-        <button class="pedir" @click="pedirServicio">Pedir</button>
+        <button class="pedir" @click="pedirServicio">Seguir</button>
       </div>
     </div>
   </div>

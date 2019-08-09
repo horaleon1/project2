@@ -99,9 +99,12 @@
 
       <!-- //once pedir and accepted by the Userambulance , user gets the UserTimeRemaining -->
       <!-- <UserTimeRemaining/> -->
+     
     </div>
 
-    <!-- <AlertUser v-show="$store.state.pedir" class="alertUser"/> -->
+     <ConfirmAddress/>
+
+    <AlertUser v-show="$store.state.pedir" class="alertUser"/>
 
     <div class="containerTipoUsuario" v-show="$store.state.pedido">
       <div class="listaTipoUsuario">
@@ -118,7 +121,7 @@
     <!-- //////////////////////   -->
 
     <!-- //once the ambulace accepts the service the User gets the info of the ambulace -->
-    <InfoAmbulance/>
+    <!-- <InfoAmbulance/> -->
     
 
     <!-- //once the ambulace accepts the service the User gets the remaining time -->
@@ -139,6 +142,7 @@ import UserTimeRemaining from "../components/UserTimeRemaining";
 import AlertUser from "../components/AlertUser";
 import Map2 from "../components/Map2";
 import Map3 from "../components/Map3";
+import ConfirmAddress from "../components/ConfirmAddress"
 
 import { mapState } from "vuex";
 
@@ -155,6 +159,7 @@ export default {
     AlertUser,
     Map2,
     Map3,
+    ConfirmAddress
   },
   data() {
     return {
