@@ -18,9 +18,10 @@
         <div class="seccionC">
           <ul>
             <li>Tripulación</li>
-            <li>T.U.M. Arturo Lopez</li>
-            <li>T.U.M. Jorge Perez</li>
+            <li>T.U.M. Arturo Ortega</li>
+            <li>T.U.M. Jorge Hernandez</li>
             <li>T.U.M. Andrea Galicia</li>
+            <li>Ambulancias México</li>
           </ul>
         </div>
 
@@ -156,7 +157,7 @@ export default {
 }
 @media (max-width: 992px) {
   .datosVehiculo {
-    margin: 5%;
+    margin: 3%;
     border: 1px solid lightgrey;
     border-radius: 10px;
     background-color: #f8f8f8;

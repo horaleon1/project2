@@ -11,7 +11,8 @@
             <li>Ambulancia: 045</li>
             <li>Ford E450 2019</li>
             <li>Placas: AEJF541</li>
-            <li>Colores: Rojo y blanco</li>
+            <li>Colores: Rojo,blanco</li>
+            <li>Ambulancias México</li>
           </ul>
         </div>
 
@@ -67,7 +68,7 @@ export default {
   .vehiculo {
     width: 23%;
     position: absolute;
-    bottom: 3%;
+    bottom: 2%;
     margin-left: 1.7%;
   }
   .datosVehiculo {
@@ -147,7 +148,7 @@ export default {
 }
 @media (max-width: 992px) {
   .datosVehiculo {
-    margin: 1% 4% 1% 4%;
+    margin: -5% 4% 0% 4%;
     border: 1px solid lightgrey;
     border-radius: 10px;
     background-color: #f8f8f8;
@@ -189,8 +190,8 @@ export default {
   }
   .ambulanciaImg {
     border-radius: 5px;
-    height: 60px;
-    width: 60px;
+    height: 90px;
+    width: 90px;
   }
   .seccionE {
     margin-left: 7%;

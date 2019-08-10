@@ -47,10 +47,11 @@
             <div class="paciente2">
               <ul>
                 <li>
-                  <img :src="url" alt />
+                  
+                  <!-- <img :src="url" alt /> -->
                 </li>
                 <li>
-                  <h2>{{ user.results[0].name.first | capitalize }} {{ user.results[0].name.last | capitalize }}</h2>
+                  <!-- <h2>{{ user.results[0].name.first | capitalize }} {{ user.results[0].name.last | capitalize }}</h2> -->
                 </li>
                 <li class="padecimiento">
                   <h4>Padecimiento:</h4>
@@ -86,7 +87,8 @@
               <eva-icon name="clock" class="icons" height="50px" width="50px"></eva-icon>
               <h3>
                 Llegada en:
-                <span>{{ $store.state.minutos }}</span>  minutos.
+                <span>{{ $store.state.minutos }}</span>  
+                minutos.
               </h3>
               <div class="progress">
                 <div class="progressMoving"></div>
@@ -103,19 +105,22 @@
               <h3>Pacientes en ruta</h3>
               <ul>
                 <li>
-                  <img :src="url" alt />
-                  {{ user.results[0].name.first | capitalize }} {{ user.results[0].name.last | capitalize }}
-                 <br> <br> <span>Llegada en: 22 minutos</span>
+                  Sin Usuarios en ruta
                 </li>
                 <li>
-                  <img :src="url" alt />
+                  <!-- <img :src="url" alt />
                   {{ user.results[0].name.first | capitalize }} {{ user.results[0].name.last | capitalize }}
-                 <br> <br> <span>Llegada en: 2 minutos</span>
+                 <br> <br> <span>Llegada en: 22 minutos</span> -->
                 </li>
                 <li>
-                  <img :src="url" alt />
+                  <!-- <img :src="url" alt />
                   {{ user.results[0].name.first | capitalize }} {{ user.results[0].name.last | capitalize }}
-                 <br>  <br> <span>Llegada en: 10 minutos</span>
+                 <br> <br> <span>Llegada en: 2 minutos</span> -->
+                </li>
+                <li>
+                  <!-- <img :src="url" alt />
+                  {{ user.results[0].name.first | capitalize }} {{ user.results[0].name.last | capitalize }}
+                 <br>  <br> <span>Llegada en: 10 minutos</span> -->
                 </li>
               </ul>
             </div>
@@ -300,7 +305,7 @@ ul {
   padding: 3px 2px 0px 2px;
   border: 1px solid lightblue;
   border-radius: 10px;
-  width: 80%;
+  width: 0%;
   margin-top: 15%;
   margin-left: 10%;
 }

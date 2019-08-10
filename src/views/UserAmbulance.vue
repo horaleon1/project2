@@ -7,9 +7,9 @@
       <div class="sideMenu">
         <ul>
           <li>
-            <img v-bind:src="url" height="50px" width="50px" />
+            <img src="../assets/logoCompany.png" height="50px" width="50px" />
           </li>
-          <li>{{ user.results[0].name.first }} {{ user.results[0].name.last }}</li>
+          <li>Ambulancias México</li>
           <hr />
           <li>Cuenta</li>
           <li>
@@ -34,17 +34,17 @@
       <AlertAmbulance v-if="!this.$store.state.alertAmbulance && ready" />
       <button class="buttonMenu" @click="sideMenu = !sideMenu">
         <img src alt />
-        <img :src="url" height="50px" width="50px" class="imageMenu" v-show="!sideMenu" />
+        <img src="../assets/logoCompany.png" height="50px" width="50px" class="imageMenu" v-show="!sideMenu" />
       </button>
 
       <div class="imageNav" v-show="$store.state.nav">
         <button @click="navDesmadre">
-          <Navigation  />
+          <Navigation />
         </button>
       </div>
 
       <iframe
-        src='https://www.google.com/maps/embed/v1/directions?key=AIzaSyCHB7fzFranaqMKbud-JdC_4FwwPNsrNKs=&origin=narvarte&destination=tonala10'
+        src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyCHB7fzFranaqMKbud-JdC_4FwwPNsrNKs=&origin=narvarte&destination=tonala10"
         width="100%"
         height="450px"
         v-show="mapDirection"
@@ -92,8 +92,8 @@ export default {
       button: "INICIO",
       AAmbulance: true,
       ready: false,
-      map2Ambulance:true,
-      mapDirection:false
+      map2Ambulance: true,
+      mapDirection: false
     };
   },
   mounted() {
@@ -118,40 +118,41 @@ export default {
         this.onlineStyle = true;
         this.ready = false;
       }
-      },
-      navDesmadre(){
-       this.map2Ambulance = !this.map2Ambulance
-       this.$store.state.nav = !this.$store.nav
-       this.mapDirection = !this.mapDirection
-      }
     },
-    // saveGeneral() {
-    //   axios
-    //     .put("http://localhost:3000/clients/" + this.clientId, {
-    //       personalInfo: this.general.personalInfo,
-    //       professionalInfo: this.general.professionalInfo,
-    //       legalInfo: this.general.legalInfo,
-    //       additionalInfo: this.general.additionalInfo
-    //     })
-    //     .then(res => {
-    //       this.generalInfoEditMode = false;
-    //       // this.reRender();
-    //     })
-    //     .catch(err => {
-    //       alert(
-    //         "Lo sentimos, no se pudo editar el registro, favor de intentar más tarde."
-    //       );
-    //     });
-    // }
- 
-  computed: {
-    // return this.countdownSearchAmbulance();
-    // countdownSearchAmbulance: () => {
-    //   if(this.$store.state.segundosRestantes === 0){
-    //     return this.AAmbulance = !this.AAmbulance
-    //   }
-    // }
+    navDesmadre() {
+      this.map2Ambulance = !this.map2Ambulance;
+      this.$store.state.nav = false;
+      this.mapDirection = !this.mapDirection;
+  
+  },
   }
+  // saveGeneral() {
+  //   axios
+  //     .put("http://localhost:3000/clients/" + this.clientId, {
+  //       personalInfo: this.general.personalInfo,
+  //       professionalInfo: this.general.professionalInfo,
+  //       legalInfo: this.general.legalInfo,
+  //       additionalInfo: this.general.additionalInfo
+  //     })
+  //     .then(res => {
+  //       this.generalInfoEditMode = false;
+  //       // this.reRender();
+  //     })
+  //     .catch(err => {
+  //       alert(
+  //         "Lo sentimos, no se pudo editar el registro, favor de intentar más tarde."
+  //       );
+  //     });
+  // }
+
+  // computed: {
+  //   // return this.countdownSearchAmbulance();
+  //   // countdownSearchAmbulance: () => {
+  //   //   if(this.$store.state.segundosRestantes === 0){
+  //   //     return this.AAmbulance = !this.AAmbulance
+  //   //   }
+  //   // }
+  // }
 };
 </script>
 
@@ -230,7 +231,7 @@ hr {
   margin: 0 auto;
   width: 100%;
   position: absolute;
-  top: 57%;
+  top: 56%;
 }
 .containerNav {
   position: absolute;
@@ -241,7 +242,7 @@ hr {
   position: absolute;
   bottom: 3%;
 }
-.imageNav{
+.imageNav {
   position: absolute;
   z-index: 9999;
   top: 10%;

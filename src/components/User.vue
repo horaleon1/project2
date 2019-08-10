@@ -6,7 +6,7 @@
           <li>
             <img v-bind:src="url" height="50px" width="50px" />
           </li>
-          <li> Nombre Apellido</li>
+          <li> Jorge Perez</li>
           <hr />
           <li>
             <router-link to="/account" class="router">Cuenta</router-link>

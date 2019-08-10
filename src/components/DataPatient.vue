@@ -52,7 +52,7 @@ export default {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   display: inline-block;
   height: 120px;
-  margin: 3% 5% 2% 5% ;
+  margin: 1% 5% 2% 5% ;
 }
 .paciente{
   border: 1px solid lightgray;
