@@ -11,6 +11,8 @@ export const store = new Vuex.Store({
     pedir:false,
     minutos: 22,
     segundosRestantes: 20,
+    nav:false,
+    mapDirection:false,
     direccion: {
       calle: "Tonala",
       numero: 10,

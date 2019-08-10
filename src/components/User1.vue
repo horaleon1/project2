@@ -145,7 +145,7 @@
                 <input type="radio" name="personState" value="awake" />                  
                   <br />
                   <br />
-                  Despierto
+                  Consiente
                 </li>
                 <li>
                 <input type="radio" name="personState" value="unconscious" />                  

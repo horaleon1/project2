@@ -79,3 +79,9 @@ export default {
 	}
 }
 </script>
+<style scoped>
+.map-container{
+	
+}
+</style>
+

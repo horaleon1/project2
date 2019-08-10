@@ -12,7 +12,9 @@
           <li>{{ user.results[0].name.first }} {{ user.results[0].name.last }}</li>
           <hr />
           <li>Cuenta</li>
-          <li><router-link to="/historyAmbulance" class="router">Historial de Servicios</router-link></li>
+          <li>
+            <router-link to="/historyAmbulance" class="router">Historial de Servicios</router-link>
+          </li>
           <li>Tripulación</li>
           <li>Vehículos</li>
           <li>
@@ -28,26 +30,25 @@
     </div>
 
     <div class="mapContainer">
-      <Map2 class="map2"/>
-      <AlertAmbulance v-if='!this.$store.state.alertAmbulance'/>
+      <Map2 class="map2" v-show="map2Ambulance" />
+      <AlertAmbulance v-if="!this.$store.state.alertAmbulance && ready" />
       <button class="buttonMenu" @click="sideMenu = !sideMenu">
         <img src alt />
         <img :src="url" height="50px" width="50px" class="imageMenu" v-show="!sideMenu" />
       </button>
 
+      <div class="imageNav" v-show="$store.state.nav">
+        <button @click="navDesmadre">
+          <Navigation  />
+        </button>
+      </div>
 
-      <div class="containerNav" v-show="nav" >
-      <!-- <button>
-         <Navigation/> -->
-      <!-- </button> --> 
-    </div>
-
-      <!-- <iframe
-        src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyCHB7fzFranaqMKbud-JdC_4FwwPNsrNKs&origin=romanorte&destination=hospitalangelesmexico"
+      <iframe
+        src='https://www.google.com/maps/embed/v1/directions?key=AIzaSyCHB7fzFranaqMKbud-JdC_4FwwPNsrNKs=&origin=narvarte&destination=tonala10'
         width="100%"
-        height="470px"
-      ></iframe> -->
-      
+        height="450px"
+        v-show="mapDirection"
+      ></iframe>
     </div>
 
     <div class="iniciarDiv" if="sideMenu">
@@ -58,23 +59,23 @@
       >{{ button }}</button>
     </div>
 
-    <!-- <InfoAmbulance class="infoAmbulance"/> -->
-    <DataPatient class="dataPatient"/>
+    <InfoAmbulance4Ambulance class="infoAmbulance" v-if="!ready" />
+    <DataPatient class="dataPatient" v-if="ready" />
 
     <div class="tips"></div>
   </div>
 </template>
 
 <script>
-import InfoAmbulance from '../components/InfoAmbulance'
-import AlertAmbulance from '../components/AlertAmbulance'
-import DataPatient from '../components/DataPatient'
-import Navigation from '../components/Navigation'
-import Map2 from '../components/Map2'
+import InfoAmbulance4Ambulance from "../components/InfoAmbulance4Ambulance";
+import AlertAmbulance from "../components/AlertAmbulance";
+import DataPatient from "../components/DataPatient";
+import Navigation from "../components/Navigation";
+import Map2 from "../components/Map2";
 
 export default {
-  components:{
-    InfoAmbulance,
+  components: {
+    InfoAmbulance4Ambulance,
     AlertAmbulance,
     DataPatient,
     Navigation,
@@ -89,8 +90,10 @@ export default {
       // iniciar:true,
       // iniciar2:false
       button: "INICIO",
-      AAmbulance:true,
-      nav:false
+      AAmbulance: true,
+      ready: false,
+      map2Ambulance:true,
+      mapDirection:false
     };
   },
   mounted() {
@@ -108,10 +111,18 @@ export default {
         alert("Te encuentras disponible para recibir pacientes");
         this.button = this.button === "INICIO" ? "DESCONECTARSE" : "INICIO";
         this.onlineStyle = false;
+        this.ready = true;
       } else {
         alert("Te encuentras desconectado");
         this.button = this.button === "INICIO" ? "DESCONECTARSE" : "INICIO";
         this.onlineStyle = true;
+        this.ready = false;
+      }
+      },
+      navDesmadre(){
+       this.map2Ambulance = !this.map2Ambulance
+       this.$store.state.nav = !this.$store.nav
+       this.mapDirection = !this.mapDirection
       }
     },
     // saveGeneral() {
@@ -132,28 +143,28 @@ export default {
     //       );
     //     });
     // }
-  },
-  computed:{
+ 
+  computed: {
     // return this.countdownSearchAmbulance();
     // countdownSearchAmbulance: () => {
     //   if(this.$store.state.segundosRestantes === 0){
     //     return this.AAmbulance = !this.AAmbulance
-    //   } 
+    //   }
     // }
   }
 };
-
 </script>
 
 <style scoped>
-.map2{
-  z-index:0;
+.map2 {
+  position: absolute;
 }
-.map2, .infoAmbulance{
- position: absolute;
+.map2,
+.infoAmbulance {
+  position: absolute;
 }
-.infoAmbulance{
-  bottom:3%;
+.infoAmbulance {
+  bottom: 3%;
 }
 .container {
   height: 812px;
@@ -181,10 +192,10 @@ export default {
 }
 .sideMenu {
   height: 712px;
-  position:absolute;
-  z-index:9999;
+  position: absolute;
+  z-index: 9999;
   background-color: #f3f4f6;
-  width:80%;
+  width: 80%;
 }
 .sideMenu ul li {
   text-align: right;
@@ -218,16 +229,22 @@ hr {
 .iniciarDiv {
   margin: 0 auto;
   width: 100%;
-  position:absolute;
-  top:57%;
+  position: absolute;
+  top: 57%;
 }
-.containerNav{
+.containerNav {
   position: absolute;
   bottom: 42%;
-  margin-left: 37%;
+  z-index: 9999;
 }
-.dataPatient{
+.dataPatient {
   position: absolute;
   bottom: 3%;
+}
+.imageNav{
+  position: absolute;
+  z-index: 9999;
+  top: 10%;
+  margin-left: 5%;
 }
 </style>

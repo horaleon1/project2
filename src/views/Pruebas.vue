@@ -1,15 +1,15 @@
 <template>
   <div>
-    <!-- <div>
-      From: <input type="text" v-model.lazy="origin"><br>
-      to: <input type="text" v-model.lazy="destination"><br>
-      <iframe  width="100%" height="500px" :src="src()"></iframe>
-    </div>
-    //segundo mapa
-
     <div>
+      From:
+      <input type="text" v-model.lazy="origin" />
+      <br />to:
+      <input type="text" v-model.lazy="destination" />
+      <br />
+      <iframe width="100%" height="500px" :src="src()"></iframe>
+    </div>
 
-    </div>-->
+    <div></div>
   </div>
 </template>
 
@@ -19,22 +19,24 @@
 export default {
   data() {
     return {
-      //     activate:false,
-      //     origin:'mi ubicacion',
-      //     destination:'hospital angeles del pedregal',
-      //     url:'https://www.google.com/maps/embed/v1/directions?key=AIzaSyCHB7fzFranaqMKbud-JdC_4FwwPNsrNKs',
-      //     // segundo mapa
-      //   }
-      // },
-      // methods: {
-      //   activ(){
-      //     this.activate = !this.activate
-      //   },
-      //   src(){
-      //     return this.url+='&origin='+this.origin+'&destination='+this.destination;
-      //   }
-    };
-  }
+          activate:false,
+          origin:'narvarte',
+          destination:'tonala 10',
+          url:'https://www.google.com/maps/embed/v1/directions?key=AIzaSyCHB7fzFranaqMKbud-JdC_4FwwPNsrNKs',
+          // segundo mapa
+          
+        }
+      },
+      methods: {
+        activ(){
+          this.activate = !this.activate
+        },
+        src(){
+          return this.url+='&origin='+this.origin+'&destination='+this.destination;
+        }
+    }
+    // 'https://www.google.com/maps/embed/v1/directions?key=AIzaSyCHB7fzFranaqMKbud-JdC_4FwwPNsrNKs=&origin=mi ubicacion
+  
   //  async mounted() {
   //   try {
   //     const google = await maps();

@@ -1,6 +1,6 @@
 <template>
   <div class="containerAnimacion" v-show="alertOff">
-    <button @click="alertOff = !alertOff">
+    <button @click="changeAll">
       <div class="animacion">
         <div class="animacion2"></div>
       </div>
@@ -14,7 +14,6 @@
         <source src="../assets/soundAlertAmbulance.wav" type="audio/wav" />
       </audio>
     </div>
-
   </div>
 </template>
 
@@ -45,6 +44,10 @@ export default {
     soundAlert() {
       var audio = new Audio("./assets/soundAlertAmbulance.wav");
       audio.play();
+    },
+    changeAll() {
+      this.alertOff = !this.alertOff;
+      this.$store.state.nav = !this.$store.state.nav;
     }
   },
   created() {

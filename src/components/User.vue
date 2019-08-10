@@ -6,7 +6,7 @@
           <li>
             <img v-bind:src="url" height="50px" width="50px" />
           </li>
-          <li>{{ user.results[0].name.first | capitalize }} {{ user.results[0].name.last | capitalize }}</li>
+          <li> Nombre Apellido</li>
           <hr />
           <li>
             <router-link to="/account" class="router">Cuenta</router-link>
@@ -35,7 +35,7 @@
           <li>
             <img v-bind:src="url" height="50px" width="50px" />
           </li>
-          <li>{{ user.results[0].name.first | capitalize }} {{ user.results[0].name.last | capitalize }}</li>
+          <li>Nombre Apellido</li>
           <li> <hr> </li>
           <li>Cuenta</li>
           <li>Historial médico</li>
@@ -274,15 +274,15 @@ export default {
     // },
 
     //////google maps end
-
-    filters: {
+  },
+    filters:{
       capitalize: function(value) {
         if (!value) return "";
         value = value.toString();
         return value.charAt(0).toUpperCase() + value.slice(1);
       }
-    }
-  }
+    },
+  
 };
 // mounted: function(){
 //       import  from "https://maps.googleapis.com/maps/api/js?key=AIzaSyCHB7fzFranaqMKbud-JdC_4FwwPNsrNKs&callback=initMap"
@@ -314,8 +314,10 @@ export default {
     visibility: hidden;
     position: absolute;
   }
+
   .alertUser{
     margin-left: 21%;
+    position: absolute;
   }
   .sideMenuContainer, .circleMenu {
     visibility: hidden;

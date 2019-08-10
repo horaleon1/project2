@@ -1,10 +1,12 @@
 <template>
 <div class="containerNav">
- 
- <div class="nav">
+ <button @click="$store.state.mapDirection = !$store.state.mapDirection">
+  <div class="nav">
   <eva-icon name="navigation" height="40px" width="40px" class="icon"></eva-icon>
   <h4>Navegar</h4>
  </div>
+ </button>
+ 
 
 
 </div>
@@ -26,6 +28,7 @@ export default {
   border-radius: 14px;
   opacity: 0.8;
   position: absolute;
+  z-index: 9999;
 }
 h4{
   margin-top: -5%;
