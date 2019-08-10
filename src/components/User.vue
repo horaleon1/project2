@@ -35,7 +35,7 @@
           <li>
             <img v-bind:src="url" height="50px" width="50px" />
           </li>
-          <li>Nombre Apellido</li>
+          <li>Jorge Perez</li>
           <li> <hr> </li>
           <li>Cuenta</li>
           <li>Historial médico</li>
@@ -58,6 +58,8 @@
       <div id="map">
         <Map2 class="map2" />
         <Map3 class="map3" />
+    <!-- <UserTimeRemaining class="userTimeRemaining"/> -->
+
       </div>
       <!-- <img src="../assets/h.png" alt="Logo miAmbulancia" class="logoMap"> -->
       <button class="circleMenu" @click="sideMenu = !sideMenu">
@@ -128,7 +130,6 @@
 
     <!-- //once the ambulace accepts the service the User gets the remaining time -->
 
-    <!-- <UserTimeRemaining/> -->
   </div>
 </template>
 
@@ -528,6 +529,9 @@ export default {
     margin-top: -120%;
     margin-left: 3%;
     z-index: 9999;
+  }
+  .userTimeRemaining{
+    margin-top: -20%;
   }
 }
 </style>

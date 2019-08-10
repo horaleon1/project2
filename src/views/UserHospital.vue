@@ -48,13 +48,14 @@
               <ul>
                 <li>
                   
-                  <!-- <img :src="url" alt /> -->
+                  <img :src="url" alt />
                 </li>
                 <li>
-                  <!-- <h2>{{ user.results[0].name.first | capitalize }} {{ user.results[0].name.last | capitalize }}</h2> -->
+                  <h2> Jorge Perez
+                  </h2>
                 </li>
                 <li class="padecimiento">
-                  <h4>Padecimiento:</h4>
+                  <h4>Padecimiento: Dolor intenso en el pecho</h4>
                 </li>
                 <li>
                   <ul>
@@ -63,20 +64,20 @@
                     </li>
                     <li></li>
                     <li>Dirección</li>
-                    <li>Calle:</li>
+                    <li>Calle: Boulevard de las Torres </li>
                     <li>
-                      Numero:
-                      Exterior:
+                      Numero Interior: 109
+                      Numero Exterior: N/A
                     </li>
-                    <li>Colonia: C.P.:</li>
-                    <li>Ciudad:</li>
+                    <li>Colonia: Santa Cruz C.P.: 99067</li>
+                    <li>Ciudad: Ciudad de México</li>
                   </ul>
                 </li>
                 <li>
                   <h4>Póliza de Seguro</h4>
                 </li>
-                <li>Compañia:</li>
-                <li>Numero:</li>
+                <li>Compañia: GNP</li>
+                <li>Numero: 6788HJE</li>
               </ul>
             </div>
           </div>
@@ -104,13 +105,13 @@
             <div class="listaPacientes2">
               <h3>Pacientes en ruta</h3>
               <ul>
-                <li>
+                <!-- <li>
                   Sin Usuarios en ruta
-                </li>
+                </li> -->
                 <li>
-                  <!-- <img :src="url" alt />
-                  {{ user.results[0].name.first | capitalize }} {{ user.results[0].name.last | capitalize }}
-                 <br> <br> <span>Llegada en: 22 minutos</span> -->
+                  <img :src="url" alt />
+                  Jorge Perez
+                 <br> <br> <span>Llegada en: 13 minutos</span>
                 </li>
                 <li>
                   <!-- <img :src="url" alt />
@@ -220,7 +221,7 @@ ul {
 
 .paciente {
   height: 830px;
-  width: 24%;
+  width: 25%;
   border: 1px solid lightgrey;
   border-radius: 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -228,7 +229,7 @@ ul {
 }
 .timer {
   height: 830px;
-  width: 24%;
+  width: 25%;
   margin-left: 26.5%;
   border: 1px solid lightgrey;
   border-radius: 10px;
@@ -305,9 +306,9 @@ ul {
   padding: 3px 2px 0px 2px;
   border: 1px solid lightblue;
   border-radius: 10px;
-  width: 0%;
+  width: 89%;
   margin-top: 15%;
-  margin-left: 10%;
+  margin-left: 5%;
 }
 .progressMoving {
   width: 70%;

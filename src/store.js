@@ -9,7 +9,7 @@ export const store = new Vuex.Store({
   state: {
     pedido: true,
     pedir:false,
-    minutos: 17,
+    minutos: 13,
     segundosRestantes: 20,
     nav:false,
     mapDirection:false,

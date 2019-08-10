@@ -28,13 +28,13 @@
         <div class="seccionD">
           <ul>
             <li>
-              <img :src="url" alt class="tripulacionImagen" />
+              <img  src="../assets/paramedic2.png" alt class="tripulacionImagen" />
             </li>
             <li>
-              <img :src="url" alt class="tripulacionImagen" />
+              <img src="../assets/paramedic2.png" alt class="tripulacionImagen" />
             </li>
             <li>
-              <img :src="url" alt class="tripulacionImagen" />
+              <img src="../assets/paramedic1.png" alt class="tripulacionImagen" />
             </li>
           </ul>
         </div>

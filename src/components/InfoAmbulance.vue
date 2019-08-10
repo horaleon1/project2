@@ -12,6 +12,7 @@
             <li>Ford E450 2019</li>
             <li>Placas: AEJF541</li>
             <li>Colores: Rojo y blanco</li>
+            <li>Ambulancias México</li>
           </ul>
         </div>
 
@@ -21,20 +22,19 @@
             <li>T.U.M. Arturo Ortega</li>
             <li>T.U.M. Jorge Hernandez</li>
             <li>T.U.M. Andrea Galicia</li>
-            <li>Ambulancias México</li>
           </ul>
         </div>
 
         <div class="seccionD">
           <ul>
             <li>
-              <img :src="url" alt class="tripulacionImagen" />
+              <img src="../assets/paramedic2.png" alt class="tripulacionImagen" />
             </li>
             <li>
-              <img :src="url" alt class="tripulacionImagen" />
+              <img src="../assets/paramedic2.png" alt class="tripulacionImagen" />
             </li>
             <li>
-              <img :src="url" alt class="tripulacionImagen" />
+              <img src="../assets/paramedic1.png" alt class="tripulacionImagen" />
             </li>
           </ul>
         </div>
@@ -183,7 +183,7 @@ export default {
     margin-top: 5%;
   }
   .seccionB {
-    margin-left: 0%;
+    margin-left: -3%;
   }
   .seccionB ul li {
     margin-bottom: 3px;
@@ -199,8 +199,8 @@ export default {
   }
   .ambulanciaImg {
     border-radius: 5px;
-    height: 60px;
-    width: 60px;
+    height: 90px;
+    width: 100px;
   }
   .seccionE {
     margin-left: 7%;

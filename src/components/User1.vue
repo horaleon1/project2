@@ -121,7 +121,7 @@
           <div class="inputContainer3">
             <form action>
               <div class="personTypeDiv">
-                Despierto
+                Consiente
                 <input type="radio" name="personState" value="awake" />
               </div>
               <div class="personTypeDiv">

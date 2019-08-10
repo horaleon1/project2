@@ -28,7 +28,7 @@
       <div class="pacienteDatos">
         <ul>
           <li>Alergias: Hipersensible Cafeina</li>
-          <li>Padeciminento: Ataque al corazon</li>
+          <li>Padeciminento: Dolor intenso en el pecho</li>
           <li> <div class="live"></div> Sintomas: {{ }} </li>
         </ul>
       </div>

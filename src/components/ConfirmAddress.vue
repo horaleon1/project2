@@ -24,7 +24,7 @@ export default {
     pedirServicio() {
       this.$store.state.pedir = !this.$store.state.pedir;
       // this.$store.state.pedido = !this.$store.state.pedido;
-      this.$store.state.confirmAddress = !$store.state.confirmAddress;
+      // this.$store.state.confirmAddress = !this.$store.state.confirmAddress;
     },
     goBackNewService() {
       this.$store.state.confirmAddress = !this.$store.state.confirmAddress;
