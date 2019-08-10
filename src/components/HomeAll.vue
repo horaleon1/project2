@@ -8,9 +8,15 @@
       <!-- // menu full width -->
       <div class="dropdownFullWidth">
         <ul>
-          <li>Usuarios</li>
-          <li>Ambulancias</li>
-          <li>Hospitales</li>
+          <li>
+            <router-link to="/user" class="router">Usuarios</router-link>
+          </li>
+          <li>
+            <router-link to="/ambulance" class="router">Ambulancias</router-link>
+          </li>
+          <li>
+            <router-link to="/hospital" class="router">Hospitales</router-link>
+          </li>
         </ul>
       </div>
 
@@ -38,19 +44,19 @@
         <ul>
           <li>
             <a href>
-              Usuarios
+              <router-link to="/user">Usuarios</router-link>
               <eva-icon name="arrow-ios-forward" class="rightArrow"></eva-icon>
             </a>
           </li>
           <li>
             <a href>
-              Ambulancias
+              <router-link to="/ambulance">Ambulancias</router-link>
               <eva-icon name="arrow-ios-forward" class="rightArrow"></eva-icon>
             </a>
           </li>
           <li>
             <a href>
-              Hospitales
+              <router-link to="/hospital">Hospitales</router-link>
               <eva-icon name="arrow-ios-forward" class="rightArrow"></eva-icon>
             </a>
           </li>
@@ -70,7 +76,7 @@
     </div>
 
     <!-- //ayuda -->
-    <Ayuda  v-show="ayuda" v-on:changeAyuda1="updateAyuda"></Ayuda>
+    <Ayuda v-show="ayuda" v-on:changeAyuda1="updateAyuda"></Ayuda>
     <!-- //body  Intro -->
     <div class="container2">
       <div class="textContainer2">
@@ -169,7 +175,10 @@
             <li>Privacidad</li>
             <br />
             <li>© 2019 miAmbulancia S.A.P.I. de C.V.</li>
-            <li> Hecho con <img src="../assets/cardio.png" alt="red heart" height="40px" width="35px"> en Ironhack México</li>
+            <li>
+              Hecho con
+              <img src="../assets/cardio.png" alt="red heart" height="40px" width="35px" /> en Ironhack México
+            </li>
           </ul>
         </div>
       </div>
@@ -190,7 +199,7 @@ export default {
     };
   },
   methods: {
-    updateAyuda(){
+    updateAyuda() {
       this.ayuda = false;
     }
   },
@@ -203,7 +212,6 @@ export default {
 
 <style>
 @media (min-width: 993px) {
-  
   .container {
     font-family: Arial, Helvetica, sans-serif;
     z-index: 100;
@@ -256,7 +264,7 @@ export default {
   li .routers {
     margin-left: 3px;
   }
-  .dropdownFullWidth{
+  .dropdownFullWidth {
     margin-left: 10%;
   }
   .dropdownFullWidth ul {
@@ -379,27 +387,32 @@ export default {
     background-color: #040acb;
     color: white;
   }
-  .containerIndices{
+  .containerIndices {
     padding-top: 30px;
     display: flex;
-   
+
     margin-left: 5%;
   }
-  .containerIndices .indice2{
+  .containerIndices .indice2 {
     padding-left: 10%;
   }
-  
-  .indice1 ul, .indice2 ul, .indice3 ul {
+
+  .indice1 ul,
+  .indice2 ul,
+  .indice3 ul {
     list-style: none;
     line-height: 30px;
     letter-spacing: 1px;
   }
-  .indice3{
+  .indice3 {
     margin-top: 8px;
     margin-left: -5%;
     margin-right: 20%;
   }
-
+  .router{
+    text-decoration: none;
+    color: white;
+  }
 }
 
 /* //////////////// */
@@ -502,7 +515,7 @@ export default {
   span {
     position: absolute;
     left: 33%;
-    top: 260px;
+    top: 350px;
   }
   .rightArrow {
     fill: grey;
@@ -662,10 +675,10 @@ export default {
     width: 90%;
     color: lightslategray;
   }
-  .logo{
+  .logo {
     height: 110px;
     width: 100px;
-    position:absolute;
+    position: absolute;
     margin-top: -8%;
     margin-left: 2%;
   }

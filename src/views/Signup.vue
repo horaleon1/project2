@@ -174,7 +174,7 @@ export default {
   .arrow {
     fill: #040acb;
     margin-left: -35%;
-    margin-top: 5%;
+    margin-top: 10%;
   }
   .facebook {
     width: 86%;
