@@ -1,30 +1,6 @@
-# project2
 
-## Project setup
-```
-npm install
-```
+<img src="../src/assets/3fA.png" alt="Logo Mi Ambulancia" class = "imagenDentro1">
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+<h1> Mi Ambulancia </h1>
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
-# project2
+<h2> </h2>
