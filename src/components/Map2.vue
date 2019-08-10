@@ -25,7 +25,7 @@ export default {
 	props: {
 		apiKey: {
 			type: String,
-			default: 'AIzaSyCHB7fzFranaqMKbud-JdC_4FwwPNsrNKs'
+			default: process.env.API_GOOGLE
 		},
 		width: {
 			default: 375
