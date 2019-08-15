@@ -11,7 +11,7 @@
 
     <div v-show="alertOff">
       <audio autoplay loop>
-        <source src="../assets/soundAlertAmbulance.wav" type="audio/wav" />
+        <!-- <source src="../assets/soundAlertAmbulance.wav" type="audio/wav" /> -->
       </audio>
     </div>
   </div>

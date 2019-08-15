@@ -314,6 +314,7 @@ export default {
   .map2 {
     visibility: hidden;
     position: absolute;
+    z-index: -1;
   }
 
   .alertUser{
